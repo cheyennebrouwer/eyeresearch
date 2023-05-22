@@ -15,7 +15,7 @@ Voor het onderzoek naar de aanleg voor oogkleur onder studenten van de Hanzehoge
 ## Installatie
 Voor het uitvoeren van het project over oogkleur moeten meerdere onderdelen geïnstalleerd worden.
 
-R & Rstudio. 
+R & Rstudio   
 Voor Mac en Windows, gebruik deze link om R en Rstudio te downloaden [R & Rstudio](https://posit.co/download/rstudio-desktop/)
 
 Tidyverse   
