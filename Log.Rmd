@@ -1,0 +1,68 @@
+---
+title: ""
+author: "Cheyenne Brouwer"
+output: 
+  html_document:
+    toc: true
+    theme: united
+---
+
+
+# Preliminaries
+This research was carried out in the months may-july, 2023 at the Hanzehogeschool
+Groningen.
+
+# Introduction
+
+## Goal
+>The goal of this project is to asses whether there is an eyecolour predisposition at the Hanzehogeschool and if there is a different predisposition at the other 2 locations. 
+
+## Data collection
+Patient data was collected at 3 locations, HanzeHogeschool Groningen, Groningen centre and Zwolle centre. We asked 40 people per location and collectively looked at the eyecolors of both eyes with all 4 labor technicians.
+
+Patient data was collected and the data was put in 2 different excel files. One file is based on the 3 fundamental eyecolors blue, green and brown. The other file has a more extensive notation of the collected eyecolors.
+
+
+## Theory
+### Cause
+Eye color is determined by the amount and quality of the pigment melanin in the iris. Melanin is produced by cells called melanocytes (pigment cells).
+Melanocytes are located in different parts of the body such as the skin, hair and thus also the eyes. in the eye, melanocytes are in the connective tissue. This connective tissue is called stroma. The amount of melanocytes is the same in everyone regardless of eye color.
+There is therefore no relationship between the amount of melanocytes and eye color, but there is a relationship between the amount and quality of melanin in the iris. This accounts for the many variations in eye colors.
+
+### Differences in eye color
+People with a brown iris generally have more melanin in their eyes compared to people with a blue/green iris. This is because people with a brown iris in the anterior layer and stroma of the iris have more melanocytes and melanosomes than people with a blue/green iris.
+Melanosomes are cell organelles located in the melanocytes. This is where the pigment is stored. Both melanocytes and melanosomes are responsible for the production of melanin.
+When light passes through a large amount of melanin, most of the visible light is absorbed and a small portion is reflected back, causing the brown color of the iris. When there is little melanin, the eye color is lighter, such as blue or green. If there is too little melanin to produce a strong blue color, the colors of blood vessels (red) and the small amount of blue pigment are reflected, resulting in a violet color.
+There are also cases where there is no melanin at all, this is also called albinism. A lack of melanin causes red eyes. As explained earlier, a red iris is a reflection of the blood vessels in the eye.
+
+
+### Expression and dominance
+Eyes come in different shades of blue, brown, and green. The allele responsible for the color brown is dominant over the allele for blue and the allele for green. The allele for green is again dominant over blue.
+Reduced expression can lead to incomplete dominance. This causes the many different colors of the iris such as hazelnut and lighter shades of brown.
+
+### Heterochromia
+It can also happen that the iris itself consists of different colors. This is called heterochromia. This condition is inherited or caused by somatic mutations in the cells (in somatic mutations, mutations occur in cells that are not involved in germ cells).
+It is also possible that the condition is caused by (partial) inactivation of certain genes in the cells. As a result, less pigment is produced in some places in the iris than in other places and an iris with more than 1 color is created.
+
+# Experimental work
+
+## May 15, 2023
+
+### Data reading
+
+```{r}
+# data <- read.table(file = .., header = T, sep = ",")
+# 
+
+```
+Data seems okay. Data dimensions and data types are according to what was 
+expected.
+
+
+
+
+
+
+
+
+
