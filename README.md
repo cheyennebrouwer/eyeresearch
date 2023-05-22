@@ -2,8 +2,8 @@
 
 ## Koptekst
 
-Auteurs: Demi van 't Oever, Cheyenne Brouwer, Kasthury Inparajah, Willem-Daniël Visser
-Versie: 1.0
+Auteurs: Demi van 't Oever, Cheyenne Brouwer, Kasthury Inparajah, Willem-Daniël Visser    
+Versie: 1.0   
 Datum: 22-05-2023
 
 ## Beschrijving:
@@ -32,5 +32,5 @@ Voor support, e-mail naar:
 
 
 ## Dankbetuigingen
-Michiel Noback
+Michiel Noback    
 Fenna Feenstra
