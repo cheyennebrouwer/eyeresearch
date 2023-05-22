@@ -66,21 +66,34 @@ Gedurende 2 uur zijn in Zwolle centrum 40 verschillende proefpersonen bevraagd n
 ## 15-05-2023 18:00 - 20:00 - 399308 (Cheyenne Brouwer)
 Gedurende 2 uur is student met studentnummer 399308 bezig geweest met het omzetten van de gegevens per analist in één spreadsheet. Het bestand is daarna opgeslagen als. csv bestand zodat deze ingelezen kan worden in R markdown.
 
+# Notatiewijze en opslag
+
+De gegevens per identifier worden als volgt genoteerd in de spreadsheet met als naam spreadsheet_oogkleur.xlsx. Dit bestand wordt opgeslagen op een github die is aangemaakt voor het onderzoek. Deze heet wetenschappelijke_cyclus. De verkregen data wordt verwerkt in het onderzoek en wordt voor de komende 5 jaar opgeslagen.
+
+De data wordt op twee manieren opgeslagen:
+
+Identifier,geslacht,leeftijd,L_OK9308,R_OK9308,L_OK2193,R_OK2193,L_OK5609,R_OK5609,L_OK8705,R_OK8705
+001,F,blauwgrijs,grijsblauw,blauwgrijs,blauwgrijs,blauwgrijs,blauwgrijs,grijsblauw,blauwgrijs
+
+analist,identifier,geslacht,leeftijd,OK_L,OK_R
+9308,001,F,blauwgrijs,grijsblauw
+
+### Legenda:
+OK:	oogkleur
+L:	links
+R:	rechts
+
+F (Female):			Vrouwelijke studenten
+M (Male): 			Mannelijke studenten
+X: 				Onzijdige studenten/onbekend
+
+
 Data were read from file:
 
 ```{r}
-data <- read.table(file = "~/Desktop/DAVuR/patient_data.csv", header = T, sep = ",")
+data <- read.table(file = "/Users/cheyennebrouwer/Library/CloudStorage/OneDrive-HanzehogeschoolGroningen/Oogkleur_simpel.csv", header = T, sep = ",")
 dim(data)
 head(data)
 ```
-This seems OK. The data dimensions and data types are according to what was expected.
 
-
-
-
-
-
-
-
-
-
+Data ziet er OK uit. De data dimensies en data types zijn in overeenstemming met wat werd verwacht.
