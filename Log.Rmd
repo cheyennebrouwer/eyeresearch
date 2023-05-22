@@ -73,10 +73,10 @@ De gegevens per identifier worden als volgt genoteerd in de spreadsheet met als 
 De data wordt op twee manieren opgeslagen:
 
 Identifier,geslacht,leeftijd,L_OK9308,R_OK9308,L_OK2193,R_OK2193,L_OK5609,R_OK5609,L_OK8705,R_OK8705
-001,F,blauwgrijs,grijsblauw,blauwgrijs,blauwgrijs,blauwgrijs,blauwgrijs,grijsblauw,blauwgrijs
+001,F,blauw,grijs,blauw,blauw,blauw,blauw,groen,groen
 
 analist,identifier,geslacht,leeftijd,OK_L,OK_R
-9308,001,F,blauwgrijs,grijsblauw
+9308,001,F,blauw,grijs
 
 ### Legenda:
 OK:	oogkleur
