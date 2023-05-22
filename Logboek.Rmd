@@ -1,0 +1,78 @@
+---
+title: "Logfile oogkleur onderzoek"
+author: "Cheyenne Brouwer, Kasthury Inparajah, Demi van `t Oever, Willem-Daniël Visser"
+output:
+  html_document:
+    toc: true
+    theme: united
+---
+
+
+# Voorbereiding
+Voordat het onderzoek plaatsvond is er een protocol opgesteld en een oogkleurreferentiekaart gemaakt aan de hand van foto's van afbeeldingen van het internet. 
+Het verzamelen van data vond plaats in de maanden mei en juni van het jaar 2023, aan de Hanzehogeschool te Groningen op de locatie Van DoorenVeste, Groningen centrum en Zwolle cetrum.
+
+## Doel
+Het doel van het onderzoek is bekijken of er bij studenten van de Hanzehogeschool Groningen locatie Van DoorenVeste aanleg is voor een bepaalde oogkleur. Daarnaast is er op 2 andere locaties gemeten om verschillen te kunnen onderzoeken in oogkleur en zo te bepalen of er aanleg is voor een bepaalde oogkleur bij studenten van de hogeschool.
+
+## Data verzamelen
+De data is verzameld op 3 verschillende locaties, waarbij op elke locatie 40 verschillende proefpersonen zijn bevraagd. De locaties zijn respectievelijk Hanzehogeschool (Van DoorenVeste), Groningen centrum en Zwolle centrum. De proefpersonen zijn in daglicht bevraagd en indien de locatie binnen was bij voorkeur bij goed licht (bij een raam of bij goede TL verlichting). Hier is de oogkleur van de proefpersonen bekeken. 
+
+Op de Hanzehogeschool Groningen is de informatie binnen verzameld. In Groningen centrum en Zwolle centrum buiten. 
+
+## Theorie
+### Oorzaak
+De oogkleur wordt bepaald door de hoeveelheid en kwaliteit van het pigment melanine in de iris. Melanine wordt geproduceerd door cellen genaamd melanocyten (pigmentcellen). 
+Melanocyten bevinden zich in verschillende delen van het lichaam zoals de huid, het haar en dus ook de ogen. in het oog zitten melanocyten in het bindweefsel. Dit bindweefsel wordt stroma genoemd. De hoeveelheid melanocyten is ongeacht de oogkleur gelijk bij iedereen. 
+Er is dus geen verband tussen de hoeveelheid melanocyten en de oogkleur, maar wel tussen de hoeveelheid en kwaliteit van melanine in de iris. Dit zorgt voor de vele variaties in oogkleuren. 
+
+### Verschillen in oogkleur
+Mensen met een bruine iris hebben over het algemeen meer melanine in hun ogen t.o.v. mensen met een blauwe/groene iris. Dit komt doordat mensen met een bruine iris in de voorste laag en het stroma van de iris meer melanocyten en melanosomen hebben dan mensen met een blauwe/groene iris. 
+Melanosomen zijn celorganellen die zich in de melanocyten bevinden. Hierin wordt het pigment opgeslagen. Zowel melanocyten als melanosomen zijn verantwoordelijk voor de productie van melanine. 
+Wanneer licht door een grote hoeveelheid melanine gaat, wordt het meeste zichtbare licht geabsorbeerd en een klein deel teruggekaatst, dit zorgt voor de bruine kleur van de iris. Bij weinig aanwezigheid van melanine is de oogkleur lichter, zoals blauw of groen. Als er te weinig melanine is om een sterke kleur blauw te produceren worden de kleuren van bloedvaten (rood) en de kleine hoeveelheid blauwe pigment weerkaatst wat voor een violet kleur zorgt.
+Er zijn ook gevallen waarbij er helemaal geen melanine aanwezig is, dit wordt ook wel albinisme genoemd. Bij gebrek aan melanine ontstaan er rode ogen. Een rode iris is zoals eerder uitgelegd een weerkaatsing van de bloedvaten in het oog. 
+
+### Expressie en dominantie 
+Ogen zijn er in verschillende soorten blauw, bruin en groen. Het allel dat verantwoordelijk is voor de kleur bruin is dominant over het allel voor blauw en het allel voor groen. Hierbij is het allel voor groen weer dominant over blauw. 
+Een verminderde expressie kan voor een onvolledige dominantie zorgen. Dit veroorzaakt de vele verschillende kleuren van de iris zoals hazelnoot en lichtere tinten bruin. 
+
+### Heterochromie
+Het kan ook voorkomen dat de iris zelf uit verschillende kleuren bestaat. Dit wordt heterochromie genoemd. Deze aandoening wordt geërfd of veroorzaakt door somatische mutaties in de cellen (bij somatische mutaties vinden er mutaties plaats in cellen die niet betrokken zijn bij geslachtscellen). 
+Het is ook mogelijk dat de aandoening wordt veroorzaakt door (gedeeltelijke) inactivatie van bepaalde genen in de cellen. Hierdoor wordt er op sommige plaatsen in het iris minder pigment geproduceerd dan op andere plaatsen en ontstaat er een iris met meer dan 1 kleur. 
+
+
+# Experimental work
+Er is van 3 x 40 proefpersonen de oogkleur, het geslacht en de leeftijd verzameld. De oogkleur is van zowel het linker- als rechteroog genoteerd en verwerkt in een spreadsheet. Deze spreadsheet is omgezet in een .csv bestand zodat deze ingelezen kan worden in R markdown.  
+
+### Data reading
+
+# Materiaal
+Link naar oogkleurreferentiekaart: https://github.com/cheyennebrouwer/eyeresearch/blob/main/oogkleur_refferenties.png 
+
+
+### Logboek
+## 11-05-2023 09:00 - 10:00 - ALL
+Gedurende 1 uur zijn op de Hanzehogeschool Groningen (Van DoorenVeste) 40 verschillende studenten bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 11-05-2023 10:45 - 12:00 - ALL
+Gedurende 1 uur zijn in Grongingen centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 12-05-2023 14:00 - 16:00 - 399308 (Cheyenne Brouwer)
+Gedurende 2 uur is student met studentnummer 399308 bezig geweest met het omzetten van de gegevens per analist in één spreadsheet. Deze spreadsheet is daarna opgeslagen op OneDrive.
+
+## 15-05-2023 13:30 - 15:30 - ALL
+Gedurende 2 uur zijn in Zwolle centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 15-05-2023 18:00 - 20:00 - 399308 (Cheyenne Brouwer)
+Gedurende 2 uur is student met studentnummer 399308 bezig geweest met het omzetten van de gegevens per analist in één spreadsheet. Het bestand is daarna opgeslagen als. csv bestand zodat deze ingelezen kan worden in R markdown.
+
+Data were read from file:
+
+```{r}
+data <- read.table(file = "~/Desktop/DAVuR/patient_data.csv", header = T, sep = ",")
+dim(data)
+head(data)
+```
+This seems OK. The data dimensions and data types are according to what was expected.
+
+
