@@ -23,6 +23,9 @@ Er wordt in het bestand gebruik gemaakt van tidyverse. Om het complete tidyverse
 
 Om een webpagina te maken om de content te laten zien, druk op de knit knop die boven aan Rstudio geplaatst is.
 
+## Data aanvraag
+Om gebruik te kunnen maken van onze data, kan er een aanvraag gedaan worden naar 1 van de onderstaande e-mailadressen. Voor de aanvraag moet de naam van de aanvrager en de reden van aanvraag mee gestuurd worden. 
+
 ## Support
 Voor support, e-mail naar:
 * [Cheyenne Brouwer](e.h.b.brouwer@st.hanze.nl)
