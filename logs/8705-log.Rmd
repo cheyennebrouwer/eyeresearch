@@ -1,0 +1,62 @@
+## 30-05-2023 10:30 - 11:50 - 458075(Willem Daniël Visser)
+
+Gedurende 1,5 uur heeft onderzoeker 458075 de oogkleur data ingeladen met behulp van de `read.table` functie in dyplyr. Toen is de data verwerkt door het transformeren van de kollomen: "geslacht", "LR"(links en rechts kant van het gemeten oog) en "analist". Daarna zijn een aantal oogkleur namen getest op aanwezigheid in de dataframe kolom "oogkleur". Hieruit is een positief resultaat gekomen. Tenslotte is ook de kolom "oogkleur" omgezet in een factor.
+
+```{r add-dyplyr}
+library(dplyr)
+```
+
+```{r load-oogkleur-data}
+
+file_path = "../ruwe_data/Oogkleur_simpel2.csv"
+eye_color_table <- read.table(
+  file = file_path,
+  header = T,
+  sep = ",",
+  na.strings = c("-")
+)
+eye_color_table
+```
+
+```{r factorise-oogkleur-data}
+
+eye_color_table$geslacht = factor(
+  eye_color_table$geslacht,
+  levels = c("M", "F"),
+  labels = c("F", "M")
+)
+eye_color_table$LR = factor(
+  eye_color_table$LR,
+  levels = c("L", "R"),
+  labels = c("L", "R")
+)
+eye_color_table$analist = factor(
+  eye_color_table$analist,
+  levels = c("9308", "2193", "5609", "8705"),
+  labels = c("9308", "2193", "5609", "8705")
+)
+eye_color_table
+```
+
+```{r check-oogkleur-values}
+# Moet 1 keer FALSE terug geven en 4 keer TRUE
+oogkleur_names <- list("grijs", "groen", "blauw", "bruin", "hazel")
+
+for (oogkleur_name in oogkleur_names) {
+  print(eye_color_table %>%
+  filter(
+    oogkleur == oogkleur_name
+  ) %>%
+  nrow() > 0)
+}
+
+```
+
+```{r factorise-oogkleurcolomn-in-oogkleur-data}
+eye_color_table$oogkleur = factor(
+  eye_color_table$oogkleur,
+  levels = c("groen", "blauw", "bruin", "hazel"),
+  labels = c("groen", "blauw", "bruin", "hazel")
+)
+eye_color_table
+```
