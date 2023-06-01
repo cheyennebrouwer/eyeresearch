@@ -97,3 +97,41 @@ head(data)
 ```
 
 Data ziet er OK uit. De data dimensies en data types zijn in overeenstemming met wat werd verwacht.
+
+## 28-05-2023 19:00 - 21:00 399308(Cheyenne) en 415069(Demi)
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+file <- "/Users/cheyennebrouwer/Downloads/Oogkleur_simpel.csv"
+
+eye_colors <- read.table(file, sep= ",", header=T)
+eye_colors
+
+majority2 <- function(x) {
+    #print(as.character(x))
+    #return("A")
+    t <- table(x)
+    if (length(t) == 1) return(x[1])
+    else if(length(unique(t)) == 1) return("NA")
+    else{
+        df <- as.data.frame(t)
+        #print(df)
+        return(as.character(df[order(df$Freq, decreasing = T)[1], 1]))
+    }
+}
+
+eye_colors <- eye_colors %>%
+    rowwise() %>%
+    mutate(cons2 = majority2(c_across(4:11))) %>%
+    pivot_longer(cols = contains("_"),
+               names_pattern = "(L|R)_OK(.+)",
+#               names_sep = "_",
+               names_to = c("Eye", "Laborant"),
+               values_to = "color")
+
+print(eye_colors, n = Inf)
+```
+
+De data is omgezet naar een ander formaat met pivot_longer. Van alle datapunten van de oogkleuren is 1 consensus gekozen en indien er 2 of meer oogkleuren zijn waar geen duidelijke meerderheid is, wordt het een NA. 
