@@ -98,7 +98,7 @@ head(data)
 
 Data ziet er OK uit. De data dimensies en data types zijn in overeenstemming met wat werd verwacht.
 
-## 28-05-2023 19:00 - 21:00 399308(Cheyenne) en 415069(Demi)
+## 01-06-2023 9:00 - 11:30 399308(Cheyenne) en 415069(Demi)
 
 ```{r}
 library(dplyr)
