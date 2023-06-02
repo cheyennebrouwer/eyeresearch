@@ -1,0 +1,97 @@
+---
+title: "Protocol oogkleur"
+author: "Demi van 't Oever, Cheyenne Brouwer, Kasthury Inparajah, Willem-Daniël Visser"
+date: "2023-06-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Hoofdvraag
+‘Is er bij studenten van de Hanzehogeschool aanleg voor een bepaalde kleur ogen en zit hierin verschil tussen mannen en vrouwen?’
+
+## Hypothese
+‘Er is geen aanleg voor een bepaalde kleur ogen bij studenten van de Hanzehogeschool te Groningen.’
+
+## Deelvragen
+Om de onderzoeksvraag te kunnen beantwoorden, zijn enkele deelvragen opgesteld. Deze staan hieronder geformuleerd:
+
+1.	‘Is er een aantoonbaar verschil in oogkleur tussen mannen en vrouwen?’
+2.	‘Is er een aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is?’
+3.	‘Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?’
+4.	‘Is er een meetfout ontstaan door metingen met verschillende analisten?’
+
+### Protocol
+Om het onderzoek reproduceerbaar te maken, is een protocol opgesteld. Dit protocol is opgedeeld in verschillende onderdelen, om alles makkelijk terug te kunnen vinden.
+
+Tijdens dit onderzoek wordt onderzocht of er bij studenten van de Hanzehogeschool aanleg hebben voor een bepaalde kleur ogen. De oogkleuren welke genoteerd worden zijn tinten van de basiskleuren blauw, groen en bruin. Deze worden uiteindelijk omgezet in de basiskleur. 
+
+Onder de doelgroep studenten vallen proefpersonen die een studie volgen aan de Hanzehogeschool, waarbij de metingen zelf op de locatie Van DoorenVeste plaatsvinden. Veel van deze studenten zullen vallen binnen een leeftijd van 16 – 30 jaar.  
+
+# Benodigdheden:
+•	Laptop met excel toegang;
+•	4 analisten met eigen unieke analistencode;
+•	Telefoon met notities of kladblok met pen.
+
+# Werkwijze
+In een groep van 4 analisten wordt er gedurende 2 dagen op de locaties Van DoorenVeste, Groningen centrum en Zwolle centrum gewerkt. Hier wordt op de Van DoorenVeste gezocht naar studenten van de Hanzehogeschool om deel te nemen aan het oogkleur onderzoek. In Groningen centrum en Zwolle centrum wordt gezocht naar mensen met een globale leeftijd tussen 16 en 30 jaar. Wanneer er een proefpersoon is wordt gevraagd of deze wil deelnemen aan het onderzoek over oogkleuren. Indien het antwoord nee is, wordt de persoon bedankt voor zijn/haar tijd en wordt er verder gezocht. Indien het antwoord ja is, ga als volgt te werk:
+
+1.	Vraag of de proefpersoon een studie volgt aan de Hanzehogeschool Groningen (alleen op locatie Van DoorenVeste);
+2.	Geef de proefpersoon een unieke identifier, bestaande uit een # en een 3-cijferige code;
+3.	Vraag de proefpersoon naar zijn/haar geslacht en leeftijd, noteer dit vervolgens in de spreadsheet bij de identifier van de proefpersoon;
+4.	Vraag de proefpersoon of hij/zij kleurlenzen draagt. Indien dit het geval is, bedank de proefpersoon voor zijn/haar tijd en ga op zoek naar een ander proefpersoon;
+5.	Zorg dat de proefpersoon plaatsneemt op een plek waarbij het licht goed is, bij voorkeur naast een raam;
+6.	Noteer per analist onafhankelijk de oogkleur van zowel het linker- als rechteroog die gezien wordt bij deze proefpersoon. Maak hierbij gebruik van het oogkleurenpalet. Wanneer elke analist onafhankelijk de oogkleur genoteerd heeft, kan dit opgenomen worden in de spreadsheet; 
+7.	Bedankt de proefpersoon voor zijn/haar deelname en herhaal deze stappen bij een volgende proefpersoon. 
+
+Voor de oogkleurbepaling maakt het niet uit op welk tijdstip de metingen uitgevoerd worden. De oogkleur veranderd niet na het 7e levensjaar van een kind (uitzonderingen daargelaten door invloed van bijvoorbeeld ziekte). Daardoor kan de oogkleurmeting op ieder moment van de dag gedaan worden. 
+
+# Analistencode
+De analistencode bestaat uit de laatste 4 cijfers van het studentnummer. 
+Cheyenne Brouwer:	    	  9308
+Kasthury Inparajah:       2193
+Demi van ’t Oever:		    5609
+Willem-Daniël Visser:	    8705
+
+# Notatiewijze en opslag
+De gegevens per identifier worden als volgt genoteerd in de spreadsheet met als naam spreadsheet_oogkleur.xlsx. Dit bestand wordt opgeslagen op een gesloten OneDrive en de gesloten teamslocatie van onze groep die is aangemaakt voor het onderzoek. De verkregen data wordt verwerkt in het onderzoek en wordt voor de komende 5 jaar opgeslagen.
+
+De data wordt op twee manieren opgeslagen:
+
+Identifier,geslacht,leeftijd,L_OK9308,R_OK9308,L_OK2193,R_OK2193,L_OK5609,R_OK5609,L_OK8705,R_OK8705
+A001,F,blauwgrijs,grijsblauw,blauwgrijs,blauwgrijs,blauwgrijs,blauwgrijs,grijsblauw,blauwgrijs
+
+Middels een code in RStudio wordt dit met pivotting omgezet in de volgende formatie:
+Identifier,geslacht,leeftijd,LR,oogkleur,analist
+
+Legenda:
+OK:	oogkleur
+L:	links
+R:	rechts
+
+F (Female):			Vrouwelijke studenten
+M (Male): 			Mannelijke studenten
+X: 				      Onzijdige studenten/onbekend
+
+### Sample size
+Om een betrouwbaar onderzoek te kunnen doen, moet de steekproefgrootte berekend worden. Hierbij gaan we uit van 95% betrouwbaarheid met een onzekerheid van 5%. 
+
+```{r}
+
+power.t.test(n = NULL, delta = 1, sig.level = 0.05,
+             power = .95,
+             type = c("two.sample", "one.sample", "paired"),
+             alternative = c("one.sided"),
+             strict = FALSE, tol = .Machine$double.eps^0.25)
+
+
+```
+Op basis van deze berekening zijn er 23 proefpersonen nodig om het onderzoek uit te kunnen voeren.
+Voor een gelijke verdeling tussen de geslachten en een grotere datapool, wordt gekozen voor 40 proefpersonen. Hierbij worden dus 20 vrouwen en 20 mannen benaderd voor ons onderzoek. Indien men geen geslacht wil specificeren, wordt de data genoteerd als een X en toegevoegd als extra data.
+
+Om een correcte steekproef uit te voeren worden er 3 locaties bezocht in totaal. Op elke locatie worden 40 proefpersonen gezocht.
+
+
+
