@@ -7,10 +7,11 @@ bibliography: "8705-log.bib"
 
 Gedurende 1,5 uur heeft onderzoeker 458075 de oogkleur data ingeladen met behulp van de `read.table` functie in dyplyr. Toen is de data verwerkt door het transformeren van de kolommen: "geslacht", "LR"(links en rechts kant van het gemeten oog) en "analist". Daarna zijn een aantal oogkleur namen getest op aanwezigheid in de dataframe kolom "oogkleur". Hieruit is een positief resultaat gekomen. Tenslotte is ook de kolom "oogkleur" omgezet in een factor.
 
-```{r add-dyplyr&plyr}
+```{r, add-dyplyr&plyr, message=FALSE}
 library(plyr)
 library(dplyr)
 library(ggplot2)
+library(knitr)
 ```
 
 ```{r load-oogkleur-data}
@@ -22,7 +23,7 @@ eye_df <- read.table(
   sep = ",",
   na.strings = c("-")
 )
-eye_df
+kable(eye_df[1:10,])
 ```
 
 ```{r factorise-oogkleur-data}
@@ -64,7 +65,7 @@ eye_df$oogkleur <- factor(
   levels = c("blauw", "groen", "bruin", "hazel"),
   labels = c("blauw", "groen", "bruin", "hazel")
 )
-eye_df
+sapply(eye_df, class)
 ```
 
 ## 30 & 31-05-2023 13:30-18:00 & 11:45-12:10 & 12:40-14:00 & 17:00-20:00 - 458075(Willem Daniël Visser)
@@ -83,7 +84,7 @@ eye_df_analist_eyecolor <- eye_df[
 eye_df_analist_eyecolor <- eye_df_analist_eyecolor %>%
   select(analist, oogkleur)
 
-eye_df_analist_eyecolor
+kable(eye_df_analist_eyecolor[1:5,])
 ```
 
 ```{r chi-square-test--all-analist}
@@ -93,11 +94,11 @@ eye_df_analist_eyecolor_chisq <- chisq.test(
 )
 
 # observed eye colors per analist
-eye_df_analist_eyecolor_chisq$observed
+kable(eye_df_analist_eyecolor_chisq$observed)
 # expected eye colors per analist
-eye_df_analist_eyecolor_chisq$expected
+kable(eye_df_analist_eyecolor_chisq$expected)
 
-eye_df_analist_eyecolor_chisq
+paste("p-waarde chi-square = ", round(eye_df_analist_eyecolor_chisq$p.value, 5))
 ```
 
 De 0-hypothese moet worden geaccepteerd (α = .05). Er is dus geen significant verschil tussen de analisten.
@@ -112,10 +113,13 @@ analist_lst <- list(9308, 2193, 5609, 8705)
 eye_df_analist_eyecolor_2 <- eye_df_analist_eyecolor %>%
   filter((analist == 9308) | (analist == 8705))
 
-chisq.test(
-  eye_df_analist_eyecolor_2$analist,
-  eye_df_analist_eyecolor_2$oogkleur
-)
+
+paste("p-waarde chi-square = ", round(
+  chisq.test(
+    eye_df_analist_eyecolor_2$analist,
+    eye_df_analist_eyecolor_2$oogkleur
+  )$p.value, 5
+))
 
 ```
 
@@ -176,9 +180,9 @@ ggplot(eye_df, aes(x = analist, fill = oogkleur)) +
   ggtitle("Aantal opgenomen oogkleuren per analist.")
 ```
 
-05-06-2023
+### 12:30-13:30
 
-Er is nog meer literatuur bewijs verzameld. [7] is tegen een argument voor het gebruik van afbeeldingen als oogkleur detectie.
+Er is nog meer literatuur bewijs verzameld. [7] is een tegen argument voor het gebruik van foto's als oogkleur detectie.
 
 [6] verteld dat mensen niet alleen op basis van gegeven aspecten een beslissing maken, maar ook op basis van metacognitive ervaringen. [7] heeft onafhankelijk onderzoek gedaan naar iris herkenning en zegt dat iris patronen gebruiken voor persoons-herkenning betrouwbaar is.
 
@@ -186,14 +190,36 @@ Er is nog meer literatuur bewijs verzameld. [7] is tegen een argument voor het g
 
 [7] Masek, L. (2003). *Recognition of Human Iris Patterns for Biometric Identification*. Retrieved from <http://azadproject.ir/wp-content/uploads/2014/07/Recognition-of-Human-Iris-Patterns-for-Biometric-Identification.pdf>
 
-## 05-06-2023 13:30-14:10 - 458075(Willem Daniël Visser)
+### 13:30-14:10
 
 De discussie en conclusie is geschreven over de deelvraag: "Is er een significant verschil tussen de analisten".
 
-### Discussie
+#### Discussie
 
 Uit de Pearson's Chi-squared test blijkt er geen significant verschil te zijn tussen de analisten(p = 0.07672). Uitgaande van α = .05. Een korte kijk naar de tabel met aantal detecties van de oogkleuren onder de analisten geeft een groot verschil aan tussen analist 9308 en 8705. Bij een chi-square tussen deze twee blijkt er wel een significant verschil te zijn (p = 0.03118, α = .05).
 
-### Conclusie
+#### Conclusie
 
 Er is over het algemeen een overeenkomst tussen de analisten, maar ook een duidelijk ruimte voor vermindering van de meetfout. Factoren als sexe, phsygologie en beoordeling van de verhoudingen tussen kleuren(welke kleur is meer aanwezig).
+
+### 15:30-15:45
+
+Na overleg worden de volgende onderwerpen opgeschreven die nog over de data moet worden beschreven:
+
+-   Wat is het verschil in %
+
+    -   Hoeveel % kans op een verschil van mening
+
+    -   Hoeveel % kans op een tie
+
+-   Wat waren de karateristics van de ...
+
+    -   Omstandigheden
+
+    -   Analisten
+
+    -   Subjects
+
+-   Wat welke variabelen gecontroleerd hadden kunnen worden
+
+Deze onderwerpen vervangen de losse hypotheses van 1 juni in dit logboek.
