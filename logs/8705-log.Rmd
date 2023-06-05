@@ -1,7 +1,76 @@
 ---
 autur: Willem Daniël Visser
+date: "5-6-2023"
 bibliography: "8705-log.bib"
 ---
+
+# Inleiding
+
+Het onderzoek vond plaats in de maanden mei en juni van het jaar 2023, aan de Hanzehogeschool te Groningen. Er is ook gemeten in Groningen centrum en Zwolle centrum.
+
+# Introductie
+
+## Doel
+
+Het doel van het onderzoek is bekijken of er bij studenten van de Hanzehogeschool Groningen aanleg is voor een bepaalde oogkleur. Daarnaast is er op 2 andere locaties gemeten om verschillen te kunnen onderzoeken in oogkleur en zo te bepalen of er aanleg is voor een bepaalde oogkleur bij studenten van de hogeschool.
+
+## Data collectie
+
+De data is verzameld op 3 verschillende locaties, waarbij op elke locatie 40 verschillende proefpersonen zijn bevraagd. De locaties zijn respectievelijk Hanzehogeschool (Van DoorenVeste), Groningen centrum en Zwolle centrum. De proefpersonen zijn in daglicht bevraagd en indien de locatie binnen was bij voorkeur bij goed licht (bij een raam of bij goede TL verlichting). Hier is de oogkleur van de proefpersonen bekeken.
+
+Op de Hanzehogeschool Groningen is de informatie binnen verzameld. In Groningen centrum en Zwolle centrum buiten.
+
+## Theorie
+
+### Oorzaak
+
+De oogkleur wordt bepaald door de hoeveelheid en kwaliteit van het pigment melanine in de iris. Melanine wordt geproduceerd door cellen genaamd melanocyten (pigmentcellen). Melanocyten bevinden zich in verschillende delen van het lichaam zoals de huid, het haar en dus ook de ogen. in het oog zitten melanocyten in het bindweefsel. Dit bindweefsel wordt stroma genoemd. De hoeveelheid melanocyten is ongeacht de oogkleur gelijk bij iedereen. Er is dus geen verband tussen de hoeveelheid melanocyten en de oogkleur, maar wel tussen de hoeveelheid en kwaliteit van melanine in de iris. Dit zorgt voor de vele variaties in oogkleuren.
+
+### Verschillen in oogkleur
+
+Mensen met een bruine iris hebben over het algemeen meer melanine in hun ogen t.o.v. mensen met een blauwe/groene iris. Dit komt doordat mensen met een bruine iris in de voorste laag en het stroma van de iris meer melanocyten en melanosomen hebben dan mensen met een blauwe/groene iris. Melanosomen zijn celorganellen die zich in de melanocyten bevinden. Hierin wordt het pigment opgeslagen. Zowel melanocyten als melanosomen zijn verantwoordelijk voor de productie van melanine. Wanneer licht door een grote hoeveelheid melanine gaat, wordt het meeste zichtbare licht geabsorbeerd en een klein deel teruggekaatst, dit zorgt voor de bruine kleur van de iris. Bij weinig aanwezigheid van melanine is de oogkleur lichter, zoals blauw of groen. Als er te weinig melanine is om een sterke kleur blauw te produceren worden de kleuren van bloedvaten (rood) en de kleine hoeveelheid blauwe pigment weerkaatst wat voor een violet kleur zorgt. Er zijn ook gevallen waarbij er helemaal geen melanine aanwezig is, dit wordt ook wel albinisme genoemd. Bij gebrek aan melanine ontstaan er rode ogen. Een rode iris is zoals eerder uitgelegd een weerkaatsing van de bloedvaten in het oog.
+
+### Expressie en dominantie
+
+Ogen zijn er in verschillende soorten blauw, bruin en groen. Het allel dat verantwoordelijk is voor de kleur bruin is dominant over het allel voor blauw en het allel voor groen. Hierbij is het allel voor groen weer dominant over blauw. Een verminderde expressie kan voor een onvolledige dominantie zorgen. Dit veroorzaakt de vele verschillende kleuren van de iris zoals hazelnoot en lichtere tinten bruin.
+
+### Heterochromie
+
+Het kan ook voorkomen dat de iris zelf uit verschillende kleuren bestaat. Dit wordt heterochromie genoemd. Deze aandoening wordt geërfd of veroorzaakt door somatische mutaties in de cellen (bij somatische mutaties vinden er mutaties plaats in cellen die niet betrokken zijn bij geslachtscellen). Het is ook mogelijk dat de aandoening wordt veroorzaakt door (gedeeltelijke) inactivatie van bepaalde genen in de cellen. Hierdoor wordt er op sommige plaatsen in het iris minder pigment geproduceerd dan op andere plaatsen en ontstaat er een iris met meer dan 1 kleur.
+
+# Experimentele verzetting
+
+Er is van 3x 40 proefpersonen de oogkleur, het geslacht en de leeftijd verzameld. De oogkleur is van zowel het linker- als rechteroog genoteerd en verwerkt in een spreadsheet. Deze spreadsheet is omgezet in een .csv bestand zodat deze ingelezen kan worden in R markdown.
+
+# Logboek
+
+## 09-05-2023 nd-nd - 458075(Willem Daniël Visser)
+
+Een refferentie afbeelding is gemaakt als refferentie voor de metingen. Er is een afbeelding opgezocht met foto's van mensen hun ogen in vele verschillende kleuren. Deze afbeelding (zie github) is bewerkt door het toevoegen van 2 strepen bruin, 2 blauw en 1 groen. Dit voor snelle herkenning van kleur categorie zodra de oogkleur van de subject overeenstemd met de foto op de afbeelding. Voor meer informatie zie het protocol.
+
+## 11-05-2023 09:00 - 10:00 - ALL
+
+Gedurende 1 uur zijn op de Hanzehogeschool Groningen (Van DoorenVeste) 40 verschillende studenten bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 11-05-2023 10:45 - 12:00 - ALL
+
+Gedurende 1 uur zijn in Grongingen centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 15-05-2023 13:30 - 15:30 - ALL
+
+Gedurende 2 uur zijn in Zwolle centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 16-05-2023 nd-nd - 458075(Willem Daniël Visser)
+
+De refferentie afbeelding is op github gezet.(Zie commit: 4f00cc1f618da9ca344627c1cf6c2b473f0ad09e)
+
+## 22-05-2023 nd-nd - 458075(Willem Daniël Visser)
+
+De bestandenstructuur is aangepast en de .gitignore is daarbij toegevoegd. (Zie commits: a5b1e3c96ee792df2c83e87ec83e5160e62333fc, 764e3a8c90602eb1a52046c9a0816540263592b0)
+
+## 30-05-2023 nd-nd - 458075(Willem Daniël Visser)
+
+Aan het .gitignore bestand is de map ruwe_data/ toegevoegd, zo kunnen analisten wel de data lokaal houden, maar hoeft het niet op github gepubliceerd te worden. (Zie commit: 1081ca6a847ec6254a45887f2d74d8b2e2fde975)
 
 ## 30-05-2023 10:30 - 11:50 - 458075(Willem Daniël Visser)
 
@@ -16,7 +85,7 @@ library(knitr)
 
 ```{r load-oogkleur-data}
 
-file_path = "../ruwe_data/Oogkleur_simpel2.csv"
+file_path = "../analyse/data/Oogkleur_simpel2.csv"
 eye_df <- read.table(
   file = file_path,
   header = T,
