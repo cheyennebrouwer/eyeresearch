@@ -1,0 +1,39 @@
+---
+title: "Oogkleur"
+author: "Kasthury"
+date: "2023-06-05"
+output: html_document
+---
+
+# De oogkleur bij mensen
+
+## Oorzaak
+De oogkleur wordt bepaald door de hoeveelheid en kwaliteit van het pigment melanine in de iris. Melanine wordt geproduceerd door cellen genaamd melanocyten (pigmentcellen). 
+Melanocyten bevinden zich in verschillende delen van het lichaam zoals de huid, het haar en dus ook de ogen. in het oog zitten melanocyten in het bindweefsel. Dit bindweefsel wordt stroma genoemd. De hoeveelheid melanocyten is ongeacht de oogkleur gelijk bij iedereen. 
+Er is dus geen verband tussen de hoeveelheid melanocyten en de oogkleur, maar wel tussen de hoeveelheid en kwaliteit van melanine in de iris. Dit zorgt voor de vele variaties in oogkleuren.
+
+## Verschillen in oogkleur
+Mensen met een bruine iris hebben over het algemeen meer melanine in hun ogen t.o.v. mensen met een blauwe/groene iris. Dit komt doordat mensen met een bruine iris in de voorste laag en het stroma van de iris meer melanocyten en melanosomen hebben dan mensen met een blauwe/groene iris. 
+
+Melanosomen zijn celorganellen die zich in de melanocyten bevinden. Hierin wordt het pigment opgeslagen. Zowel melanocyten als melanosomen zijn verantwoordelijk voor de productie van melanine. 
+Wanneer licht door een grote hoeveelheid melanine gaat, wordt het meeste zichtbare licht geabsorbeerd en een klein deel teruggekaatst, dit zorgt voor de bruine kleur van de iris. Bij weinig aanwezigheid van melanine is de oogkleur lichter, zoals blauw of groen. Als er te weinig melanine is om een sterke kleur blauw te produceren worden de kleuren van bloedvaten (rood) en de kleine hoeveelheid blauwe pigment weerkaatst wat voor een violet kleur zorgt.
+
+Er zijn ook gevallen waarbij er helemaal geen melanine aanwezig is, dit wordt ook wel albinisme genoemd. Bij gebrek aan melanine ontstaan er rode ogen. Een rode iris is zoals eerder uitgelegd een weerkaatsing van de bloedvaten in het oog. 
+
+```{r}
+
+knitr::include_graphics("C:/Users/DemiS/OneDrive/Bureaublad/Pictures/School/Afbeelding1.jpg")
+
+```
+
+
+## Expressie en dominantie
+Ogen zijn er in verschillende soorten blauw, bruin en groen. Het allel dat verantwoordelijk is voor de kleur bruin is dominant over het allel voor blauw en het allel voor groen. Hierbij is het allel voor groen weer dominant over blauw. 
+Een verminderde expressie kan voor een onvolledige dominantie zorgen. Dit veroorzaakt de vele verschillende kleuren van de iris zoals hazelnoot en lichtere tinten bruin. 
+
+## Heterochromie
+Het kan ook voorkomen dat de iris zelf uit verschillende kleuren bestaat. Dit wordt heterochromie genoemd. Deze aandoening wordt geërfd of veroorzaakt door somatische mutaties in de cellen (bij somatische mutaties vinden er mutaties plaats in cellen die niet betrokken zijn bij geslachtscellen). 
+Het is ook mogelijk dat de aandoening wordt veroorzaakt door (gedeeltelijke) inactivatie van bepaalde genen in de cellen. Hierdoor wordt er op sommige plaatsen in het iris minder pigment geproduceerd dan op andere plaatsen en ontstaat er een iris met meer dan 1 kleur. 
+
+
+
