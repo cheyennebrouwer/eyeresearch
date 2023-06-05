@@ -1,3 +1,8 @@
+---
+autur: Willem Daniël Visser
+bibliography: "8705-log.bib"
+---
+
 ## 30-05-2023 10:30 - 11:50 - 458075(Willem Daniël Visser)
 
 Gedurende 1,5 uur heeft onderzoeker 458075 de oogkleur data ingeladen met behulp van de `read.table` functie in dyplyr. Toen is de data verwerkt door het transformeren van de kolommen: "geslacht", "LR"(links en rechts kant van het gemeten oog) en "analist". Daarna zijn een aantal oogkleur namen getest op aanwezigheid in de dataframe kolom "oogkleur". Hieruit is een positief resultaat gekomen. Tenslotte is ook de kolom "oogkleur" omgezet in een factor.
@@ -5,6 +10,7 @@ Gedurende 1,5 uur heeft onderzoeker 458075 de oogkleur data ingeladen met behulp
 ```{r add-dyplyr&plyr}
 library(plyr)
 library(dplyr)
+library(ggplot2)
 ```
 
 ```{r load-oogkleur-data}
@@ -61,7 +67,7 @@ eye_df$oogkleur <- factor(
 eye_df
 ```
 
-## 30 & 31-05-2023 13:30 - 18:00 & 11:45 - 12:10 & 12:40 - 14:00 & 17:00 - 20:00 - 458075(Willem Daniël Visser)
+## 30 & 31-05-2023 13:30-18:00 & 11:45-12:10 & 12:40-14:00 & 17:00-20:00 - 458075(Willem Daniël Visser)
 
 De hypothese is dat er een significant verschil zit tussen de verschillende analisten. Om dit te bewijzen is de chi-square test gedaan over alle analisten en hun gemeten oogkleuren voor zowel links als rechts. Met de code hieronder zijn alle opnames met een NA-waarde verzameld, toen zijn deze gefilterd uit de `eye_df` gehaald samen met de andere opnames die hetzelfde `$Identifier` hebben. Daarna zijn de analist en oogkleur kolommen erin behouden. Vervolgens is de `chisq` functie gebruikt voor de chi square meetfout analyse over alle analisten samen.
 
@@ -96,7 +102,7 @@ eye_df_analist_eyecolor_chisq
 
 De 0-hypothese moet worden geaccepteerd (α = .05). Er is dus geen significant verschil tussen de analisten.
 
-## 01-06-2023 9:00 - 11:10 - 458075(Willem Daniël Visser)
+## 01-06-2023 9:00-11:10 - 458075(Willem Daniël Visser)
 
 Als gevolg van de zichtbare verschillen tussen analist 9308 en 8705 in de kwantitatieve tabel, is er een chi-square test gedaan op deze twee.
 
@@ -115,7 +121,7 @@ chisq.test(
 
 Het verschil is significant en dus verschillen deze twee analisten sterk van elkaar.
 
-## 01-06-2023 11:10 -  - 458075(Willem Daniël Visser)
+## 01-06-2023 11:10-11:35 - 458075(Willem Daniël Visser)
 
 De volgende hypotheses waarom de meetfout tussen analist 9308 en 8705 zo groot waren zijn opgesteld:
 
@@ -123,7 +129,7 @@ De volgende hypotheses waarom de meetfout tussen analist 9308 en 8705 zo groot w
 
 -   De oogkleuren zijn vaak vergelijkbaar met andere oogkleuren, dus heeft de ene analist door willekeurigheid of andere kennis en ervaringen die tot de keuze van de ene kleur of de ander leid
 
--    De ene analist heeft meer op het vergelijkings blaadje gekeken dan de ander
+-   De ene analist heeft meer op het vergelijkings blaadje gekeken dan de ander
 
 De volgende hypotheses waarom er een meetfout zit tussen de verschillende analisten:
 
@@ -132,3 +138,62 @@ De volgende hypotheses waarom er een meetfout zit tussen de verschillende analis
 -   De analisten stonden niet altijd op de zelfde afstand.
 
 -   De analisten keken niet even lang naar de proefpersoon
+
+## 
+
+## 01&02&03-06-2023 nd.-nd. - 458075(Willem Daniël Visser)
+
+Deze dagen word literatuur bewijs voor de hypotheses verzameld. Er staan korte samenvattende zinnen waar ze het over hebben, om later met deze feiten conclusies te trekken:
+
+Hoe iemand kleur waarneemt hangt af van vele factoren. [1] heeft het over de 2 fenomenen kleur contrast en kleur constantheid in de intro. [2] heeft het over de sexe verschil in het waarnemen van kleuren en hoe vrouwen meer gevoel hebben voor kleur dan mannen. [3] heeft het over verschillende kleurblindheden en het feit dat dit minder vaak voorkomt bij vrouwen. Ook heeft het over verschillende niveaus van kleurenblindheid. [4] Zegt dat mensen verschillende meningen hebben over kleur, genoeg om onderzoek met voorgedefinieerde kleuren te vermeiden. Ze claimt dat het licht aan fysiologische, taal en cultuur verschillen.
+
+[1] R. Beau Lotto, & Purves, D. (2002). *The empirical basis of color perception*. *11*(4), 609--629. [https://doi.org/10.1016/s1053-8100(02)00014-4](https://doi.org/10.1016/s1053-8100(02)00014-4)
+
+[2] Bimler, D. L., Kirkland, J., & Jameson, K. A. (2004). Quantifying variations in personal color spaces: Are there sex differences in color vision? *Color Research & Application*, *29*(2), 128--134. <https://doi.org/10.1002/col.10232>
+
+‌[3] Neitz, M., & Neitz, J. (2000). *Molecular Genetics of Color Vision and Color Vision Defects*. *118*(5), 691--691. <https://doi.org/10.1001/archopht.118.5.691>
+
+[4] Valenta, K., Bornbusch, S. L., Jacques, Y.-D., & Nevo, O. (2021). *In the eye of the beholder: Is color classification consistent among human observers?* *11*(20), 13875--13883. <https://doi.org/10.1002/ece3.8093>
+
+## 04-06-2023 11:45-12:40 & 14:40-16:10 - 458075(Willem Daniël Visser)
+
+Opnieuw word er literatuur bewijs voor de hypotheses verzameld.
+
+[5] heeft geen significant verschil tussen factoren(sexe, leeftijd, ect) gevonden in haar experiment.
+
+[5] Impact of Color-Matching Primaries on Observer Matching: Part I -- Accuracy. (2022). Retrieved June 4, 2023, from LEUKOS website: <https://www.tandfonline.com/doi/full/10.1080/15502724.2020.1864395>
+
+## 05-06-2023 09:35-09:45 - 458075(Willem Daniël Visser)
+
+Er is een opgestapelde barplot gemaakt met alle oogkleuren per analist tegen het aantal tellingen van deze oogkleuren.
+
+```{r analist-distro-byeyecolor}
+ggplot(eye_df, aes(x = analist, fill = oogkleur)) + 
+  geom_bar(width = .6) +
+  scale_fill_manual("Oogkleur", values = c("blue", "green", "brown", "#B85F2F")) + 
+  ylab("Opnames") +
+  xlab("Analist") +
+  ggtitle("Aantal opgenomen oogkleuren per analist.")
+```
+
+05-06-2023
+
+Er is nog meer literatuur bewijs verzameld. [7] is tegen een argument voor het gebruik van afbeeldingen als oogkleur detectie.
+
+[6] verteld dat mensen niet alleen op basis van gegeven aspecten een beslissing maken, maar ook op basis van metacognitive ervaringen. [7] heeft onafhankelijk onderzoek gedaan naar iris herkenning en zegt dat iris patronen gebruiken voor persoons-herkenning betrouwbaar is.
+
+[6] Schwarz, N. (2004). *Metacognitive Experiences in Consumer Judgment and Decision Making*. *14*(4), 332--348. <https://doi.org/10.1207/s15327663jcp1404_2>
+
+[7] Masek, L. (2003). *Recognition of Human Iris Patterns for Biometric Identification*. Retrieved from <http://azadproject.ir/wp-content/uploads/2014/07/Recognition-of-Human-Iris-Patterns-for-Biometric-Identification.pdf>
+
+## 05-06-2023 13:30-14:10 - 458075(Willem Daniël Visser)
+
+De discussie en conclusie is geschreven over de deelvraag: "Is er een significant verschil tussen de analisten".
+
+### Discussie
+
+Uit de Pearson's Chi-squared test blijkt er geen significant verschil te zijn tussen de analisten(p = 0.07672). Uitgaande van α = .05. Een korte kijk naar de tabel met aantal detecties van de oogkleuren onder de analisten geeft een groot verschil aan tussen analist 9308 en 8705. Bij een chi-square tussen deze twee blijkt er wel een significant verschil te zijn (p = 0.03118, α = .05).
+
+### Conclusie
+
+Er is over het algemeen een overeenkomst tussen de analisten, maar ook een duidelijk ruimte voor vermindering van de meetfout. Factoren als sexe, phsygologie en beoordeling van de verhoudingen tussen kleuren(welke kleur is meer aanwezig).
