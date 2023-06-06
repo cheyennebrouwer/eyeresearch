@@ -1,0 +1,185 @@
+---
+title: "Deelvraag 3: “Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?”"
+output: html_document
+date: "2023-06-05"
+---
+
+Om te kijken of het eigen onderzoek een representatieve weergave had van de populatie oogkleur bij Nederlanders wat uit andere onderzoeken bekend was werd het eigen onderzoek vergeleken met een literatuuronderzoek. 
+
+Het literatuuronderzoek waarmee het eigen onderzoek mee werd vergeleken heet: "True colors A literature review on the spatial distribution of eye and hair pigmentation" en is gepubliceerd in 2019 (https://www.researchgate.net/publication/330098152_True_colors_A_literature_review_on_the_spatial_distribution_of_eye_and_hair_pigmentation). 
+
+Dit literatuuronderzoek is uitgevoerd om informatie over de verdeling van de oog- en haarkleur te verzamelen over populaties en deze data als een blue print te gebruiken om de nauwkeurigheid van voorspellingen op basis van DNA te verbeteren. 
+
+Belangrijk om te melden is dat de data over de oogkleuren in het literatuuronderzoek zelf gebasseeerd zijn op verschillende literatuuronderzoeken. Als er meer literatuuronderzoeken voor een bepaalde populatie beschikbaar waren, werd hiervan het gemiddelde voorkomen gebruikt. 
+
+```{r}
+#Data eigen onderzoek
+library(readxl)
+Oogkleur_simpel <- read.table("C:/Users/kasth/Programming/Periode 4 programming/Oogkleur_simpel.csv", sep = "," , header = TRUE)
+```
+
+In het literatuuronderzoek is de kleur "hazel" onder "bruin" geschaard. Om deze reden zijn alle metingen waarbij de oogkleur "hazel" is waargenomen omgezet naar "bruin".  
+```{r}
+#Schaar "hazel" onder "bruin"
+Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))] <- 
+  apply(Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))], 2, function(x) gsub("hazel", "bruin", x))
+
+# Nieuwe kolom voor definitieve oogkleur
+Oogkleur_simpel$Definitieve_oogkleur <- apply(Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))], 1, function(row) {
+  # Tel het aantal keer oogkleur x in rij
+  oogkleur_counts <- table(row)
+  
+  # Definitieve oogkleur wordt d.m.v. frequentie oogkleuren  bepaald
+  meest_voorkomende_oogkleur <- names(oogkleur_counts)[which.max(oogkleur_counts)]
+  
+  # Als er geen "dominante" oogkleur is wordt het N/A
+  if (length(which(oogkleur_counts == max(oogkleur_counts))) > 1) {
+    meest_voorkomende_oogkleur <- NA
+  }
+  
+  # Geef de definitieve oogkleur terug
+  meest_voorkomende_oogkleur
+})
+
+# Bekijk de vernieuwde dataset
+View(Oogkleur_simpel)
+```
+
+Daarna is de definitieve oogkleur vastgesteld door te kijken welke oogkleur het meeste bij een persoon is waargenomen door de analisten. Bij een 50/50 geval kon de definitieve oogkleur niet vastgesteld worden en werd deze meting NA.
+
+```{r}
+#Definitieve oogkleur
+# Aantal "bruin" als definitieve oogkleur
+aantal_bruin <- sum(Oogkleur_simpel$Definitieve_oogkleur == "bruin", na.rm = TRUE)
+aantal_bruin
+```
+
+```{r}
+# Aantal "blauw" als definitieve oogkleur
+aantal_blauw <- sum(Oogkleur_simpel$Definitieve_oogkleur == "blauw", na.rm = TRUE)
+aantal_blauw
+```
+
+```{r}
+# Aantal "groen" als definitieve oogkleur
+aantal_groen <- sum(Oogkleur_simpel$Definitieve_oogkleur == "groen", na.rm = TRUE)
+aantal_groen
+```
+
+```{r}
+# Aantal "NA" als definitieve oogkleur
+aantal_NA <- sum(is.na(Oogkleur_simpel$Definitieve_oogkleur))
+aantal_NA
+```
+
+Om een visualisatie te krijgen van de waargenomen definitieve oogkleuren is er een histogram geplot. 
+```{r}
+#Plot een histogram om de waarnemingen van de oogkleuren te visualiseren 
+library(ggplot2)
+
+#Kolom wordt een factor
+Oogkleur_simpel$Definitieve_oogkleur <- as.factor(Oogkleur_simpel$Definitieve_oogkleur)
+
+# Maak een plotobject met de dataset
+plot_data <- ggplot(data = Oogkleur_simpel, aes(x = Definitieve_oogkleur, fill = Definitieve_oogkleur))
+
+# Histogram met gekleurde balken toevoegen
+plot_data <- plot_data + geom_bar()
+
+# Kleuren met scale_fill_manual aanpassen
+plot_data <- plot_data + scale_fill_manual(values = c("blauw" = "dodgerblue", "bruin" = "sienna", "groen" = "yellowgreen"))
+
+# Titel en label toevoegen
+plot_data <- plot_data +
+  labs(x = "Definitieve oogkleur", y = "Frequentie", title = "Frequentie oogkleuren onderzoek")
+
+# Weergeef histogram
+print(plot_data)
+```
+
+In totaal waren er 120 deelnemers die meededen aan het eigen onderzoek. Hiervan waren er 63 met een blauwe oogkleur, 41 met een bruine oogkleur, 10 met een groene oogkleur en 6 waarbij we de oogkleur niet konden vaststellen.
+
+Omdat de data uit het literatuuronderzoek in percentages is, zijn ook de percentages van de waarnemingen van de oogkleur uit dit onderzoek berekend.
+```{r}
+#Percentage van de oogkleuren in de dataset berekenen per oogkleur
+# Blauwe oogkleur
+# Totaal aantal waarnemingen berekenen
+totaal_waarnemingen <- nrow(Oogkleur_simpel)
+
+# Aantal waarnemingen met blauwe oogkleur tellen
+aantal_blauw <- sum(Oogkleur_simpel$Definitieve_oogkleur == "blauw", na.rm = TRUE)
+
+# Het percentage blauwe oogkeuren berekenen van de dataset
+percentage_blauw <- (aantal_blauw / totaal_waarnemingen) * 100
+
+# Het percentage tonen
+cat("Percentage blauwe oogkleur:", percentage_blauw, "%\n")
+
+```
+```{r}
+# Bruine oogkleur
+# Totaal aantal waarnemingen berekenen
+totaal_waarnemingen <- nrow(Oogkleur_simpel)
+
+# Aantal waarnemingen met bruine oogkleur tellen
+aantal_bruin <- sum(Oogkleur_simpel$Definitieve_oogkleur == "bruin", na.rm = TRUE)
+
+# Het percentage bruine oogkeuren berekenen van de dataset
+percentage_bruin <- (aantal_bruin / totaal_waarnemingen) * 100
+
+# Het percentage tonen
+cat("Percentage bruine oogkleur:", percentage_bruin, "%\n")
+
+```
+```{r}
+# Groene oogkleur
+# Totaal aantal waarnemingen berekenen
+totaal_waarnemingen <- nrow(Oogkleur_simpel)
+
+# Aantal waarnemingen met groen oogkleur tellen
+aantal_groen <- sum(Oogkleur_simpel$Definitieve_oogkleur == "groen", na.rm = TRUE)
+
+# Het percentage groene oogkeuren berekenen van de dataset
+percentage_groen <- (aantal_groen / totaal_waarnemingen) * 100
+
+# Het percentage tonen
+cat("Percentage groene oogkleur:", percentage_groen, "%\n")
+
+```
+Uiteindelijk werd de data uit het literatuuronderzoek en het eigen onderzoek met elkaar vergeleken om te kijken of er verschillen in de waarnemingen zaten. 
+```{r}
+library(ggplot2)
+#Data uit literatuuronderzoek en data uit eigen onderzoek vergelijken
+#Data literatuuronderzoek
+l_percentage_blauw <- 60.90
+l_percentage_bruin <- 21.70
+l_percentage_groen <- 11.40
+
+# Dataframe maken met data van literatuuronderzoek
+literatuuronderzoek <- data.frame(
+  Oogkleur = c("blauw", "bruin", "groen"),
+  Percentage = c(l_percentage_blauw, l_percentage_bruin, l_percentage_groen),
+  Legenda = "Literatuuronderzoek"
+)
+
+# Dataframe maken met eigen onderzoek
+eigen_onderzoek <- data.frame(
+  Oogkleur = c("blauw", "bruin", "groen"),
+  Percentage = c(percentage_blauw, percentage_bruin, percentage_groen),
+  Legenda = "Eigen onderzoek"
+)
+
+# Samenvoegen van beide dataframes
+combinatie_data <- rbind(literatuuronderzoek, eigen_onderzoek)
+
+# Plot met data uit beide onderzoeken
+plot_data <- ggplot(data = combinatie_data, aes(x = Oogkleur, y = Percentage, fill = Legenda)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "Oogkleur", y = "Percentage(%)", title = "Vergelijking oogkleuronderzoek") +
+  scale_fill_manual(values = c("Literatuuronderzoek" = "cyan4", "Eigen onderzoek" = "grey2"))
+
+# Weergeef plot
+print(plot_data)
+```
+
+Uit de grafiek is te zien dat de resultaten van het eigen onderzoek overeenkomsten hebben met de data uit het literatuuronderzoek. Bij beide onderzoeken is de oogkleur "blauw" het meest waargenomen gevolgd door de oogkleuren "bruin" en "groen". Bij beide onderzoeken is de oogkleur "groen" in gelijke mate waargenomen. Bij de oogkleuren "blauw" en "bruin" is er wel enig verschil in het waargenomen percentage. Bij de oogkleur "bruin" is dit echter verschil groter. Dit zou eventueel kunnen komen, omdat de steekproefomvang bij het literatuuronderzoek groter was dan het eigen onderzoek. Het is niet duidelijk hoe groot deze steekproefomvang was, maar het was aanzienlijk meer dan het eigen onderzoek. 
