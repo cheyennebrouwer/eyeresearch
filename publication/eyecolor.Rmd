@@ -1,0 +1,133 @@
+---
+title: My Awesome Catchy Title!
+author: |
+  | Kasthury Inparajah $^1$, Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van `t Oever $^1$, 
+  | Michiel Noback $^1$, Fenna Feenstra $^1$
+  | $^1$Hanzehogeschool,
+lang: nl
+abstract: |
+  Geef hier je samenvatting in maximaal 150 woorden. Het is een samenvatting van het hele artikel; niet alleen de resultaten! Begin met het belang van dit onderzoek, dan hoe het onderzoek is aangepakt en de belangrijkste resultaten en eindig met de implicaties ervan voor de wetenschap/de maatschappij. Neem nooit figuren of tabellen op in de samenvatting.
+bibliography: eyecolor.bib
+output:
+  bookdown::pdf_document2:
+    keep_tex: false
+    toc: false
+    fig_caption: true
+    includes:  
+        in_header: include_tex_header.tex #will include rules for linespacing and figure floating
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(out.width = '100%', dpi=300) # configuratie voor figuur grootte en resolutie
+knitr::opts_chunk$set(echo = FALSE)
+
+library(ggplot2)
+```
+
+# Introductie
+
+## Materialen en Methoden
+
+Op de github: <https://github.com/cheyennebrouwer/eyeresearch>, staat de
+protocol voor het verzamelen van de oogdata. De analisten hebben
+verschillende notitie software gebruikt: Google Docs[\@ref(g-docs)] door
+analist 8075, Apple notities[\@ref(a-notes)] door analist 5609 en
+[meer]. Hierin is de data in verzameld volgens het protocol. De
+analisten vulden soms twee kleuren in of een kleur karakterstiek, zoals:
+donker of licht. Op een donderdagochtend is er op de studentencampus, de
+Hanzehogeschool Groningen; Zerniekeplein 11, binnen in het gebouw "Van
+Doorenveste" gemeten. Op dezelfde donderdagmiddag is er in het centrum
+van Groningen gemeten. Op een maandagmiddag is vervolgens in het centrum
+van Zwolle gemeten. Hierna vernoemd als Groningen 1 & 2 en Zwolle. Op
+alle drie locaties was het zonnig weer op het moment van metingen. Ook
+was het onder schooltijd voor de meeste MBO en HBO studenten. Daarnaast
+waren geen van de studenten benaderd alleen. Op locatie Groningen 1 was
+de licht conditie niet constant met variërende daglicht reflectie, licht
+temperaturen en licht amplitude. Er waren geen licht condities die de
+oogkleur bepaling onmogelijk/erg moeilijk heeft gemaakt, aldus de
+analisten. Op locaties Groningen 2 en Zwolle is niet rechtstreeks
+richting de zon gekeken bij het bepalen van de oogkleur. Wel is er zowel
+in zon als schaduw gemeten.
+
+Toen de metingen klaar waren werden alle metingen verzameld door 1 van
+de analisten en verwerkt zodat de dubbele kleuren door de analisten
+genoteerd resulteren tot enkele kleuren. De originele data is bewaard
+gebleven als referentie materiaal. De verwerkte data is gespreid met
+"pivot longer" in de programmeertaal R. Het resultaat is opgeslagen en
+zijn analyses mee gedaan.
+
+De analyses zijn gedaan in R-studio en de programmeertaal R, met de
+libraries: plyr[\@ref(plyr)], dyplyr[\@ref(dplyr)],
+ggplot2[\@ref(ggplot2)] en knitr[\@ref(knitr)] van de tidyverse
+collectie. Met plyr en dyplyr is dataverwerking gedaan, zo kon er
+analyse worden gedaan op gefilterde delen van de data. Met ggplot zijn
+vervolgens grafieken gemaakt
+
+Zodra de metingen
+
+Content: - Meet instrumenten/materialen:
+
+\* Excel 2016 \* Onze ogen - Analyse/materialen: \* R-studio \*
+tidyverse: \> plyr \> dyplyr \> ggplot2 \* knitr - methologiën: \*
+statitische methoden \* methode van meten
+
+# Resultaten
+
+van mij
+
+Content: - verschil met populatie in Nederland - verschil met mannen en
+vrouwen - verschil tussen locaties - verschil tussen analisten
+
+# Discussie en Conclusies
+
+# Online bijlagen
+
+## Notitie software
+
+### Google Docs {#g-docs}
+
+Gebruikte versie: 1.23.162.05.90
+
+Referentie:
+<https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.sheets&pli=1>
+
+### Apple notities {#a-notes}
+
+Gebruikte versie: geen data
+
+Referentie: <https://apps.apple.com/us/app/notes/id1110145109>
+
+## R libraries
+
+### plyr {#plyr}
+
+Gebruikte versie: 1.8.8
+
+Referentie:
+<https://www.rdocumentation.org/packages/plyr/versions/1.8.8>
+
+### dplyr {#dplyr}
+
+Gebruikte versie: 1.1.2
+
+Referentie:
+<https://www.rdocumentation.org/packages/dplyr/versions/1.0.10>
+
+### **ggplot2**
+
+Gebruikte versie: 3.4.2
+
+Referentie:
+<https://www.rdocumentation.org/packages/ggplot2/versions/3.4.2>
+
+### **knitr**
+
+Gebruikte versie: 1.43
+
+Referentie:
+<https://www.rdocumentation.org/packages/knitr/versions/1.43>
+
+# Referenties
