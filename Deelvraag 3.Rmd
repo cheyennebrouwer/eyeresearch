@@ -18,12 +18,17 @@ library(readxl)
 Oogkleur_simpel <- read.table("C:/Users/kasth/Programming/Periode 4 programming/Oogkleur_simpel.csv", sep = "," , header = TRUE)
 ```
 
-In het literatuuronderzoek is de kleur "hazel" onder "bruin" geschaard. Om deze reden zijn alle metingen waarbij de oogkleur "hazel" is waargenomen omgezet naar "bruin".  
+In het literatuuronderzoek is de kleur "hazel" onder "bruin" geschaard. Om deze reden zijn alle metingen waarbij de oogkleur "hazel" is waargenomen omgezet naar "bruin". 
+
 ```{r}
 #Schaar "hazel" onder "bruin"
 Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))] <- 
   apply(Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))], 2, function(x) gsub("hazel", "bruin", x))
+```
 
+Daarna is de definitieve oogkleur vastgesteld door te kijken welke oogkleur het meeste bij een persoon is waargenomen door de analisten. Bij een 50/50 geval kon de definitieve oogkleur niet vastgesteld worden en werd deze meting NA.
+
+```{r}
 # Nieuwe kolom voor definitieve oogkleur
 Oogkleur_simpel$Definitieve_oogkleur <- apply(Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))], 1, function(row) {
   # Tel het aantal keer oogkleur x in rij
@@ -45,7 +50,7 @@ Oogkleur_simpel$Definitieve_oogkleur <- apply(Oogkleur_simpel[, grepl("^L_|^R_",
 View(Oogkleur_simpel)
 ```
 
-Daarna is de definitieve oogkleur vastgesteld door te kijken welke oogkleur het meeste bij een persoon is waargenomen door de analisten. Bij een 50/50 geval kon de definitieve oogkleur niet vastgesteld worden en werd deze meting NA.
+Na het bepalen van de definitieve oogkleur zijn de oogkleuren, incl. de NA's geteld.
 
 ```{r}
 #Definitieve oogkleur
@@ -73,6 +78,7 @@ aantal_NA
 ```
 
 Om een visualisatie te krijgen van de waargenomen definitieve oogkleuren is er een histogram geplot. 
+
 ```{r}
 #Plot een histogram om de waarnemingen van de oogkleuren te visualiseren 
 library(ggplot2)
@@ -100,6 +106,7 @@ print(plot_data)
 In totaal waren er 120 deelnemers die meededen aan het eigen onderzoek. Hiervan waren er 63 met een blauwe oogkleur, 41 met een bruine oogkleur, 10 met een groene oogkleur en 6 waarbij we de oogkleur niet konden vaststellen.
 
 Omdat de data uit het literatuuronderzoek in percentages is, zijn ook de percentages van de waarnemingen van de oogkleur uit dit onderzoek berekend.
+
 ```{r}
 #Percentage van de oogkleuren in de dataset berekenen per oogkleur
 # Blauwe oogkleur
@@ -146,7 +153,9 @@ percentage_groen <- (aantal_groen / totaal_waarnemingen) * 100
 cat("Percentage groene oogkleur:", percentage_groen, "%\n")
 
 ```
+
 Uiteindelijk werd de data uit het literatuuronderzoek en het eigen onderzoek met elkaar vergeleken om te kijken of er verschillen in de waarnemingen zaten. 
+
 ```{r}
 library(ggplot2)
 #Data uit literatuuronderzoek en data uit eigen onderzoek vergelijken
