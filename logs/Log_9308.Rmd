@@ -90,7 +90,7 @@ X: 				Onzijdige studenten/onbekend
 
 Data was gelezen van bestand:
 
-```{r}
+```{r, read-first-file}
 data <- read.table(file = "/Users/cheyennebrouwer/Downloads/Oogkleur_simpel.csv", header = T, sep = ",")
 dim(data)
 head(data)
@@ -110,7 +110,7 @@ library(gmodels)
 
 
 Nieuwe bestand is ingelezen. De output komt overeen met de verwachtingen. Later is deze output echter niet gebruikt, omdat het uiteindelijke bestand beter omgezet kon worden met het originele bestand in plaats van de nieuwe versie.
-```{r}
+```{r, first-pivotted-file, eval=FALSE}
 data <- read.table(file ="/Users/cheyennebrouwer/Documents/22_23/Kwartaal_4/wetenschappelijke_cyclus/Oogkleur_simpel2.csv", header = T, sep = ",")
 head(data)
 ```
@@ -118,7 +118,7 @@ head(data)
 
 Bestand is wederom ingelezen en is omgezet naar een definitieve versie. Per identifier is er een definitieve oogkleur bepaald, die zichtbaar is onder de kolom "results". Indien er geen duidelijke meerderheid voor de oogkleur van een identifier is door verschillende metingen, wordt de oogkleur onder undefined gezet. Undefined betekent dat de verzamelde data te divers was om tot een definitief besluit voor oogkleur te kunnen komen.
 
-```{r}
+```{r, original-file-to-final-version}
 file <- "/Users/cheyennebrouwer/Downloads/Oogkleur_simpel.csv"
 
 eye_colors <- read.table(file, sep= ",", header=T)
@@ -151,7 +151,8 @@ head(eye_colors2, n = Inf)
 ### **Deelvraag: "Is er een aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is?"**
 ### 01-06-2023 399308(Cheyenne) 18:00 - 20:00
 
-```{r}
+In het bestand is er per identifier de bijbehorende locatie toegevoegd.
+```{r, add-locations}
 eye_colors_location <- eye_colors2 %>%
   mutate(location = case_when(
     row_number() <= 320 ~ "Hanze Hogeschool Groningen",
@@ -162,14 +163,20 @@ eye_colors_location <- eye_colors2 %>%
 eye_colors_location
 ```
 
-Hieronder is de data verdeeld in de 3 locaties, waarbij Hanze voor Hanze Hogeschool Groningen staat, Centrum voor centrum Groningen staat en Zwolle voor centrum Zwolle staat. Per locatie is er ook nog gekeken naar de verdeling tussen man en vrouw, maar deze data is verderop niet gebruikt.
+Hieronder is de data verdeeld in de 3 locaties, waarbij Hanze voor Hanze Hogeschool Groningen staat, Centrum voor centrum Groningen staat en Zwolle voor centrum Zwolle staat. Per locatie is er ook nog gekeken naar de verdeling tussen man en vrouw, maar deze data is verderop niet gebruikt. Er is voor gekozen om deze data niet te gebruiken, omdat het voor het beantworrden van de deelvraag niet een vereiste was 
 
-```{r}
+
+Het bestand is zo aangepast dat er per identifier 1 uiteindelijke oogkleur staat onder de kolom "results", met voor elke identifier de bijbehorende locatie. Hierdoor is de bestandslengte aangepast van 960 datapunten naar 120 datapunten, wat ook het correcte aantal identifiers is.
+```{r, shorten-to-1-identifier}
 Total_amount <- eye_colors_location %>%
   group_by(Identifier) %>%
   slice(1)
 Total_amount
+```
 
+Voor de data van de Hanze Hogeschool Groningen zijn de eerste 40 datapunten nodig. In de onderstaande code worden de eerste 40 data punten van het bestand gepakt, om vervolgens als resultaat de oogkleuren op de Hanze Hogeschool Groningen met de bijbehorende aantallen te krijgen.
+Uit de resultaten komen 40 getelde oogkleuren, wat ook het correcte aantal is. Er is 1 identifier met een oogkleur die gecategoriseerd is als undefined.
+```{r, get-hanze-results}
 Hanze_amount <- Total_amount[1:40, ] 
 
 Hanze <- Hanze_amount %>%
@@ -178,12 +185,19 @@ Hanze <- Hanze_amount %>%
   arrange(results, desc(count))
 Hanze
 
+```
+Uit de data van de Hanze Hogeschool Groningen is er gesorteerd op de hoeveelheden van oogkleur per geslacht met de bijbehorende aantallen per kleur.
+```{r, get-hanze-gender-results, eval=FALSE}
 Hanze_gender <- Hanze_amount %>%
   group_by(results, geslacht) %>%
   summarise(count = n(), .groups = "drop") %>%
   arrange(results, geslacht, desc(count))
-# Hanze_gender
+Hanze_gender
+```
 
+Voor de data van het centrum van Groningen zijn datapunten 41 tot en met 80 nodig. In de onderstaande code worden de datapunten van 41 tot en met 80 van het bestand gepakt, om vervolgens als resultaat de oogkleuren in het centrum van Groningen met de bijbehorende aantallen te krijgen.
+Uit de resultaten komen 40 getelde oogkleuren, wat ook het correcte aantal is. Er zijn 2 identifiers met een oogkleur die gecategoriseerd is als undefined.
+```{r, get-centrum-groningen-results}
 Centrum_amount <- Total_amount[41:80, ] 
 
 Centrum <- Centrum_amount %>%
@@ -191,13 +205,21 @@ Centrum <- Centrum_amount %>%
   summarise(count = n()) %>%
   arrange(results, desc(count))
 Centrum
+```
+Uit de data van het centrum van Groningen is er gesorteerd op de hoeveelheden van oogkleur per geslacht met de bijbehorende aantallen per kleur.
 
+```{r, get-centrum-groningen-gender-results, eval=FALSE}
 Centrum_gender <- Centrum_amount %>%
   group_by(results, geslacht) %>%
   summarise(count = n(), .groups = "drop") %>%
   arrange(results, geslacht, desc(count))
-# Centrum_gender
+Centrum_gender
+```
 
+
+Voor de data van het centrum van Zwolle zijn datapunten 81 tot en met 120 nodig. In de onderstaande code worden de datapunten van 81 tot en met 120 van het bestand gepakt, om vervolgens als resultaat de oogkleuren in het centrum van Zwolle met de bijbehorende aantallen te krijgen.
+Uit de resultaten komen 40 getelde oogkleuren, wat ook het correcte aantal is. Er zijn 5 identifiers met een oogkleur die gecategoriseerd is als undefined.
+```{r, get-zwolle-results}
 Zwolle_amount <- Total_amount[81:120, ] 
 
 Zwolle <- Zwolle_amount %>%
@@ -205,30 +227,34 @@ Zwolle <- Zwolle_amount %>%
   summarise(count = n()) %>%
   arrange(results, desc(count))
 Zwolle
+```
 
+Uit de data van het centrum van Zwolle is er gesorteerd op de hoeveelheden van oogkleur per geslacht met de bijbehorende aantallen per kleur.
+```{r, get-zwolle-gender-results, eval=FALSE}
 Zwolle_gender <- Zwolle_amount %>%
   group_by(results, geslacht) %>%
   summarise(count = n(), .groups = "drop") %>%
   arrange(results, geslacht, desc(count))
-# Zwolle_gender
-
+Zwolle_gender
 ```
 
-
 ### 02-06-2023 399308(Cheyenne) 9:00 - 11:30
+Er is per locatie een bijpassende pie chart gemaakt, waarin de verdeling van de oogkleuren per locatie weergegeven wordt.
 
-```{r}
+```{r, hanze-pie-chart}
 ggplot(data = Hanze, 
        aes(x = "", y = count, fill = results)) +
   geom_col(color = "black") +
   coord_polar(theta = "y") +
   geom_label(aes(label = count),
              position = position_stack(vjust = 0.5),
-             show.legend = F)
+             show.legend = F) +
+  ggtitle("Verdeling van oogkleur op de Hanze Hogeschool Groningen") +
+  labs(caption = "Taart grafiek die de verdeling van de oogkleur op de Hanze Hogeschool Groningen weergeeft.")
 ```
 
 
-```{r, include=FALSE}
+```{r, hanze-gender-pie-chart, eval=FALSE}
 ggplot(data = Hanze_gender,
        mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -238,18 +264,20 @@ ggplot(data = Hanze_gender,
 ```
 
 
-```{r}
+```{r, centrum-groningen-pie-chart}
 ggplot(data = Centrum, 
        aes(x = "", y = count, fill = results)) +
   geom_col(color = "black") +
   coord_polar(theta = "y") +
   geom_label(aes(label = count),
              position = position_stack(vjust = 0.5),
-             show.legend = F)
+             show.legend = F) +
+  ggtitle("Verdeling van oogkleur in het centrum van Groningen") +
+  labs(caption = "Taart grafiek die de verdeling van de oogkleur in het centrum van Groningen weergeeft.")
 ```
 
 
-```{r, include=FALSE}
+```{r, centrum-groningen-gender-pie-chart, eval=FALSE}
 ggplot(data = Centrum_gender,
        mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -258,17 +286,19 @@ ggplot(data = Centrum_gender,
 
 ```
 
-```{r}
+```{r, zwolle-pie-chart}
 ggplot(data = Zwolle, 
        aes(x = "", y = count, fill = results)) +
   geom_col(color = "black") +
   coord_polar(theta = "y") +
   geom_label(aes(label = count),
              position = position_stack(vjust = 0.5),
-             show.legend = F)
+             show.legend = F) +
+  ggtitle("Verdeling van oogkleur in het centrum van Zwolle") +
+  labs(caption = "Taart grafiek die de verdeling van de oogkleur in het centrum van Zwolle weergeeft.")
 ```
 
-```{r, include=FALSE}
+```{r, zwolle-gender-pie-chart, eval=FALSE}
 ggplot(data = Zwolle_gender,
        mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -279,7 +309,10 @@ ggplot(data = Zwolle_gender,
 
 ### 04-06-2023 399308(Cheyenne) 12:00 - 14:00
 
-```{r}
+Voor de dataverwerking is gekozen voor de chi-square test met behulp van CrossTable. Er is voor de chi-square test gekozen, omdat met deze test getoetst kan worden of twee categorische variabelen aan elkaar gerelateerd zijn. Bij deze deelvraag is er getoetst of er een relatie is tussen de oogkleur en de locatie waar de oogkleuren gemeten zijn. 
+De CrossTable is gebruikt, omdat dit gebruikt wordt in het boek "Discovering statistics using R". Hieruit is afgeleid dat de CrossTable ook heel overzichtelijk is en de verkregen data van de chi-square test uitgebreid laat zien. CrossTable laat de waardes zien van alle locaties met de bijbehorende aantallen voor elke oogkleur en undefined, samen met de p-waarde een een overzicht van de totale aantallen per kolom. Een alternatief voor de CrossTable is chisq.test(), maar dit is minder overzichtelijk en laat alleen de p-waarde zien.
+
+```{r, chi-square-test}
 eye_endresults <- Total_amount %>%
     rowwise() %>%
     relocate(results, .after = leeftijd) %>%
@@ -288,10 +321,8 @@ eye_endresults
 
 CrossTable(eye_endresults$location, eye_endresults$results, chisq = TRUE, expected = TRUE, format = "SPSS")
 ```
-Het resultaat van de chi-square test laat een p-waarde van 0.08 zien. Op basis van een p-waarde lager dan 0.05 significant is, is deze p-waarde dus niet significant.
+Het resultaat van de chi-square test laat een p-waarde van 0.08 zien. Op basis dat een p-waarde met een waarde lager dan 0.05 significant is, is deze p-waarde dus niet significant.
 
-Voor de dataverwerking is gekozen voor de chi-square test met behulp van CrossTable. Er is voor de chi-square test gekozen, omdat met deze test getoetst kan worden of twee categorische variabelen aan elkaar gerelateerd zijn. Bij deze deelvraag is er getoetst of er een relatie is tussen de oogkleur en de locatie waar de oogkleuren gemeten zijn. 
-De CrossTable is gebruikt, omdat dit gebruikt wordt in het boek "Discovering statistics using R". Hieruit is afgeleid dat de CrossTable ook heel overzichtelijk is en de verkregen data van de chi-square test uitgebreid laat zien. CrossTable laat de waardes zien van alle locaties met de bijbehorende aantallen voor elke oogkleur en undefined, samen met de p-waarde een een overzicht van de totale aantallen per kolom. Een alternatief voor de CrossTable is chisq.test(), maar dit is minder overzichtelijk en laat alleen de p-waarde zien.
 
 ### 05-06 399308(Cheyenne) 9:30 - 15:00
 

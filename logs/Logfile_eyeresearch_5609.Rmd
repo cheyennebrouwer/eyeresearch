@@ -82,20 +82,20 @@ Deelvraag 1: Is er een aantoonbaar verschil in oogkleur tussen mannen en vrouwen
 H0: Er is geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen.
 H1: Er is een aantoonbaar verschil in oogkleur tussen mannen en vrouwen.
 
-```{r inlees-document, include=FALSE}
+```{r inlees-document, include=TRUE}
 
 library(tidyverse)
 
-file <- "C:/Users/DemiS/OneDrive/Documents/School/De_wetenschappelijke_cyclus/Oogkleur_simpel.csv"
+file <- "~/School/De_wetenschappelijke_cyclus/eyeresearch/Oogkleur_simpel_definitief.csv"
 eye_colors <- read.table(file, sep=",",header=TRUE)
 
-eye_colors
+head(eye_colors)
 
 ```
 
 Om onze data bruikbaar te maken voor ons onderzoek, moet deze omgezet worden. Het is belangrijk om alle data zo te weergeven dat het is gesorteerd op analist en oogkant per identifier. Dit wordt tegelijkertijd gedaan met het bepalen van de defintiteve oogkleur die een proefpersoon krijgt op basis van de antwoorden van de verschillende analisten. Dat wordt met onderstaande code uitgevoerd:
 
-```{r aanpassen-tabel-oud, eval=FALSE}
+```{r aanpassen-tabel-oud, eval=FALSE, include=FALSE}
 
 ## simple approach when different colors were recorded
 # majority_simple <- function(x) {
@@ -149,12 +149,12 @@ eye_colors2 <- eye_colors %>%
                  names_to = c("eye", "analist"),
                  values_to = "color")
 
-print(eye_colors2, n = Inf)
+head(eye_colors2, n = Inf)
 
 
 ```
 
-In de tabel is de definitieve oogkleur te zien die een proefpersoon gekregen heeft, deze staan in de kolom 'results'. Voor het beantwoorden van deze deelvraag worden de oogkleuren en geslachten uit de bovenstaande tabel genomen. Vervolgens wordt per identifier 1x de kleur genomen en zo wordt geteld hoeveel oogkleuren er per geslacht geteld zijn.
+In de tabel is de definitieve oogkleur te zien die een proefpersoon gekregen heeft, deze staan in de kolom 'results'. Voor het beantwoorden van deze deelvraag worden de oogkleuren en geslachten uit de bovenstaande tabel genomen. Vervolgens wordt per identifier 1x de kleur genomen en zo wordt geteld hoeveel oogkleuren er per geslacht geteld zijn. Undef. staat voor oogkleuren die 'undefined' zijn. Bij deze identifiers is geen duidelijke meerderheid in de oogkleur gevonden en kan dus de werkelijke oogkleur niet bepaald worden.
 
 ```{r tabel, eval=TRUE}
 
@@ -194,7 +194,7 @@ Er is besproken wie welke taak gaat doen binnen het schrijven van het wetenschap
 ## 02-06-2023 09:00 - 11:30 - 415069 (Demi van 't Oever)
 Er is gewerkt aan het beantwoorden van deelvraag 1. Hierbij is vooral gekeken naar welke statistische test erbij past (Chi-square test) en hoe deze het beste uit te voeren is bij deze vraag. Uiteindelijk is gekozen dit te doen middels een CrossTable.
 
-```{r foute-test, eval=FALSE}
+```{r foute-test, include=FALSE}
 #chisq.test(male_female$geslacht, male_female$count, correct=FALSE)
 ```
 
