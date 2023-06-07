@@ -61,7 +61,10 @@ Gedurende 1 uur zijn in Grongingen centrum 40 verschillende proefpersonen bevraa
 Gedurende 2 uur zijn in Zwolle centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
 
 ## 19-05-2023 10:00 - 12:00 - 415069 (Demi van 't Oever)
-Er is gezocht naar bruikbare data in de vorm van wetenschappelijk onderzoek voor het onderzoek met betrekking tot de prevalentie van oogkleuren bij Nederlandse burgers. 
+Er is gezocht naar bruikbare data en informatie in de vorm van wetenschappelijk onderzoek voor het onderzoek met betrekking tot de prevalentie van oogkleuren bij Nederlandse burgers. 
+
+## 22-05-2023 14:30 - 15:45 - 415069 (Demi van 't Oever)
+De uitleg van de lessen van deze dag zijn doorgenomen en aantekeningen gemaakt welk deel van de uitleg van toepassing is op ons eigen project.
 
 ## 24-05-2023 09:45 - 10:00 - ALL
 De deelvragen (1 t/m 4) zijn onderverdeeld tussen de studenten. Elke student heeft een eigen deelvraag toegewezen gekregen waar hij/zij verantwoordelijk voor is. 
@@ -223,5 +226,8 @@ Uit de crosstable is een p-waarde gekomen van 0.57. We hebben een α van 0.05 bi
 
 Conclusie:
 Bij een lage p-waarde, kan H0 verworpen worden. Onze p-waarde is echter niet laag en ligt boven de α van 0.05. Dit betekent dat H0 aangenomen kan worden: er is geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen.
+
+## 07-06-2023 09:40 - 09:45 - 415069 (Demi van 't Oever)
+De test die is gebruikt om de deelvraag te kunnen beantwoorden, is de Chi-squarte test. Deze test is niet gebruikt middels de chisq.test zelf, maar via een CrossTable. Voor deze CrossTable is gekozen omdat de data die gebruikt is voor de test netjes in de CrossTable staat, waardoor het overzichtelijker is. Daarnaast bleek de chisq.test zelf niet fijn in gebruik: het was lastig te zien of de juiste waarden op de juiste plek stonden. Door bij de CrossTable de Chi-square test aan te zetten, kan deze functie de test ook uitvoeren. Hiervoor is tevens het boek 'Discovering Statistics Using R' van Andy Field.
 
 
