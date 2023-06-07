@@ -1,6 +1,6 @@
 ---
 title: "Logfile oogkleur onderzoek"
-author: "Cheyenne Brouwer, Kasthury Inparajah, Demi van `t Oever, Willem-Daniël Visser"
+author: "Cheyenne Brouwer"
 output:
   html_document:
     toc: true
@@ -50,20 +50,20 @@ Er is van 3x 40 proefpersonen de oogkleur, het geslacht en de leeftijd verzameld
 ### Data reading
 
 
-### Logboek
-## 11-05-2023 09:00 - 10:00 - ALL
+## Logboek
+### 11-05-2023 09:00 - 10:00 - ALL
 Gedurende 1 uur zijn op de Hanzehogeschool Groningen (Van DoorenVeste) 40 verschillende studenten bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezorgd voor een goede verdeling tussen mannen en vrouwen.
 
-## 11-05-2023 10:45 - 12:00 - ALL
+### 11-05-2023 10:45 - 12:00 - ALL
 Gedurende 1 uur zijn in Grongingen centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
 
-## 12-05-2023 14:00 - 16:00 - 399308 (Cheyenne Brouwer)
+### 12-05-2023 14:00 - 16:00 - 399308 (Cheyenne Brouwer)
 Gedurende 2 uur is student met studentnummer 399308 bezig geweest met het omzetten van de gegevens per analist in één spreadsheet. Deze spreadsheet is daarna opgeslagen op OneDrive.
 
-## 15-05-2023 13:30 - 15:30 - ALL
+### 15-05-2023 13:30 - 15:30 - ALL
 Gedurende 2 uur zijn in Zwolle centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
 
-## 15-05-2023 18:00 - 20:00 - 399308 (Cheyenne Brouwer)
+### 15-05-2023 18:00 - 20:00 - 399308 (Cheyenne Brouwer)
 Gedurende 2 uur is student met studentnummer 399308 bezig geweest met het omzetten van de gegevens per analist in één spreadsheet. Het bestand is daarna opgeslagen als. csv bestand zodat deze ingelezen kan worden in R markdown.
 
 # Notatiewijze en opslag
@@ -99,37 +99,37 @@ head(data)
 Data ziet er OK uit. De data dimensies en data types zijn in overeenstemming met wat werd verwacht.
 
 
-## 24-05-2023 10:00 - 10:30 399308(Cheyenne) en 5609(Demi)
+### 24-05-2023 10:00 - 10:30 399308(Cheyenne) en 5609(Demi)
 
-Data was incorrect genoteerd, dus format is aangepast.
+Setup chunck is aangemaakt zodat alle benodigde libraries bij alle chuncks gebruikt kunnen worden.
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-# library(dplyr)
-# library(tidyr)
 library(tidyverse)
-# library(ggplot2)
+library(gmodels)
 ```
 
 
+Nieuwe bestand is ingelezen. De output komt overeen met de verwachtingen. Later is deze output echter niet gebruikt, omdat het uiteindelijke bestand beter omgezet kon worden met het originele bestand in plaats van de nieuwe versie.
 ```{r}
 data <- read.table(file ="/Users/cheyennebrouwer/Documents/22_23/Kwartaal_4/wetenschappelijke_cyclus/Oogkleur_simpel2.csv", header = T, sep = ",")
-dim(data)
 head(data)
 ```
-## 28-05-2023 19:00 - 21:00 399308(Cheyenne) en 415069(Demi)
+### 28-05-2023 19:00 - 21:00 399308(Cheyenne) en 415069(Demi)
+
+Bestand is wederom ingelezen en is omgezet naar een definitieve versie. Per identifier is er een definitieve oogkleur bepaald, die zichtbaar is onder de kolom "results". Indien er geen duidelijke meerderheid voor de oogkleur van een identifier is door verschillende metingen, wordt de oogkleur onder undefined gezet. Undefined betekent dat de verzamelde data te divers was om tot een definitief besluit voor oogkleur te kunnen komen.
 
 ```{r}
 file <- "/Users/cheyennebrouwer/Downloads/Oogkleur_simpel.csv"
 
 eye_colors <- read.table(file, sep= ",", header=T)
-eye_colors
+head(eye_colors)
 
 majority2 <- function(x) {
     #print(as.character(x))
     #return("A")
     t <- table(x)
     if (length(t) == 1) return(x[1])
-    else if(length(unique(t)) == 1) return("NA")
+    else if(length(unique(t)) == 1) return("Undef.")
     else{
         df <- as.data.frame(t)
         #print(df)
@@ -146,12 +146,10 @@ eye_colors2 <- eye_colors %>%
                names_to = c("Eye", "Laborant"),
                values_to = "color")
 
-print(eye_colors2, n = Inf)
+head(eye_colors2, n = Inf)
 ```
-
-## 01-06-2023 399308(Cheyenne) 18:00 - 20:00
-Vanaf hier wordt een specifieke deelvraag behandeld, namelijk "Is er een aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is?".
-
+### **Deelvraag: "Is er een aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is?"**
+### 01-06-2023 399308(Cheyenne) 18:00 - 20:00
 
 ```{r}
 eye_colors_location <- eye_colors2 %>%
@@ -164,8 +162,7 @@ eye_colors_location <- eye_colors2 %>%
 eye_colors_location
 ```
 
-
-
+Hieronder is de data verdeeld in de 3 locaties, waarbij Hanze voor Hanze Hogeschool Groningen staat, Centrum voor centrum Groningen staat en Zwolle voor centrum Zwolle staat. Per locatie is er ook nog gekeken naar de verdeling tussen man en vrouw, maar deze data is verderop niet gebruikt.
 
 ```{r}
 Total_amount <- eye_colors_location %>%
@@ -193,7 +190,7 @@ Centrum <- Centrum_amount %>%
   group_by(results) %>%
   summarise(count = n()) %>%
   arrange(results, desc(count))
-# Centrum
+Centrum
 
 Centrum_gender <- Centrum_amount %>%
   group_by(results, geslacht) %>%
@@ -207,7 +204,7 @@ Zwolle <- Zwolle_amount %>%
   group_by(results) %>%
   summarise(count = n()) %>%
   arrange(results, desc(count))
-# Zwolle
+Zwolle
 
 Zwolle_gender <- Zwolle_amount %>%
   group_by(results, geslacht) %>%
@@ -218,7 +215,7 @@ Zwolle_gender <- Zwolle_amount %>%
 ```
 
 
-## 02-06-2023 399308(Cheyenne) 9:00 - 11:30
+### 02-06-2023 399308(Cheyenne) 9:00 - 11:30
 
 ```{r}
 ggplot(data = Hanze, 
@@ -231,7 +228,7 @@ ggplot(data = Hanze,
 ```
 
 
-```{r}
+```{r, include=FALSE}
 ggplot(data = Hanze_gender,
        mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -252,7 +249,7 @@ ggplot(data = Centrum,
 ```
 
 
-```{r}
+```{r, include=FALSE}
 ggplot(data = Centrum_gender,
        mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -271,10 +268,7 @@ ggplot(data = Zwolle,
              show.legend = F)
 ```
 
-
-
-
-```{r}
+```{r, include=FALSE}
 ggplot(data = Zwolle_gender,
        mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -283,10 +277,9 @@ ggplot(data = Zwolle_gender,
 
 ```
 
-## 04-06-2023 399308(Cheyenne) 12:00 - 14:00
+### 04-06-2023 399308(Cheyenne) 12:00 - 14:00
 
 ```{r}
-library(gmodels)
 eye_endresults <- Total_amount %>%
     rowwise() %>%
     relocate(results, .after = leeftijd) %>%
@@ -297,13 +290,17 @@ CrossTable(eye_endresults$location, eye_endresults$results, chisq = TRUE, expect
 ```
 Het resultaat van de chi-square test laat een p-waarde van 0.08 zien. Op basis van een p-waarde lager dan 0.05 significant is, is deze p-waarde dus niet significant.
 
-## 05-06 399308(Cheyenne) 9:30 - 15:00
+Voor de dataverwerking is gekozen voor de chi-square test met behulp van CrossTable. Er is voor de chi-square test gekozen, omdat met deze test getoetst kan worden of twee categorische variabelen aan elkaar gerelateerd zijn. Bij deze deelvraag is er getoetst of er een relatie is tussen de oogkleur en de locatie waar de oogkleuren gemeten zijn. 
+De CrossTable is gebruikt, omdat dit gebruikt wordt in het boek "Discovering statistics using R". Hieruit is afgeleid dat de CrossTable ook heel overzichtelijk is en de verkregen data van de chi-square test uitgebreid laat zien. CrossTable laat de waardes zien van alle locaties met de bijbehorende aantallen voor elke oogkleur en undefined, samen met de p-waarde een een overzicht van de totale aantallen per kolom. Een alternatief voor de CrossTable is chisq.test(), maar dit is minder overzichtelijk en laat alleen de p-waarde zien.
+
+### 05-06 399308(Cheyenne) 9:30 - 15:00
 
 Discussie:
 In de data is zichtbaar dat er 3 locaties zijn met 40 proefpersonen per locatie. Deze proefpersonen zijn verdeeld tussen mannen en vrouwen en deze verdeling is exact 50/50. Op alle locaties is er een zichtbare overmaat aan proefpersonen met blauwe ogen, maar op locatie Zwolle zijn er in verhouding een stuk meer proefpersonen met groene ogen dan de andere locaties. De verdeling van bruin en hazel ogen lag op alle locaties ongeveer gelijk, maar in Zwolle liggen de hoeveelheden bruin en hazel iets lager dan in de andere 2 locaties. Aan de p-waarde van 0.08 is zichtbaar dat er is geen significant verschil is tussen de oogkleuren per locatie.
 
 Conclusie:
 De gemeten locaties hebben geen significante invloed op de waargenomen oogkleuren.
+
 
 
 
