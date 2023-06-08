@@ -1,0 +1,403 @@
+---
+title: "Logfile oogkleur onderzoek"
+author: "Kasthury Inparajah"
+output:
+  html_document:
+    toc: true
+    theme: united
+---
+
+
+# Voorbereiding
+Voordat het onderzoek plaatsvond is er een protocol opgesteld en een oogkleurreferentiekaart gemaakt aan de hand van foto's van afbeeldingen van het internet. 
+Het verzamelen van data vond plaats in de maanden mei en juni van het jaar 2023, aan de Hanzehogeschool te Groningen op de locatie Van DoorenVeste, Groningen centrum en Zwolle cetrum.
+
+## Doel
+Het doel van het onderzoek is bekijken of er bij studenten van de Hanzehogeschool Groningen locatie Van DoorenVeste aanleg is voor een bepaalde oogkleur. Daarnaast is er op 2 andere locaties gemeten om verschillen te kunnen onderzoeken in oogkleur en zo te bepalen of er aanleg is voor een bepaalde oogkleur bij studenten van de hogeschool.
+
+## Data verzamelen
+De data is verzameld op 3 verschillende locaties, waarbij op elke locatie 40 verschillende proefpersonen zijn bevraagd. De locaties zijn respectievelijk Hanzehogeschool (Van DoorenVeste), Groningen centrum en Zwolle centrum. De proefpersonen zijn in daglicht bevraagd en indien de locatie binnen was bij voorkeur bij goed licht (bij een raam of bij goede TL verlichting). Hier is de oogkleur van de proefpersonen bekeken. 
+
+Op de Hanzehogeschool Groningen is de informatie binnen verzameld. In Groningen centrum en Zwolle centrum buiten. 
+
+## Theorie
+### Oorzaak
+De oogkleur wordt bepaald door de hoeveelheid en kwaliteit van het pigment melanine in de iris. Melanine wordt geproduceerd door cellen genaamd melanocyten (pigmentcellen). 
+Melanocyten bevinden zich in verschillende delen van het lichaam zoals de huid, het haar en dus ook de ogen. in het oog zitten melanocyten in het bindweefsel. Dit bindweefsel wordt stroma genoemd. De hoeveelheid melanocyten is ongeacht de oogkleur gelijk bij iedereen. 
+Er is dus geen verband tussen de hoeveelheid melanocyten en de oogkleur, maar wel tussen de hoeveelheid en kwaliteit van melanine in de iris. Dit zorgt voor de vele variaties in oogkleuren. 
+
+### Verschillen in oogkleur
+Mensen met een bruine iris hebben over het algemeen meer melanine in hun ogen t.o.v. mensen met een blauwe/groene iris. Dit komt doordat mensen met een bruine iris in de voorste laag en het stroma van de iris meer melanocyten en melanosomen hebben dan mensen met een blauwe/groene iris. 
+Melanosomen zijn celorganellen die zich in de melanocyten bevinden. Hierin wordt het pigment opgeslagen. Zowel melanocyten als melanosomen zijn verantwoordelijk voor de productie van melanine. 
+Wanneer licht door een grote hoeveelheid melanine gaat, wordt het meeste zichtbare licht geabsorbeerd en een klein deel teruggekaatst, dit zorgt voor de bruine kleur van de iris. Bij weinig aanwezigheid van melanine is de oogkleur lichter, zoals blauw of groen. Als er te weinig melanine is om een sterke kleur blauw te produceren worden de kleuren van bloedvaten (rood) en de kleine hoeveelheid blauwe pigment weerkaatst wat voor een violet kleur zorgt.
+Er zijn ook gevallen waarbij er helemaal geen melanine aanwezig is, dit wordt ook wel albinisme genoemd. Bij gebrek aan melanine ontstaan er rode ogen. Een rode iris is zoals eerder uitgelegd een weerkaatsing van de bloedvaten in het oog. 
+
+### Expressie en dominantie 
+Ogen zijn er in verschillende soorten blauw, bruin en groen. Het allel dat verantwoordelijk is voor de kleur bruin is dominant over het allel voor blauw en het allel voor groen. Hierbij is het allel voor groen weer dominant over blauw. 
+Een verminderde expressie kan voor een onvolledige dominantie zorgen. Dit veroorzaakt de vele verschillende kleuren van de iris zoals hazelnoot en lichtere tinten bruin. 
+
+### Heterochromie
+Het kan ook voorkomen dat de iris zelf uit verschillende kleuren bestaat. Dit wordt heterochromie genoemd. Deze aandoening wordt geërfd of veroorzaakt door somatische mutaties in de cellen (bij somatische mutaties vinden er mutaties plaats in cellen die niet betrokken zijn bij geslachtscellen). 
+Het is ook mogelijk dat de aandoening wordt veroorzaakt door (gedeeltelijke) inactivatie van bepaalde genen in de cellen. Hierdoor wordt er op sommige plaatsen in het iris minder pigment geproduceerd dan op andere plaatsen en ontstaat er een iris met meer dan 1 kleur. 
+
+
+# Experimental work
+Er is van 3 x 40 proefpersonen de oogkleur, het geslacht en de leeftijd verzameld. De oogkleur is van zowel het linker- als rechteroog genoteerd en verwerkt in een spreadsheet. Deze spreadsheet is omgezet in een .csv bestand zodat deze ingelezen kan worden in R markdown.  
+
+### Data reading
+
+# Materiaal
+Link naar oogkleurreferentiekaart: https://github.com/cheyennebrouwer/eyeresearch/blob/main/oogkleur_refferenties.png 
+
+
+### Logboek
+## 11-05-2023 09:00 - 10:00 - ALL
+Gedurende 1 uur zijn op de Hanzehogeschool Groningen (Van DoorenVeste) 40 verschillende studenten bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 11-05-2023 10:45 - 12:00 - ALL
+Gedurende 1 uur zijn in Grongingen centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 15-05-2023 13:30 - 15:30 - ALL
+Gedurende 2 uur zijn in Zwolle centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 16-05-2023 15:00 - 15:05 - 2193 (Kasthury Inparajah)
+In OneDrive een gedeelde map gemaakt waar alle verkregen data van het onderzoek in komen te staan. 
+
+## 24-05-2023 16:00 - 19:00 - 2193 (Kasthury Inparajah)
+De deelvraag: "Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?" is toegekend om te beantwoorden. 
+
+De H0 bij deze onderzoeksvraag is: "De gegevens komen overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders" & H1: "De gegevens komen niet overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders."
+
+De deelvraag is belangrijk om te beantwoorden om te kijken of het eigen onderzoek een representatieve weergave heeft van de populatie oogkleur in Nederland wat uit andere literatuuronderzoek(en) bekend is. Er is naar literatuuronderzoek opgezocht om de data uit het onderzoek te vergelijken met data uit het eigen onderzoek, maar kon geen bruikbare data vinden. 
+
+## 25-05-2023 14:00 - 17:00 - 2193 (Kasthury Inparajah)
+Er is gewerkt aan de deelvraag: "Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?". Er is gezocht naar literatuuronderzoek, maar bruikbare data was eerst niet te vinden. Daarna is een literatuuronderzoek 
+(https://www.researchgate.net/publication/330098152_True_colors_A_literature_review_on_the_spatial_distribution_of_eye_and_hair_pigmentation) gevonden. 
+
+Dit literatuuronderzoek is uitgevoerd om informatie over de verdeling van de oog- en haarkleur te verzamelen over populaties en deze data als een blue print te gebruiken om de nauwkeurigheid van voorspellingen op basis van DNA te verbeteren. 
+
+## 26-05-2023 11:00 - 12:00 - 2193 (Kasthury Inparajah)
+Er is gewerkt aan de deelvraag: "Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?". Het gevonden literatuuronderzoek (https://www.researchgate.net/publication/330098152_True_colors_A_literature_review_on_the_spatial_distribution_of_eye_and_hair_pigmentation) is verder doorgelezen.
+
+Belangrijk om te melden is dat de data over de oogkleuren in het literatuuronderzoek gebasseeerd zijn op verschillende literatuuronderzoeken. Als er meer literatuuronderzoeken voor een bepaalde populatie beschikbaar waren, werd hiervan het gemiddelde voorkomen gebruikt. 
+
+## 28-05-2023 19:00 - 22:00 - 2193 (Kasthury Inparajah)
+Er is gewerkt aan de deelvraag: "Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?". Literatuuronderzoek (https://www.researchgate.net/publication/330098152_True_colors_A_literature_review_on_the_spatial_distribution_of_eye_and_hair_pigmentation) is doorgelezen en er is een voorstel gesteld om te bepalen hoe de 'dominante' oogkleur wordt bepaald en hoe kleuren onder elkaar geschaard worden, omdat er sommige gevallen waren waarbij de oogkleur door verschillende waarnemingen van de analisten niet tot een definitieve oogkleur kon worden vastgesteld. 
+
+Opmerking: de manier van oogkleur verdeling in het literatuuronderzoek is anders dan in het eigen onderzoek. De kleur "hazel" wordt in het literatuuronderzoek onder "bruin" geschaard en de kleuren "groen" en "geel" vallen onder de term "intermediate". 
+
+## 30-05-2023 17:00 - 19:00 - 2193 (Kasthury Inparajah)
+Er is gewerkt aan de deelvraag: "Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?". Nodige data uit literatuuronderzoek gehaald en samenvatting daarvan gemaakt.
+
+## 31-05-2023 15:00 - 17:00 - 2193 (Kasthury Inparajah)
+Er is gewerkt aan de deelvraag: "Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?". Er is besloten om de oogkleur "hazel" onder "bruin" te scharen. Dus de data uit het eigen onderzoek waar de oogkleur "hazel" staat wordt verandert naar "bruin" om het vergelijken met het literatuuronderzoek gemakkelijker te maken. De kleuren "groen" en "geel" die in het literatuuronderzoek onder "intermediate" vallen worden nu "groen" (net zoals in het eigenonderzoek). 
+
+## 01-06-2023 10:30 - 12:00 - 2193 (Kasthury Inparjah)
+Er is een code geschreven die data uit het bestand (Oogkleur_simpel1.xlsx) kan lezen om de deelvraag te beantwoorden, maar bestand was niet te openen in RStudio.
+```{r Niet werkende code om data te openen}
+library(readxl)
+Oogkleur_simpel1 <- read.table("C:/Users/kasth/Programming/Periode 4 programming/Oogkleur_simpel1.xlsx", sep = "," , header = TRUE)
+```
+
+## 02-06-2023 19:00 - 21:00 - 2193 (Kasthury Inparajah)
+Er is een code geschreven die data uit het bestand kan lezen om deelvraag te beantwoorden en definitieve oogkleur kan geven, maar data kan niet in het gewenst formaat worden geopend in R met de volgende code die omgeschreven moet worden voor de huidige data: 
+```{r Niet werkende code, eval=FALSE}
+file <- "~/C:/Users/kasth/Programming/Periode 4 programming/Oogkleur_simpel1.xlsx"
+
+
+## simple approach when different colors were recorded
+majority_simple <- function(x) {
+    ifelse(length(unique(x[-1])) == 1, x[2], NA)
+}
+
+## Approach for use in apply()
+majority <- function(x) {
+    print(as.character(x))
+    t <- table(x[-1])
+    if (length(t) == 1) return(x[2])
+    else if(length(unique(t)) == 1) return(NA)
+    else{
+        df <- as.data.frame(t)
+        as.character(df[order(df$Freq, decreasing = T)[1], "Var1"])
+    }
+}
+
+## Test with apply
+r <- apply(X = eye_colors,
+      MARGIN = 1,
+      FUN = majority)
+
+print(r)
+ec2 <- cbind(eye_colors, consensus = r)
+print(ec2)
+
+## Approach for use in mutate()
+majority2 <- function(x) {
+    print(as.character(x))
+    return("A")
+    t <- table(x)
+    if (length(t) == 1) return(x[1])
+    else if(length(unique(t)) == 1) return("intermediate")
+    else{
+        df <- as.data.frame(t)
+        print(df)
+        return(as.character(df[order(df$Freq, decreasing = T)[1], 1]))
+    }
+}
+
+library(tidyverse)
+## Apply the mutate and pivot_longer functions
+eye_colors <- eye_colors %>%
+    rowwise() %>%
+    mutate(cons2 = majority2(c_across(-1))) %>%
+    pivot_longer(cols = -c(subject, cons2),
+                 names_sep = "_",
+                 names_to = c("experimenter", "eye"),
+                 values_to = "color")
+
+print(eye_colors, n = Inf)
+
+```
+## 03-06-2023 14:00 - 15:30 - 2193 (Kasthury Inparajah)
+Er is een stappenplan gemaakt om de benodigde data te krijgen:
+Stap 1: Data lezen
+Stap 2: Alle waarnemingen met "hazel" veranderen naar "bruin"
+Stap 3: De definitieve oogkleur van de persoon vaststellen door de te kijken welke kleur het meeste voorkomt
+Stap 4: Bij waarnemingen die evenvaak voorkomen bij een persoon waardoor er geen definitieve oogkleur kan worden vastgesteld NA zetten
+Stap 5: Alle kleuren blauw, bruin & groen tellen die zijn waargenomen
+Stap 6: Alle NA's tellen
+Stap 7: Het percentage blauw, bruin, groen en NA berekenen van totaal aantal waarnemingen. 
+Stap 8: Grafiek plotten voor: waarnemingen eigen onderzoek & waarnemingen eigenonderzoek en literatuuronderzoek in percentages. 
+
+## 04-06-2023 14:00 - 17:00 - 2193 (Kasthury Inparajah)
+Er is opgezocht naar voorbeelden hoe het excel bestand met de data geopend moet worden. 
+
+## 05-06-2023 10:30 - 16:00 - 2193 (Kasthury Inparajah)
+De data is naar een csv bestand omgezet. Het nieuwe bestand heet: Oogkleur_simpel.csv. De rijen met L_OK(analist code) en R_OK(analist code) (voor de oogkleur per oog) zijn omgezet in L_(analist code) en R_(analist code). Student 2193 heeft een code geschreven die het bestand kan lezen. 
+```{r Werkende code data openen}
+
+#Data eigen onderzoek
+library(readxl)
+Oogkleur_simpel <- read.table("C:/Users/kasth/Programming/Periode 4 programming/Oogkleur_simpel.csv", sep = "," , header = TRUE)
+```
+
+Er is een code geschreven om de metingen waarbij de oogkleur "hazel" is waargenomen te scharen onder "bruin".
+
+```{r Hazel onder bruin scharen}
+
+#Schaar "hazel" onder "bruin"
+Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))] <- 
+  apply(Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))], 2, function(x) gsub("hazel", "bruin", x))
+```
+
+Daarna is de definitieve oogkleur vastgesteld door te kijken welke oogkleur het meeste bij een persoon is waargenomen door de analisten. Bij een 50/50 geval kon de definitieve oogkleur niet vastgesteld worden en werd deze meting NA.
+
+```{r Kolom definitieve oogkleur en definitieve oogkleur}
+
+# Nieuwe kolom voor definitieve oogkleur
+Oogkleur_simpel$Definitieve_oogkleur <- apply(Oogkleur_simpel[, grepl("^L_|^R_", colnames(Oogkleur_simpel))], 1, function(row) {
+  
+  # Tel het aantal keer oogkleur x in rij
+  oogkleur_counts <- table(row)
+  
+  # Definitieve oogkleur wordt d.m.v. frequentie oogkleuren bepaald
+  meest_voorkomende_oogkleur <- names(oogkleur_counts)[which.max(oogkleur_counts)]
+  
+  # Als er geen "dominante" oogkleur is wordt het N/A
+  if (length(which(oogkleur_counts == max(oogkleur_counts))) > 1) {
+    meest_voorkomende_oogkleur <- NA
+  }
+  
+  # Geef de definitieve oogkleur weer
+  meest_voorkomende_oogkleur
+})
+
+# Bekijk de vernieuwde dataset
+View(Oogkleur_simpel)
+```
+
+## 05-06-2023 17:30 - 19:00 - 2193 (Kasthury Inparajah)
+
+Na het bepalen van de definitieve oogkleur zijn de oogkleuren, incl. de NA's geteld.
+
+```{r Definitieve bruine oogkleuren tellen}
+
+# Aantal "bruin" als definitieve oogkleur
+aantal_bruin <- sum(Oogkleur_simpel$Definitieve_oogkleur == "bruin", na.rm = TRUE)
+aantal_bruin
+```
+
+```{r Definitieve blauwe oogkleuren tellen}
+
+# Aantal "blauw" als definitieve oogkleur
+aantal_blauw <- sum(Oogkleur_simpel$Definitieve_oogkleur == "blauw", na.rm = TRUE)
+aantal_blauw
+```
+
+```{r Definitieve groene oogkleuren tellen}
+
+# Aantal "groen" als definitieve oogkleur
+aantal_groen <- sum(Oogkleur_simpel$Definitieve_oogkleur == "groen", na.rm = TRUE)
+aantal_groen
+```
+
+```{r Undifined tellen}
+
+# Aantal "NA" als definitieve oogkleur
+aantal_NA <- sum(is.na(Oogkleur_simpel$Definitieve_oogkleur))
+aantal_NA
+```
+
+
+## 05-06-2023 19:30 - 21:00 - 2193 (Kasthury Inparajah)
+Om een visualisatie te krijgen van de waargenomen definitieve oogkleuren is er een histogram geplot.  
+
+```{r Histogram plotten data eigen onderzoek}
+
+#Plot een histogram om de waarnemingen van de oogkleuren te visualiseren 
+library(ggplot2)
+
+#Kolom wordt een factor
+Oogkleur_simpel$Definitieve_oogkleur <- as.factor(Oogkleur_simpel$Definitieve_oogkleur)
+
+# Maak een plotobject met de dataset
+plot_data <- ggplot(data = Oogkleur_simpel, aes(x = Definitieve_oogkleur, fill = Definitieve_oogkleur))
+
+# Histogram met gekleurde balken toevoegen
+plot_data <- plot_data + geom_bar()
+
+# Kleuren met scale_fill_manual aanpassen
+plot_data <- plot_data + scale_fill_manual(values = c("blauw" = "dodgerblue", "bruin" = "sienna", "groen" = "yellowgreen"))
+
+# Titel en label toevoegen
+plot_data <- plot_data +
+  labs(x = "Definitieve oogkleur", y = "Frequentie", title = "Frequentie oogkleuren onderzoek")
+
+# Weergeef histogram
+print(plot_data)
+```
+
+
+In totaal waren er 120 deelnemers die meededen aan het eigen onderzoek. Hiervan waren er 63 met een blauwe oogkleur, 41 met een bruine oogkleur, 10 met een groene oogkleur en 6 waarbij we de oogkleur niet konden vaststellen.
+
+Omdat de data uit het literatuuronderzoek in percentages is, zijn ook de percentages van de waarnemingen van de oogkleur uit dit onderzoek berekend.
+
+
+```{r Percentage oogkleuren in dataset per oogkleur berekenen}
+
+#Percentage van de oogkleuren in de dataset berekenen per oogkleur
+
+# Blauwe oogkleur
+# Totaal aantal waarnemingen berekenen
+totaal_waarnemingen <- nrow(Oogkleur_simpel)
+
+# Aantal waarnemingen met blauwe oogkleur tellen
+aantal_blauw <- sum(Oogkleur_simpel$Definitieve_oogkleur == "blauw", na.rm = TRUE)
+
+# Het percentage blauwe oogkeuren berekenen van de dataset
+percentage_blauw <- (aantal_blauw / totaal_waarnemingen) * 100
+
+# Het percentage tonen
+cat("Percentage blauwe oogkleur:", percentage_blauw, "%\n")
+
+```
+```{r}
+
+# Bruine oogkleur
+# Totaal aantal waarnemingen berekenen
+totaal_waarnemingen <- nrow(Oogkleur_simpel)
+
+# Aantal waarnemingen met bruine oogkleur tellen
+aantal_bruin <- sum(Oogkleur_simpel$Definitieve_oogkleur == "bruin", na.rm = TRUE)
+
+# Het percentage bruine oogkeuren berekenen van de dataset
+percentage_bruin <- (aantal_bruin / totaal_waarnemingen) * 100
+
+# Het percentage tonen
+cat("Percentage bruine oogkleur:", percentage_bruin, "%\n")
+
+```
+```{r}
+
+# Groene oogkleur
+# Totaal aantal waarnemingen berekenen
+totaal_waarnemingen <- nrow(Oogkleur_simpel)
+
+# Aantal waarnemingen met groen oogkleur tellen
+aantal_groen <- sum(Oogkleur_simpel$Definitieve_oogkleur == "groen", na.rm = TRUE)
+
+# Het percentage groene oogkeuren berekenen van de dataset
+percentage_groen <- (aantal_groen / totaal_waarnemingen) * 100
+
+# Het percentage tonen
+cat("Percentage groene oogkleur:", percentage_groen, "%\n")
+
+```
+
+De data uit het literatuuronderzoek en het eigen onderzoek zijn met elkaar vergeleken om te kijken of er verschillen in de waarnemingen zitten met behulp van de chi square test.
+
+```{r Chi square test}
+
+# Data in percentages
+# Data uit literatuuronderzoek
+l_percentage_blauw <- 60.90
+l_percentage_bruin <- 21.70
+l_percentage_groen <- 11.40
+
+# Data uit beide onderzoeken in variabele zetten
+literatuuronderzoek <- c(l_percentage_blauw, l_percentage_bruin, l_percentage_groen)
+eigen_onderzoek <- c(percentage_blauw, percentage_bruin, percentage_groen)  
+
+# Maak een kruistabel
+kruistabel <- matrix(c(literatuuronderzoek, eigen_onderzoek), nrow = 2)
+
+# Chi square test uitvoeren
+chi_square <- chisq.test(kruistabel)
+
+# Weergeef het resultaat
+print(chi_square)
+
+```
+Er is ook een histogram geplot om een betere visualisatie te zien van de data uit de twee onderzoeken. 
+
+```{r Data eigen onderzoek en literatuuronderzoek vergelijken d.m.v. histogram}
+
+#Data uit literatuuronderzoek en data uit eigen onderzoek vergelijken
+library(ggplot2)
+
+#Data literatuuronderzoek
+l_percentage_blauw <- 60.90
+l_percentage_bruin <- 21.70
+l_percentage_groen <- 11.40
+
+# Dataframe maken met data uit literatuuronderzoek
+literatuuronderzoek <- data.frame(
+  Oogkleur = c("blauw", "bruin", "groen"),
+  Percentage = c(l_percentage_blauw, l_percentage_bruin, l_percentage_groen),
+  Legenda = "Literatuuronderzoek"
+)
+
+# Dataframe maken met data uit eigen onderzoek
+eigen_onderzoek <- data.frame(
+  Oogkleur = c("blauw", "bruin", "groen"),
+  Percentage = c(percentage_blauw, percentage_bruin, percentage_groen),
+  Legenda = "Eigen onderzoek"
+)
+
+# Dataframes samenvoegen
+combinatie_data <- rbind(literatuuronderzoek, eigen_onderzoek)
+
+# Plot met data uit beide onderzoeken
+plot_data <- ggplot(data = combinatie_data, aes(x = Oogkleur, y = Percentage, fill = Legenda)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "Oogkleur", y = "Percentage(%)", title = "Vergelijking oogkleuronderzoek") +
+  scale_fill_manual(values = c("Literatuuronderzoek" = "cyan4", "Eigen onderzoek" = "grey2"))
+
+# Weergeef plot
+print(plot_data)
+```
+
+Conclusie: De p-waarde uit de chi square test is p=1,837e-13 (met een α van 0.05) en is dus zeer klein. Hierdoor kan H0 ("De gegevens komen niet overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders") worden verworpen en H1 ("De gegevens komen overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders") aangenomen worden. Er zit een significant verband tussen de data uit het literatuuronderzoek en het eigen onderzoek. 
+
+Discussie:
+Bij beide onderzoeken is de oogkleur "groen" bijna in gelijke mate waargenomen. Bij de oogkleuren "blauw" en "bruin" is er wel enig verschil in het waargenomen percentage. Bij de oogkleur "bruin" is dit echter verschil groter. Dit zou eventueel kunnen komen, omdat de steekproefomvang bij het literatuuronderzoek groter was dan het eigen onderzoek. Het is niet duidelijk hoe groot deze steekproefomvang was, maar het was aanzienlijk meer dan het eigen onderzoek. 
