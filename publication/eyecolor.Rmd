@@ -180,11 +180,12 @@ Hier is te zien een tabel met het totale aantal metingen per oogkleur
 per analist. Hieruit blijkt er geen significant verschil te zijn tussen
 alle de analisten samen(p-waarde = 0,07672, α{FEM} = ,05). Tussen de
 analisten 9308 en 8705 was wel een significant verschil (p-waarde =
-0,03118, α{FEM} = ,05). Dit zie je ook aan de flinke verschillen bij
-hazel(\~33,3%), groen(\~44,6%). Groen had het grootste verschil tussen
-de laagste tellingen en hoogste tellingen: 52,6% verschil. Groen was ook
-met 9 de oogkleur met de grootste deviatie. Daarnaast is te zien aan de
-tabel dat de bovenste twee analisten en onderste twee analisten beide
+0,03118, α{FEM} = ,05). Dit zie je ook aan de flinke verschillen tussen
+de analisten bij de oogkeuren hazel(\~33,3% verschil) en groen(\~44,6%).
+Oogkleur groen had ook het grootste verschil tussen de laagste aantal
+metingen en hoogste metingen: 52,6% verschil. Groen was ook met 9 de
+oogkleur met de grootste deviatie. Daarnaast is te zien aan de tabel dat
+de twee analisten 5609 en 8705 en de twee analisten 9308 en 2193 beide
 groepen vormen, aangezien ze dicht bij elkaar liggen. Hierop is nog een
 `chi-square` test op los gelaten. Hier is de p-waarde 0,008905(α{FEM} =
 ,05). Dus is er een redelijk flink significant verschil tussen de
@@ -464,7 +465,7 @@ ggplot(data = Zwolle_gender,
 
 Het verschil tussen verschillende locaties is geen significant verschil
 (p-waarde = 0.08554, α = 0,05). Het verschil tussen de bruine en blauwe
-oogkleur ziet er wel significant uit
+oogkleur ziet er wel significant uit.
 
 ## Verschil tussen mannen en vrouwen
 
