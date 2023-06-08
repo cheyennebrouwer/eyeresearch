@@ -381,9 +381,12 @@ geschaard. Om deze reden zijn alle metingen waarbij de oogkleur “hazel”
 is waargenomen omgezet naar “bruin”.</p>
 <pre class="r"><code>#Schaar &quot;hazel&quot; onder &quot;bruin&quot;
 Oogkleur_simpel[, grepl(&quot;^L_|^R_&quot;, colnames(Oogkleur_simpel))] &lt;- 
-  apply(Oogkleur_simpel[, grepl(&quot;^L_|^R_&quot;, colnames(Oogkleur_simpel))], 2, function(x) gsub(&quot;hazel&quot;, &quot;bruin&quot;, x))
-
-# Nieuwe kolom voor definitieve oogkleur
+  apply(Oogkleur_simpel[, grepl(&quot;^L_|^R_&quot;, colnames(Oogkleur_simpel))], 2, function(x) gsub(&quot;hazel&quot;, &quot;bruin&quot;, x))</code></pre>
+<p>Daarna is de definitieve oogkleur vastgesteld door te kijken welke
+oogkleur het meeste bij een persoon is waargenomen door de analisten.
+Bij een 50/50 geval kon de definitieve oogkleur niet vastgesteld worden
+en werd deze meting NA.</p>
+<pre class="r"><code># Nieuwe kolom voor definitieve oogkleur
 Oogkleur_simpel$Definitieve_oogkleur &lt;- apply(Oogkleur_simpel[, grepl(&quot;^L_|^R_&quot;, colnames(Oogkleur_simpel))], 1, function(row) {
   # Tel het aantal keer oogkleur x in rij
   oogkleur_counts &lt;- table(row)
@@ -402,10 +405,8 @@ Oogkleur_simpel$Definitieve_oogkleur &lt;- apply(Oogkleur_simpel[, grepl(&quot;^
 
 # Bekijk de vernieuwde dataset
 View(Oogkleur_simpel)</code></pre>
-<p>Daarna is de definitieve oogkleur vastgesteld door te kijken welke
-oogkleur het meeste bij een persoon is waargenomen door de analisten.
-Bij een 50/50 geval kon de definitieve oogkleur niet vastgesteld worden
-en werd deze meting NA.</p>
+<p>Na het bepalen van de definitieve oogkleur zijn de oogkleuren,
+incl. de NA’s geteld.</p>
 <pre class="r"><code>#Definitieve oogkleur
 # Aantal &quot;bruin&quot; als definitieve oogkleur
 aantal_bruin &lt;- sum(Oogkleur_simpel$Definitieve_oogkleur == &quot;bruin&quot;, na.rm = TRUE)
