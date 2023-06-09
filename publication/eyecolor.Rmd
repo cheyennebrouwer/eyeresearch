@@ -14,8 +14,8 @@ output:
     keep_tex: false
     toc: false
     fig_caption: true
-    includes:  
-        in_header: include_tex_header.tex #will include rules for linespacing and figure floating
+#    includes:  
+#        in_header: include_tex_header.tex #will include rules for linespacing and figure floating
 editor_options: 
   markdown: 
     wrap: 72
@@ -262,9 +262,9 @@ print(plot_data)
 ```
 
 Hier is te zien hoe blauw(52,5 %) een meerder deel van de metingen
-uitmaakt, gevolgd door bruin(34,16667 %) en groen(8,333333 %). Zonder
-NA-waarden komt dat neer op de verhoudingen blauw, bruin, groen (55,26%,
-35,96% en 8,77%).
+uitmaakt, gevolgd door bruin(34,16667 %) en groen(8,333333 %). Zonder de
+NA-waarden meegerekend komt dat neer op de verhoudingen blauw, bruin,
+groen (55,26%, 35,96% en 8,77%).
 
 ```{r plot-litr_data-data-literatuur-verg, fig.cap='Barplot met oogkleur in percentage voorkomst en oogkleur percentage uit data uit de literatuur. Meerderheid waargenomen door analisten van het rechter oogkleur. Oogkleur percentages van de literatuur gevonden op fsigenetics - "True colors: A literature review on the spatial distribution of eye and hair pigmentation" via researchgate'}
 # Totaal aantal waarnemingen berekenen
@@ -314,17 +314,19 @@ print(plot_data)
 ```
 
 In de barplot hierboven staat data uit een paper die informatie over de
-verdeling van de oog- en haarkleur te verzamelen over populaties en deze
-data als een blue print te gebruiken om de nauwkeurigheid van
+verdeling van de oog- en haarkleur heeft verzamelen over populaties en
+deze data als een blue-print te gebruiken om de nauwkeurigheid van
 voorspellingen op basis van DNA te verbeteren.[@Katsara2019tc] Dit
 onderzoek heeft meerdere datasets, waaruit 3 percentages zijn gehaald
-voor vergelijking met dit onderzoek. De blauw(60.9%) was hieruit de
-meest voorkomende volgens de literatuur meer dan dit onderzoek
-suggereert. Bruin is Nederland breed minder prevalant dan bij dit
-onderzoek en bij groen is dit andersom. De chi-square p-waarde tussen de
-percentages van Nederlandbreed en onze locaties is 1.837e-13 (α = .05).
-Om antwoord te krijgen of de hanze aanleg heeft voor een bepaalde
-oogkleur zijn ook nog de locaties vergeleken.
+voor vergelijking met dit onderzoek. Deze percentages geven de
+prevalentie van de 3 oogkleuren aan in Nederland breed. De kleur
+blauw(60.9%) was hieruit de meest voorkomende oogkleur volgens de
+literatuur meer dan dit onderzoek suggereert. Bruin is Nederland breed
+minder prevalant dan bij dit onderzoek en bij de kleur groen is dat
+andersom. De chi-square p-waarde tussen de percentages van Nederland
+breed en onze locaties is 1.837e-13 (α = .05). Om antwoord te krijgen of
+de hanze aanleg heeft voor een bepaalde oogkleur zijn ook nog de
+locaties vergeleken.
 
 ## Verschil tussen locaties
 
@@ -451,10 +453,11 @@ ggplot(data = Zwolle,
 
 Qua locaties heeft de hanze 5-10% meer mensen met blauwe ogen dan de
 andere locaties, dit vergeleken met een afwijking van 9,3% van de
-literatuur en een gemiddelde afwijking van 24% kunnen deze waarnemingen
-toeval zijn. In Zwolle zijn veel meer groene oogkleuren gevonden dan op
-de Hanze in Groningen. Tenslotte zijn in Groningen naast blauw ook de
-meeste hazel kleurige ogen gevonden. Viermaal zoveel dan in Zwolle.
+literatuur tegenover alle blauw opnames en een gemiddelde afwijking van
+24% tussen alle waardes, kunnen deze waarnemingen toeval zijn. In Zwolle
+zijn veel meer groene oogkleuren gevonden dan op de Hanze in Groningen.
+Tenslotte zijn in Groningen naast blauw ook de meeste hazel kleurige
+ogen gevonden. Viermaal zoveel dan in Zwolle.
 
 ```{r, hanze-gender-pie-chart, fig.cap='Drie barplots met aantallen per oogkleur per locatie, onder drie gemeten locaties. Verdeeld onder sexe.', eval=FALSE, out.width="33%"}
 
