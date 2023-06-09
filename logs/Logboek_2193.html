@@ -416,6 +416,8 @@ Inparajah)</a></li>
 Inparajah)</a></li>
 <li><a href="#kasthury-inparajah-12" id="toc-kasthury-inparajah-12">05-06-2023 19:30 - 21:00 - 2193 (Kasthury
 Inparajah)</a></li>
+<li><a href="#kasthury-inparajah-13" id="toc-kasthury-inparajah-13">09-06-2023 1:00 - 2:00 - 2193 (Kasthury
+Inparajah)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -899,10 +901,10 @@ print(chi_square)</code></pre>
 ## X-squared = 58.651, df = 2, p-value = 1.837e-13</code></pre>
 <p>Er is ook een histogram geplot om een betere visualisatie te zien van
 de data uit de twee onderzoeken.</p>
-<pre class="r"><code>#Data uit literatuuronderzoek en data uit eigen onderzoek vergelijken
+<pre class="r"><code># Data uit literatuuronderzoek en data uit eigen onderzoek vergelijken
 library(ggplot2)
 
-#Data literatuuronderzoek
+# Data literatuuronderzoek
 l_percentage_blauw &lt;- 60.90
 l_percentage_bruin &lt;- 21.70
 l_percentage_groen &lt;- 11.40
@@ -948,6 +950,75 @@ komen, omdat de steekproefomvang bij het literatuuronderzoek groter was
 dan het eigen onderzoek. Het is niet duidelijk hoe groot deze
 steekproefomvang was, maar het was aanzienlijk meer dan het eigen
 onderzoek.</p>
+</div>
+<div id="kasthury-inparajah-13" class="section level2">
+<h2>09-06-2023 1:00 - 2:00 - 2193 (Kasthury Inparajah)</h2>
+<p>Na overleg met de docent is er een kruistabel gemaakt om een beter
+overzicht van de data te krijgen.</p>
+<pre class="r"><code>library(knitr)
+
+# Vector maken voor data uit literatuuronderzoek
+oogkleur_literatuur &lt;- c(&quot;Blauw&quot;, &quot;Bruin&quot;, &quot;Groen&quot;)
+percentage_literatuur &lt;- c(&quot;60.1%&quot;, &quot;21.7%&quot;, &quot;11.4%&quot;)
+
+# Vectoren samenvoegen om een dataframe voor het literatuuronderzoek te maken
+df_literatuuronderzoek &lt;- data.frame(Oogkleur = oogkleur_literatuur, Percentage = percentage_literatuur)
+
+# Vector maken voor data uit eigenonderzoek
+oogkleur_eigenonderzoek &lt;- c(&quot;Blauw&quot;, &quot;Bruin&quot;, &quot;Groen&quot;)
+percentage_eigenonderzoek &lt;- c(&quot;52.5%&quot;, &quot;34.17%&quot;, &quot;8.33%&quot;)
+
+# Vectoren samenvoegen om een dataframe voor het eigenonderzoek te maken
+df_eigenonderzoek &lt;- data.frame(Oogkleur = oogkleur_eigenonderzoek, Percentage = percentage_eigenonderzoek)
+
+# Kolom voor de de soorten onderzoek toevoegen
+df_literatuuronderzoek$Onderzoek &lt;- &quot;Literatuuronderzoek&quot;
+df_eigenonderzoek$Onderzoek &lt;- &quot;Eigenonderzoek&quot;
+
+# De dataframes samenvoegen
+df_combine &lt;- rbind(df_literatuuronderzoek, df_eigenonderzoek)
+
+# Dataframe reshapen zodat er een kruistabel gemaakt kan worden
+kruistabel &lt;- reshape(df_combine, idvar = &quot;Onderzoek&quot;, timevar = &quot;Oogkleur&quot;, direction = &quot;wide&quot;)
+
+# Rijen namen geven
+rownames(kruistabel) &lt;- kruistabel$Onderzoek
+kruistabel$Onderzoek &lt;- NULL
+
+# Weergeef kruistabel
+kable(kruistabel, caption = &quot;Oogkleur percentages in het literatuuronderzoek en het eigenonderzoek&quot;)</code></pre>
+<table>
+<caption>Oogkleur percentages in het literatuuronderzoek en het
+eigenonderzoek</caption>
+<colgroup>
+<col width="28%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Percentage.Blauw</th>
+<th align="left">Percentage.Bruin</th>
+<th align="left">Percentage.Groen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Literatuuronderzoek</td>
+<td align="left">60.1%</td>
+<td align="left">21.7%</td>
+<td align="left">11.4%</td>
+</tr>
+<tr class="even">
+<td align="left">Eigenonderzoek</td>
+<td align="left">52.5%</td>
+<td align="left">34.17%</td>
+<td align="left">8.33%</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 

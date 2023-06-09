@@ -371,10 +371,10 @@ Er is ook een histogram geplot om een betere visualisatie te zien van de data ui
 
 ```{r Data eigen onderzoek en literatuuronderzoek vergelijken d.m.v. histogram}
 
-#Data uit literatuuronderzoek en data uit eigen onderzoek vergelijken
+# Data uit literatuuronderzoek en data uit eigen onderzoek vergelijken
 library(ggplot2)
 
-#Data literatuuronderzoek
+# Data literatuuronderzoek
 l_percentage_blauw <- 60.90
 l_percentage_bruin <- 21.70
 l_percentage_groen <- 11.40
@@ -411,3 +411,43 @@ De p-waarde uit de chi square test is p=1,837e-13 (met een α van 0.05) en is du
 
 **Discussie:**
 Bij beide onderzoeken is de oogkleur "groen" bijna in gelijke mate waargenomen. Bij de oogkleuren "blauw" en "bruin" is er wel enig verschil in het waargenomen percentage. Bij de oogkleur "bruin" is dit echter verschil groter. Dit zou eventueel kunnen komen, omdat de steekproefomvang bij het literatuuronderzoek groter was dan het eigen onderzoek. Het is niet duidelijk hoe groot deze steekproefomvang was, maar het was aanzienlijk meer dan het eigen onderzoek. 
+
+
+## 09-06-2023 1:00 - 2:00 - 2193 (Kasthury Inparajah)
+Na overleg met de docent is er een kruistabel gemaakt om een beter overzicht van de data te krijgen. 
+
+```{r Kruistabel}
+
+library(knitr)
+
+# Vector maken voor data uit literatuuronderzoek
+oogkleur_literatuur <- c("Blauw", "Bruin", "Groen")
+percentage_literatuur <- c("60.1%", "21.7%", "11.4%")
+
+# Vectoren samenvoegen om een dataframe voor het literatuuronderzoek te maken
+df_literatuuronderzoek <- data.frame(Oogkleur = oogkleur_literatuur, Percentage = percentage_literatuur)
+
+# Vector maken voor data uit eigenonderzoek
+oogkleur_eigenonderzoek <- c("Blauw", "Bruin", "Groen")
+percentage_eigenonderzoek <- c("52.5%", "34.17%", "8.33%")
+
+# Vectoren samenvoegen om een dataframe voor het eigenonderzoek te maken
+df_eigenonderzoek <- data.frame(Oogkleur = oogkleur_eigenonderzoek, Percentage = percentage_eigenonderzoek)
+
+# Kolom voor de de soorten onderzoek toevoegen
+df_literatuuronderzoek$Onderzoek <- "Literatuuronderzoek"
+df_eigenonderzoek$Onderzoek <- "Eigenonderzoek"
+
+# De dataframes samenvoegen
+df_combine <- rbind(df_literatuuronderzoek, df_eigenonderzoek)
+
+# Dataframe reshapen zodat er een kruistabel gemaakt kan worden
+kruistabel <- reshape(df_combine, idvar = "Onderzoek", timevar = "Oogkleur", direction = "wide")
+
+# Rijen namen geven
+rownames(kruistabel) <- kruistabel$Onderzoek
+kruistabel$Onderzoek <- NULL
+
+# Weergeef kruistabel
+kable(kruistabel, caption = "Oogkleur percentages in het literatuuronderzoek en het eigenonderzoek")
+```
