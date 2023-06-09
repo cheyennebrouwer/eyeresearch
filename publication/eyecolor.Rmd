@@ -102,7 +102,10 @@ analist per oogkleur en een aantal percentages die hieruit gehaald
 kunnen worden en de p-waarde resulterend van een tweezijdige chi-square
 test. Dan word er het verschil met Nederland behandeld voor extra
 controle op de significantie van deze data en als een extra vergelijking
-hoe de Hanzehogeschool opweegt tegen het gemidde
+hoe de Hanzehogeschool opweegt tegen het gemiddelde van de Nederlandse
+bevolking. Vervolgens worden de locatie factoren aan het licht gebracht,
+de sexe verdeling per locatie en tenslotte de sexe verdeling over het
+algemeen. Allemaal tegen op de oogkleur.
 
 ```{r laad-in-meetfout-data}
 file_path = "../analyse/data/Oogkleur_simpel2.csv"
@@ -150,7 +153,7 @@ eye_df_analist_eyecolor <- eye_df_analist_eyecolor %>%
 
 ## Verschil tussen analisten
 
-```{r analist-oogkleur-chi-square, fig.cap='De geobserveerde aantal oogkleuren links+rechts per analist.'}
+```{r analist-oogkleur-chi-square, fig.cap='De geobserveerde aantal oogkleuren per analist. Links en rechts gecombineerd. '}
 eye_df_analist_eyecolor_chisq <- chisq.test(
   eye_df_analist_eyecolor$analist, 
   eye_df_analist_eyecolor$oogkleur
