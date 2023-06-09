@@ -95,17 +95,14 @@ eerst ook de data waar geen meerderheid is als "undefined" neergezet.
 
 # Resultaten
 
-van mij
-
-Content:
-
-\- verschil tussen analisten
-
-\- verschil met populatie in Nederland
-
-\- verschil tussen locaties
-
-\- verschil met mannen en vrouwen
+Om er achter te komen welk oogkleur de Hanzehogeschool groningen aanleg
+voor heeft zijn er word er eerst gekeken of er een significante meetfout
+is gevormd. Dit is met behulp van een tabel met het aantal opnamen per
+analist per oogkleur en een aantal percentages die hieruit gehaald
+kunnen worden en de p-waarde resulterend van een tweezijdige chi-square
+test. Dan word er het verschil met Nederland behandeld voor extra
+controle op de significantie van deze data en als een extra vergelijking
+hoe de Hanzehogeschool opweegt tegen het gemidde
 
 ```{r laad-in-meetfout-data}
 file_path = "../analyse/data/Oogkleur_simpel2.csv"

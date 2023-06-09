@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.5)  7 JUN 2023 18:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.5)  9 JUN 2023 12:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -551,7 +551,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.249 ...de analisten samen(p-waarde = 0,07672, α
-                                                  \{FEM\} = ,05). Tussen de 
+                                                   = ,05). Tussen de 
 Here is how much of TeX's memory you used:
  12495 strings out of 477997
  199634 string characters out of 5837386
