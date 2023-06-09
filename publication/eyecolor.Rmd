@@ -178,20 +178,20 @@ knitr::kable(grouped_data[, -6], longtable = TRUE, caption = "De geobserveerde a
 
 Hier is te zien een tabel met het totale aantal metingen per oogkleur
 per analist. Hieruit blijkt er geen significant verschil te zijn tussen
-alle de analisten samen(p-waarde = 0,07672, α{FEM} = ,05). Tussen de
+alle de analisten samen(p-waarde = 0,07672, α = ,05). Tussen de
 analisten 9308 en 8705 was wel een significant verschil (p-waarde =
-0,03118, α{FEM} = ,05). Dit zie je ook aan de flinke verschillen tussen
-de analisten bij de oogkeuren hazel(\~33,3% verschil) en groen(\~44,6%).
+0,03118, α = ,05). Dit zie je ook aan de flinke verschillen tussen de
+analisten bij de oogkeuren hazel(\~33,3% verschil) en groen(\~44,6%).
 Oogkleur groen had ook het grootste verschil tussen de laagste aantal
 metingen en hoogste metingen: 52,6% verschil. Groen was ook met 9 de
 oogkleur met de grootste deviatie. Daarnaast is te zien aan de tabel dat
 de twee analisten 5609 en 8705 en de twee analisten 9308 en 2193 beide
 groepen vormen, aangezien ze dicht bij elkaar liggen. Hierop is nog een
-`chi-square` test op los gelaten. Hier is de p-waarde 0,008905(α{FEM} =
-,05). Dus is er een redelijk flink significant verschil tussen de
-bovenste twee en onderste twee analisten. Uit dit alles blijkt er geen
-ernstige meetfout te zitten en kan er een vergelijking worden gedaan met
-de bestaande gegevens over heel Nederland om te kijken of er een
+`chi-square` test op los gelaten. Hier is de p-waarde 0,008905(α = ,05).
+Dus is er een redelijk flink significant verschil tussen de bovenste
+twee en onderste twee analisten. Uit dit alles blijkt er geen ernstige
+meetfout te zitten en kan er een vergelijking worden gedaan met de
+bestaande gegevens over heel Nederland om te kijken of er een
 systematische meetfout is of er een verschil zit tussen Nederland breed
 en de locaties die hier zijn onderzocht.
 
@@ -308,9 +308,10 @@ onderzoek heeft meerdere datasets, waaruit 3 percentages zijn gehaald
 voor vergelijking met dit onderzoek. De blauw(60.9%) was hieruit de
 meest voorkomende volgens de literatuur meer dan dit onderzoek
 suggereert. Bruin is Nederland breed minder prevalant dan bij dit
-onderzoek en bij groen is dit andersom. Om antwoord te krijgen op de of
-de hanze aanleg heeft voor een bepaalde oogkleur zijn ook nog de
-locaties vergeleken.
+onderzoek en bij groen is dit andersom. De chi-square p-waarde tussen de
+percentages van Nederlandbreed en onze locaties is 1.837e-13 (α = .05).
+Om antwoord te krijgen of de hanze aanleg heeft voor een bepaalde
+oogkleur zijn ook nog de locaties vergeleken.
 
 ## Verschil tussen locaties
 
@@ -465,7 +466,7 @@ ggplot(data = Zwolle_gender,
 
 Het verschil tussen verschillende locaties is geen significant verschil
 (p-waarde = 0.08554, α = 0,05). Het verschil tussen de bruine en blauwe
-oogkleur ziet er wel significant uit.
+oogkleur in Groningen ziet er wel significant uit.
 
 ## Verschil tussen mannen en vrouwen
 
