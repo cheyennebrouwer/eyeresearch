@@ -90,22 +90,33 @@ chi-square test en nog andere statistische waarden gebruikt. Hierbij is
 de locatie in groepjes gezet op basis van subject id en opgezet tegen de
 oogkleur. En de sexe ook opgezet tegen de oogkleur. Als analyse voor de
 vergelijking van de percentages van de gemeten kleuren zijn de deze
-uitgerekend en vergeleken met die van de literatuur. Bij deze analyse is
-eerst ook de data waar geen meerderheid is als "undefined" neergezet.
+uitgerekend en vergeleken met die van de literatuur. Voor de verschillen
+tussen twee metingen te zien in tabellen en grafieken is het laagste
+meting gedeeld door het hoogste meting en maal 100.
 
 # Resultaten
 
 Om er achter te komen welk oogkleur de Hanzehogeschool groningen aanleg
-voor heeft zijn er word er eerst gekeken of er een significante meetfout
-is gevormd. Dit is met behulp van een tabel met het aantal opnamen per
+voor heeft is er eerst gekeken of er een significante meetfout is
+gevormd. Dit is met behulp van een tabel met het aantal opnamen per
 analist per oogkleur en een aantal percentages die hieruit gehaald
 kunnen worden en de p-waarde resulterend van een tweezijdige chi-square
-test. Dan word er het verschil met Nederland behandeld voor extra
-controle op de significantie van deze data en als een extra vergelijking
-hoe de Hanzehogeschool opweegt tegen het gemiddelde van de Nederlandse
-bevolking. Vervolgens worden de locatie factoren aan het licht gebracht,
-de sexe verdeling per locatie en tenslotte de sexe verdeling over het
-algemeen. Allemaal tegen op de oogkleur.
+test. Zo kunnen kan er worden gekeken welke analisten de grootste
+verschillen in het aantal opnamen en of het verschil significant is en
+dus basis kan vormen voor advies hoe de betrouwbaar data van dit
+onderzoek is. Dan word ook het verschil met Nederland breed behandeld
+voor extra controle op de significantie van deze onderzoeksdata en als
+een extra vergelijking hoe de Hanzehogeschool opweegt tegen het
+gemiddelde van de Nederlandse bevolking. Vervolgens worden de locatie
+factoren aan het licht gebracht, de sexe verdeling per locatie en
+tenslotte de sexe verdeling over het algemeen. Om zo de vragen of de
+Hanze een aanleg heeft voor een bepaalde oogkleur en of er een sexe
+verschil bestaat. De vergelijking met de oogkleur tellingen met de
+literatuur, de locatie en sexe factoren gebruikten data door meerderheid
+van de analisten bepaald. Bij een "Nd."-waarde was er geen sprake van
+een meerderheid onder de analisten. Ook word bij deze statistiek
+gesproken over de rechter oogkleur over de linker, omdat er geen
+verschil is gevonden tussen deze twee.
 
 ```{r laad-in-meetfout-data}
 file_path = "../analyse/data/Oogkleur_simpel2.csv"
@@ -153,13 +164,15 @@ eye_df_analist_eyecolor <- eye_df_analist_eyecolor %>%
 
 ## Verschil tussen analisten
 
-```{r analist-oogkleur-chi-square, fig.cap='De geobserveerde aantal oogkleuren per analist. Links en rechts gecombineerd. '}
+```{r analist-oogkleur-chi-square, fig.cap='Het geobserveerde aantal oogkleuren per analist. Linker en rechter oogkleuren zijn gecombineerd voor overzicht. De analisten zijn tegen elkaar gezet om de aantallen te vergelijken.'}
 eye_df_analist_eyecolor_chisq <- chisq.test(
   eye_df_analist_eyecolor$analist, 
   eye_df_analist_eyecolor$oogkleur
 )
 knitr::kable(eye_df_analist_eyecolor_chisq$observed, longtable = TRUE, caption = "De geobserveerde aantal oogkleuren links+rechts per analist.")
+```
 
+```{r eye-color-analist-group, fig.cap='Het geobserveerde aantal oogkleuren per group analisten. Linker en rechter oogkleuren zijn gecombineerd voor overzicht. Analisten 9308 met 2193 zijn een groep zo ook 5609 met 8705. De twee groepen zijn tegen elkaar gezet wegens de zichtbare overeenkomst tussen de leden van de groep en verschil tussen de twee groepen.'}
 eye_tbl_analist_eyecolor <- table(eye_df_analist_eyecolor)
 eye_tbl_analist_eyecolor <- as.data.frame.matrix(eye_tbl_analist_eyecolor)
 # Create a grouping variable based on analisten
@@ -176,10 +189,10 @@ colnames(grouped_data) <- c("groep", "blauw", "groen", "bruin", "hazel", "groep"
 knitr::kable(grouped_data[, -6], longtable = TRUE, caption = "De geobserveerde aantal oogkleuren links+rechts per analist groep.")
 ```
 
-Hier is te zien een tabel met het totale aantal metingen per oogkleur
-per analist. Hieruit blijkt er geen significant verschil te zijn tussen
-alle de analisten samen(p-waarde = 0,07672, α = ,05). Tussen de
-analisten 9308 en 8705 was wel een significant verschil (p-waarde =
+Hier te zien zijn twee tabellen met het totale aantal metingen per
+oogkleur per analist. Hieruit blijkt er geen significant verschil te
+zijn tussen alle de analisten samen(p-waarde = 0,07672, α = ,05). Tussen
+de analisten 9308 en 8705 was wel een significant verschil (p-waarde =
 0,03118, α = ,05). Dit zie je ook aan de flinke verschillen tussen de
 analisten bij de oogkeuren hazel(\~33,3% verschil) en groen(\~44,6%).
 Oogkleur groen had ook het grootste verschil tussen de laagste aantal
@@ -225,7 +238,7 @@ Oogkleur_simpel$Definitieve_oogkleur <- apply(Oogkleur_simpel[, grepl("^L_|^R_",
 })
 ```
 
-```{r plot-data-literatuur-verg, fig.cap='Oogkleuren tegenover frequenties. Het totaal aantal waarnemingen van het rechteroogkleur. De door meerderheid waargenomen kleur onder analisten. NA als er geen meerderheid was.'}
+```{r plot-data-literatuur-verg, fig.cap='Barplot van totaal geobserveerde(frequentie) aantal per oogkleur over alle meerderheid gekozen oogkleuren.'}
 #Plot een histogram om de waarnemingen van de oogkleuren te visualiseren 
 
 #Kolom wordt een factor
@@ -253,7 +266,7 @@ uitmaakt, gevolgd door bruin(34,16667 %) en groen(8,333333 %). Zonder
 NA-waarden komt dat neer op de verhoudingen blauw, bruin, groen (55,26%,
 35,96% en 8,77%).
 
-```{r plot-litr_data-data-literatuur-verg, fig.cap='Oogkleur tegen percentages voor data uit literatuur en dit onderzoek. Meerderheid waargenomen door analisten van het rechter oogkleur. Oogkleur percentages uit fsigenetics - "True colors: A literature review on the spatial distribution of eye and hair pigmentation" via researchgate'}
+```{r plot-litr_data-data-literatuur-verg, fig.cap='Barplot met oogkleur in percentage voorkomst en oogkleur percentage uit data uit de literatuur. Meerderheid waargenomen door analisten van het rechter oogkleur. Oogkleur percentages van de literatuur gevonden op fsigenetics - "True colors: A literature review on the spatial distribution of eye and hair pigmentation" via researchgate'}
 # Totaal aantal waarnemingen berekenen
 totaal_waarnemingen <- nrow(Oogkleur_simpel)
 
@@ -407,7 +420,7 @@ Zwolle_gender <- Zwolle_amount %>%
   arrange(results, geslacht, desc(count))
 ```
 
-```{r, hanze-pie-chart, fig.cap='Taart grafiek die de verdeling van de oogkleur op de Hanze Hogeschool Groningen weergeeft.', out.width="33%"}
+```{r, hanze-pie-chart, fig.cap='Drie taart grafieken die de tellingen tussen de oogkleuren per locatie vergelijken.', out.width="33%"}
 ggplot(data = Hanze, 
        aes(x = "", y = count, fill = results)) +
   geom_col(color = "black") +
@@ -443,7 +456,7 @@ toeval zijn. In Zwolle zijn veel meer groene oogkleuren gevonden dan op
 de Hanze in Groningen. Tenslotte zijn in Groningen naast blauw ook de
 meeste hazel kleurige ogen gevonden. Viermaal zoveel dan in Zwolle.
 
-```{r, hanze-gender-pie-chart, fig.cap='Sexe verschil tussen locaties Hanzehogeschool Groningen, centrum Groningen en centrum Zwolle.', eval=FALSE, out.width="33%"}
+```{r, hanze-gender-pie-chart, fig.cap='Drie barplots met aantallen per oogkleur per locatie, onder drie gemeten locaties. Verdeeld onder sexe.', eval=FALSE, out.width="33%"}
 
 ggplot(data = Hanze_gender,
        mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
@@ -479,7 +492,7 @@ male_female <- eye_colors2 %>%
   arrange(geslacht, desc(count))
 ```
 
-```{r sexe-oogkleur-barplot, fig.cap='Aantallen per oogkleur en geslacht: In deze barplot is per geslacht weergegeven hoe vaak een oogkleur is gemeten'}
+```{r sexe-oogkleur-barplot, fig.cap='Barplot aantal oogkleuren per geslacht alle locaties samen. Verdeeld onder sexe.'}
 ggplot(data = male_female,
        mapping = aes(x = results, y = count, fill = geslacht)) + 
   geom_bar(stat = "identity", position = position_dodge()) +
@@ -491,8 +504,8 @@ ggplot(data = male_female,
 ```
 
 Bij de kleuren bruin en hazel is er geen significant verschil tussen
-mannen en vrouwen(bij α = 0.05). Als α word verhoogt naar 0.1, zou er
-bij hazel wel een significant verschil zijn. Maar dit kan niet worden
+mannen en vrouwen(bij α = 0.05). Daarnaast zijn er geen andere grote
+verschillen tussen sexe en de oogkleuren. Maar dit kan niet worden
 meegenomen voor dit onderzoek.
 
 # Discussie en Conclusies

@@ -96,6 +96,7 @@
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{float}
+\usepackage[utf8]{inputenc}
 \let\origfigure\figure
 \let\endorigfigure\endfigure
 \renewenvironment{figure}[1][2] {
@@ -189,23 +190,34 @@ chi-square test en nog andere statistische waarden gebruikt. Hierbij is
 de locatie in groepjes gezet op basis van subject id en opgezet tegen de
 oogkleur. En de sexe ook opgezet tegen de oogkleur. Als analyse voor de
 vergelijking van de percentages van de gemeten kleuren zijn de deze
-uitgerekend en vergeleken met die van de literatuur. Bij deze analyse is
-eerst ook de data waar geen meerderheid is als ``undefined'' neergezet.
+uitgerekend en vergeleken met die van de literatuur. Voor de verschillen
+tussen twee metingen te zien in tabellen en grafieken is het laagste
+meting gedeeld door het hoogste meting en maal 100.
 
 \hypertarget{resultaten}{%
 \section{Resultaten}\label{resultaten}}
 
-van mij
-
-Content:
-
-- verschil tussen analisten
-
-- verschil met populatie in Nederland
-
-- verschil tussen locaties
-
-- verschil met mannen en vrouwen
+Om er achter te komen welk oogkleur de Hanzehogeschool groningen aanleg
+voor heeft is er eerst gekeken of er een significante meetfout is
+gevormd. Dit is met behulp van een tabel met het aantal opnamen per
+analist per oogkleur en een aantal percentages die hieruit gehaald
+kunnen worden en de p-waarde resulterend van een tweezijdige chi-square
+test. Zo kunnen kan er worden gekeken welke analisten de grootste
+verschillen in het aantal opnamen en of het verschil significant is en
+dus basis kan vormen voor advies hoe de betrouwbaar data van dit
+onderzoek is. Dan word ook het verschil met Nederland breed behandeld
+voor extra controle op de significantie van deze onderzoeksdata en als
+een extra vergelijking hoe de Hanzehogeschool opweegt tegen het
+gemiddelde van de Nederlandse bevolking. Vervolgens worden de locatie
+factoren aan het licht gebracht, de sexe verdeling per locatie en
+tenslotte de sexe verdeling over het algemeen. Om zo de vragen of de
+Hanze een aanleg heeft voor een bepaalde oogkleur en of er een sexe
+verschil bestaat. De vergelijking met de oogkleur tellingen met de
+literatuur, de locatie en sexe factoren gebruikten data door meerderheid
+van de analisten bepaald. Bij een ``Nd.''-waarde was er geen sprake van
+een meerderheid onder de analisten. Ook word bij deze statistiek
+gesproken over de rechter oogkleur over de linker, omdat er geen
+verschil is gevonden tussen deze twee.
 
 \hypertarget{verschil-tussen-analisten}{%
 \subsection{Verschil tussen analisten}\label{verschil-tussen-analisten}}
@@ -234,7 +246,7 @@ Content:
 \end{verbatim}
 
 \begin{longtable}[t]{l|r|r|r|r}
-\caption{\label{tab:analist-oogkleur-chi-square}De geobserveerde aantal oogkleuren links+rechts per analist groep.}\\
+\caption{\label{tab:eye-color-analist-group}De geobserveerde aantal oogkleuren links+rechts per analist groep.}\\
 \hline
 groep & blauw & groen & bruin & hazel\\
 \hline
@@ -244,10 +256,10 @@ groep & blauw & groen & bruin & hazel\\
 \hline
 \end{longtable}
 
-Hier is te zien een tabel met het totale aantal metingen per oogkleur
-per analist. Hieruit blijkt er geen significant verschil te zijn tussen
-alle de analisten samen(p-waarde = 0,07672, α = ,05). Tussen de
-analisten 9308 en 8705 was wel een significant verschil (p-waarde =
+Hier te zien zijn twee tabellen met het totale aantal metingen per
+oogkleur per analist. Hieruit blijkt er geen significant verschil te
+zijn tussen alle de analisten samen(p-waarde = 0,07672, α = ,05). Tussen
+de analisten 9308 en 8705 was wel een significant verschil (p-waarde =
 0,03118, α = ,05). Dit zie je ook aan de flinke verschillen tussen de
 analisten bij de oogkeuren hazel(\textasciitilde33,3\% verschil) en groen(\textasciitilde44,6\%).
 Oogkleur groen had ook het grootste verschil tussen de laagste aantal
@@ -267,7 +279,7 @@ en de locaties die hier zijn onderzocht.
 \subsection{Verschil met populatie Nederland}\label{verschil-met-populatie-nederland}}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{eyecolor_files/figure-latex/plot-data-literatuur-verg-1} \caption{Oogkleuren tegenover frequenties. Het totaal aantal waarnemingen van het rechteroogkleur. De door meerderheid waargenomen kleur onder analisten. NA als er geen meerderheid was.}\label{fig:plot-data-literatuur-verg}
+\includegraphics[width=1\linewidth]{eyecolor_files/figure-latex/plot-data-literatuur-verg-1} \caption{Barplot van totaal geobserveerde(frequentie) aantal per oogkleur over alle meerderheid gekozen oogkleuren.}\label{fig:plot-data-literatuur-verg}
 \end{figure}
 
 Hier is te zien hoe blauw(52,5 \%) een meerder deel van de metingen
@@ -276,7 +288,7 @@ NA-waarden komt dat neer op de verhoudingen blauw, bruin, groen (55,26\%,
 35,96\% en 8,77\%).
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{eyecolor_files/figure-latex/plot-litr_data-data-literatuur-verg-1} \caption{Oogkleur tegen percentages voor data uit literatuur en dit onderzoek. Meerderheid waargenomen door analisten van het rechter oogkleur. Oogkleur percentages uit fsigenetics - "True colors: A literature review on the spatial distribution of eye and hair pigmentation" via researchgate}(\#fig:plot-litr_data-data-literatuur-verg)
+\includegraphics[width=1\linewidth]{eyecolor_files/figure-latex/plot-litr_data-data-literatuur-verg-1} \caption{Barplot met oogkleur in percentage voorkomst en oogkleur percentage uit data uit de literatuur. Meerderheid waargenomen door analisten van het rechter oogkleur. Oogkleur percentages van de literatuur gevonden op fsigenetics - "True colors: A literature review on the spatial distribution of eye and hair pigmentation" via researchgate}(\#fig:plot-litr_data-data-literatuur-verg)
 \end{figure}
 
 In de barplot hierboven staat data uit een paper die informatie over de
@@ -296,13 +308,13 @@ oogkleur zijn ook nog de locaties vergeleken.
 \subsection{Verschil tussen locaties}\label{verschil-tussen-locaties}}
 
 \begin{figure}
-\includegraphics[width=0.33\linewidth]{eyecolor_files/figure-latex/hanze-pie-chart-1} \caption{Taart grafiek die de verdeling van de oogkleur op de Hanze Hogeschool Groningen weergeeft.}\label{fig:hanze-pie-chart-1}
+\includegraphics[width=0.33\linewidth]{eyecolor_files/figure-latex/hanze-pie-chart-1} \caption{Drie taart grafieken die de tellingen tussen de oogkleuren per locatie vergelijken.}\label{fig:hanze-pie-chart-1}
 \end{figure}
 \begin{figure}
-\includegraphics[width=0.33\linewidth]{eyecolor_files/figure-latex/hanze-pie-chart-2} \caption{Taart grafiek die de verdeling van de oogkleur op de Hanze Hogeschool Groningen weergeeft.}\label{fig:hanze-pie-chart-2}
+\includegraphics[width=0.33\linewidth]{eyecolor_files/figure-latex/hanze-pie-chart-2} \caption{Drie taart grafieken die de tellingen tussen de oogkleuren per locatie vergelijken.}\label{fig:hanze-pie-chart-2}
 \end{figure}
 \begin{figure}
-\includegraphics[width=0.33\linewidth]{eyecolor_files/figure-latex/hanze-pie-chart-3} \caption{Taart grafiek die de verdeling van de oogkleur op de Hanze Hogeschool Groningen weergeeft.}\label{fig:hanze-pie-chart-3}
+\includegraphics[width=0.33\linewidth]{eyecolor_files/figure-latex/hanze-pie-chart-3} \caption{Drie taart grafieken die de tellingen tussen de oogkleuren per locatie vergelijken.}\label{fig:hanze-pie-chart-3}
 \end{figure}
 
 Qua locaties heeft de hanze 5-10\% meer mensen met blauwe ogen dan de
@@ -320,12 +332,12 @@ oogkleur in Groningen ziet er wel significant uit.
 \subsection{Verschil tussen mannen en vrouwen}\label{verschil-tussen-mannen-en-vrouwen}}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{eyecolor_files/figure-latex/sexe-oogkleur-barplot-1} \caption{Aantallen per oogkleur en geslacht: In deze barplot is per geslacht weergegeven hoe vaak een oogkleur is gemeten}\label{fig:sexe-oogkleur-barplot}
+\includegraphics[width=1\linewidth]{eyecolor_files/figure-latex/sexe-oogkleur-barplot-1} \caption{Barplot aantal oogkleuren per geslacht alle locaties samen. Verdeeld onder sexe.}\label{fig:sexe-oogkleur-barplot}
 \end{figure}
 
 Bij de kleuren bruin en hazel is er geen significant verschil tussen
-mannen en vrouwen(bij α = 0.05). Als α word verhoogt naar 0.1, zou er
-bij hazel wel een significant verschil zijn. Maar dit kan niet worden
+mannen en vrouwen(bij α = 0.05). Daarnaast zijn er geen andere grote
+verschillen tussen sexe en de oogkleuren. Maar dit kan niet worden
 meegenomen voor dit onderzoek.
 
 \hypertarget{discussie-en-conclusies}{%

@@ -174,7 +174,7 @@ Er is een opgestapelde barplot gemaakt met alle oogkleuren per analist tegen het
 ```{r analist-distro-byeyecolor}
 ggplot(eye_df, aes(x = analist, fill = oogkleur)) + 
   geom_bar(width = .6) +
-  scale_fill_manual("Oogkleur", values = c("blue", "green", "brown", "#B85F2F")) + 
+  scale_fill_manual("Oogkleur", values = c("dodgerblue", "yellowgreen", "sienna", "#B85F2F")) + 
   ylab("Opnames") +
   xlab("Analist") +
   ggtitle("Aantal opgenomen oogkleuren per analist.")
