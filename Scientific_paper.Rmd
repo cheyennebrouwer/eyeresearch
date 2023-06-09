@@ -1,0 +1,124 @@
+---
+title: Oogkleurprevalentie onder studenten van de Hanzehogeschool Groningen: Een verkennend onderzoek naar genetische variatie
+
+author: |
+  |  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever $^1$, Kasthury Inparajah$^1$
+  | $^1$Hanzehogeschool Groningen
+
+lang: nl
+
+abstract: |
+
+
+bibliography: Scientific paper.bib # naam van je .bib file. Deze moet hetzelfde zijn als je Rmd bestandsnaam
+
+output:
+  bookdown::pdf_document2:
+    keep_tex: false    # set this to true if you want to investigate the generated #tex
+    toc: true         # table of contents
+    fig_caption: true  # includes figure captions with numbering in output
+    includes:  
+        in_header: include_tex_header.tex #will include rules for linespacing and #figure floating
+
+---
+
+# Introductie
+
+Eerder geplubiceerde literatuuronderzoeken hebben al onderzoek gedaan naar de oogkleurverdeling in Nederland, maar van de oogkleurverdeling op de Hanzehogeschool Groningen was er nog geen onderzoek naar gedaan. 
+
+Voor dit onderzoek is er een kaart gemaakt met een overzicht van oogkleuren om de oogkleuren van de proefpersonen te bepalen (oogkleurreferentiekaart!). 
+
+
+
+
+# Materialen en Methoden
+
+
+# Resultaten
+
+
+# Discussie en Conclusies
+
+**Conclusie** 
+
+Uit de resultaten is het volgende uit te concluderen:
+
+* Bij deelvraag 1: “Is er een aantoonbaar verschil in oogkleur tussen mannen en vrouwen?” kan H0: “Er is geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen” worden aangenomen en H1: “Er is een aantoonbaar verschil in oogkleur tussen mannen en vrouwen” worden verworpen.
+De p-waarde uit de chi square test laat waarde van p=0,08 zien en deze waarde is boven de α van 0,05. De p-waarde uit deze chi square is dus niet significant. Er is dus geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen. 
+
+* Bij deelvraag 2: “Is er een aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is?” kan H0: “Er is geen aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is” worden aangenomen  en H1: “Er is een aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is” worden verworpen. Aan de p-waarde van 0,08 uit de chi square test is zichtbaar dat er geen significant verschil is tussen de oogkleuren per locatie.
+
+* Bij deelvraag 3: “Komen de gegevens overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders?” kan H0: “De gegevens komen niet overeen met de bekende literatuur gegevens voor populatie oogkleur bij Nederlanders” worden verworpen en H1: “De gegevens komen overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders” worden aangenomen.
+De p-waarde uit de chi square test (p=1,837e-13) laat zien dat er een significant verband zit tussen de data uit het literatuuronderzoek en eigen onderzoek. De gegevens komen dus wel overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders. 
+
+* Bij deelvraag 4: “Is er een meetfout ontstaan door metingen met verschillende analisten?” kunnen H0: “Er is geen meetfout ontstaan door metingen met verschillende analisten” & H1: “Er is een meetfout ontstaan door metingen met verschillende analisten” deels worden aangenomen.
+De p-waarde van de Pearson’s Chi square test is p=0,07672 (met α = 0,05) en er lijkt dus geen significant verschil tussen de analisten te zijn, maar bij een chi square test tussen analist 9308 & 8705 lijkt er tussen deze twee analisten toch een significant verschil te zijn. De p-waarde is bij deze test p=0,03118 (met α = 0,05). Over het algemeen is zijn er dus overeenkomsten tussen de analisten, maar er is zijn nog meetfouten aanwezig die vermindert kunnen worden. 
+
+**Discussie**
+
+Aan de hand van de conclusie zijn een paar discussie punten waar extra aandacht aan besteed moet worden:
+
+* Bij het beantwoorden van deelvraag 1: “Is er een aantoonbaar verschil in oogkleur tussen mannen en vrouwen?” is uit het kruistabel een p-waarde van 0,57 uitgekomen. Deze waarde zit ver boven de α van 0,05 dus is er geen significant verschil in de oogkleuren tussen mannen en vrouwen. Echter, bij de kleur “bruin” lijkt er wel een verschil te zitten, maar dit verschil is niet groot genoeg om het een significant verschil te noemen. 
+
+* Voor het onderzoek zijn er op 3 verschillende locaties (waarbij bij elke locatie 40 personen meededen aan het onderzoek) oogkleuren gemeten. De verdeling in sexe was hierbij exact 50/50 (60 mannen en 60 vrouwen). Op alle locaties is er een ‘dominantie’ voor de oogkleur “blauw” te zien, behalve op de locatie: Zwolle. 
+In Zwolle waren er in verhouding met de andere locaties, een stuk meer personen  met groene ogen. Ook was Zwolle een uitzondering op de hoeveelheden bruin- en hazelkleurige ogen. Op de 2 andere locaties (Hanzehogeschool en Groningen stad) lagen deze hoeveelheden hoger. Aan de p-waarde is echter zichtbaar dat er geen significant verschil is tussen de oogkleuren per locatie. 
+
+* Uit de data van beide onderzoeken is de oogkleur “groen” bijna in gelijke mate waargenomen. Maar bij de oogkleuren “blauw” en “bruin” is er wel enig verschil in het waargenomen percentage. Bij de oogkleur “bruin” lijkt dit verschil zelfs groter te zijn.
+Een mogelijke reden zou kunnen zijn dat bij het literatuuronderzoek veel meer personen meededen aan het onderzoek dan bij het eigen onderzoek. Het is niet duidelijk hoe groot deze steekproefomvang was, maar het was aanzienlijk meer dan het eigen onderzoek.
+
+* Uit de Pearson’s chi square test blijkt er geen significant verschil te zijn tussen de analisten, maar uit de gegevens van de tabel met het aantal detecties van de oogkleuren onder de analisten lijkt er toch een redelijk groot verschil tussen analist 9308 en 8705 te zitten. Een chi square test tussen deze twee analisten laat dan ook een significant verschil zien (p = 0.03118, α = 0,05).
+
+# Online bijlagen
+
+**README**
+
+* https://github.com/cheyennebrouwer/eyeresearch/blob/main/README.md  
+
+
+**Protocol**
+
+* https://github.com/cheyennebrouwer/eyeresearch/blob/main/protocol/protocol_oogkleur.Rmd 
+
+
+**Materialen**
+
+* Oogkleurreferentiekaart: https://github.com/cheyennebrouwer/eyeresearch/blob/main/protocol/oogkleur_refferenties.png 
+
+
+**Ruwe data eigen onderzoek**
+
+* Oogkleur_simpel2: https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/data/Oogkleur_simpel2.csv 
+
+* Oogkleur definitief (met _OK…): https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/data/Oogkleur_simpel_definitief.csv 
+
+* Oogkleur definitief (zonder _OK…): https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/data/Oogkleur_simpel.csv 
+
+* Oogkleur data uitgebreid: https://github.com/cheyennebrouwer/eyeresearch/blob/main/ruwe_data/Oogkleur_uitgebreid.xlsx
+
+
+**Achtergrondinformatie oogkleuren**
+
+* https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/Achtergrondinformatie_oogkleur.Rmd  
+
+
+**Literatuuronderzoek**
+
+* https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/True_colors_A_literature_review_on_the_spatial_dis.pdf 
+
+
+**Logboeken**
+
+* https://github.com/cheyennebrouwer/eyeresearch/tree/main/logs 
+
+
+## Wordcount
+
+#Voeg aan het eind een woord-telling in:
+
+```{r wordcount, message=True}
+wordcountaddin:::text_stats()
+```
+
+# Referenties
+
+Een lijst van referenties wordt hier automagisch toegevoegd.
