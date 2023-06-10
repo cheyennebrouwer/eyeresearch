@@ -313,20 +313,20 @@ plot_data <- ggplot(data = combinatie_data, aes(x = Oogkleur, y = Percentage, fi
 print(plot_data)
 ```
 
-In de barplot hierboven staat data uit een paper die informatie over de
-verdeling van de oog- en haarkleur heeft verzamelen over populaties en
-deze data als een blue-print te gebruiken om de nauwkeurigheid van
-voorspellingen op basis van DNA te verbeteren.[@Katsara2019tc] Dit
-onderzoek heeft meerdere datasets, waaruit 3 percentages zijn gehaald
-voor vergelijking met dit onderzoek. Deze percentages geven de
-prevalentie van de 3 oogkleuren aan in Nederland breed. De kleur
-blauw(60.9%) was hieruit de meest voorkomende oogkleur volgens de
-literatuur meer dan dit onderzoek suggereert. Bruin is Nederland breed
-minder prevalant dan bij dit onderzoek en bij de kleur groen is dat
-andersom. De chi-square p-waarde tussen de percentages van Nederland
-breed en onze locaties is 1.837e-13 (α = .05). Om antwoord te krijgen of
-de hanze aanleg heeft voor een bepaalde oogkleur zijn ook nog de
-locaties vergeleken.
+In de barplot hierboven staat data van dit onderzoek en uit een paper
+die informatie over de verdeling van de oog- en haarkleur heeft
+verzamelen over populaties en deze data als een blue-print te gebruiken
+om de nauwkeurigheid van voorspellingen op basis van DNA te
+verbeteren.[@Katsara2019tc] Dit onderzoek heeft meerdere datasets,
+waaruit 3 percentages zijn gehaald voor vergelijking met dit onderzoek.
+Deze percentages geven de prevalentie van de 3 oogkleuren aan in
+Nederland breed. De kleur blauw(60.9%) was hieruit de meest voorkomende
+oogkleur volgens de literatuur; meer dan dit onderzoek suggereert. Bruin
+is Nederland breed minder prevalant dan bij dit onderzoek en bij de
+kleur groen is dat andersom. De chi-square p-waarde tussen de
+percentages van Nederland breed en onze locaties is 1.837e-13 (α = .05).
+Om antwoord te krijgen of de hanze aanleg heeft voor een bepaalde
+oogkleur zijn ook nog de locaties vergeleken.
 
 ## Verschil tussen locaties
 
@@ -454,7 +454,7 @@ ggplot(data = Zwolle,
 Qua locaties heeft de hanze 5-10% meer mensen met blauwe ogen dan de
 andere locaties, dit vergeleken met een afwijking van 9,3% van de
 literatuur tegenover alle blauw opnames en een gemiddelde afwijking van
-24% tussen alle waardes, kunnen deze waarnemingen toeval zijn. In Zwolle
+24% tussen alle opnames, kunnen deze waarnemingen toeval zijn. In Zwolle
 zijn veel meer groene oogkleuren gevonden dan op de Hanze in Groningen.
 Tenslotte zijn in Groningen naast blauw ook de meeste hazel kleurige
 ogen gevonden. Viermaal zoveel dan in Zwolle.
