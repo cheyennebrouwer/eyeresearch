@@ -1,25 +1,11 @@
 ---
-title: Oogkleurprevalentie onder studenten van de Hanzehogeschool Groningen; Een verkennend onderzoek naar genetische variatie
-
-author: |
-  |  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever $^1$, Kasthury Inparajah$^1$
-  | $^1$Hanzehogeschool Groningen
-
+title: Oogkleurprevalentie onder studenten van de Hanzehogeschool Groningen; Een verkennend
+  onderzoek naar genetische variatie
+author: "|  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever $^1$,
+  Kasthury Inparajah$^1$\n| $^1$Hanzehogeschool Groningen\n"
 lang: nl
-
-abstract: |
-
-
-#bibliography: Scientific_paper.bib # naam van je .bib file. Deze moet hetzelfde zijn als je Rmd bestandsnaam
-
-#output:
-#  bookdown::pdf_Scientific:
-#    keep_tex: false    # set this to true if you want to investigate the generated #tex
-#    toc: true         # table of contents
-#    fig_caption: true  # includes figure captions with numbering in output
-#    includes:  
-#        in_header: include_tex_header.tex #will include rules for linespacing and #figure floating
-
+output: pdf_document
+abstract: null
 ---
 
 ```{r setup, message=TRUE, warning=TRUE, include=TRUE}
@@ -28,8 +14,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 library(tidyverse)
 library(readxl)
-library(plyr)
 library(dplyr)
+library(plyr)
 library(knitr)
 library(ggplot2)
 library(gmodels) 
@@ -208,16 +194,16 @@ knitr::kable(grouped_data[, -6], longtable = TRUE, caption = "De geobserveerde a
 
 Hier zijn 2 tabellen weergegeven met het totaal aantal metingen per
 oogkleur per analist. Hieruit blijkt er geen significant verschil te
-zijn tussen alle de analisten samen(p-waarde = 0,07672, α = ,05). Tussen
+zijn tussen alle de analisten samen(p-waarde = 0,07672, alfa = ,05). Tussen
 de analisten 9308 en 8705 was wel een significant verschil (p-waarde =
-0,03118, α = ,05). Dit zie je ook aan de flinke verschillen tussen de
+0,03118, alfa = ,05). Dit zie je ook aan de flinke verschillen tussen de
 analisten bij de oogkeuren hazel(\~33,3% verschil) en groen(\~44,6%).
 Oogkleur groen had ook het grootste verschil tussen de laagste aantal
 metingen en hoogste metingen: 52,6% verschil. Groen was ook met 9 de
 oogkleur met de grootste deviatie. Daarnaast is te zien aan de tabel dat
 de twee analisten 5609 en 8705 en de twee analisten 9308 en 2193 beide
 groepen vormen, aangezien ze dicht bij elkaar liggen. Hierop is nog een
-`chi-square` test op los gelaten. Hier is de p-waarde 0,008905(α = ,05).
+`chi-square` test op los gelaten. Hier is de p-waarde 0,008905(alfa = ,05).
 Dus is er een redelijk flink significant verschil tussen de bovenste
 twee en onderste twee analisten. Uit dit alles blijkt er geen ernstige
 meetfout te zitten en kan er een vergelijking worden gedaan met de
@@ -321,13 +307,13 @@ kruistabel$Onderzoek <- NULL
 
 # Weergeef kruistabel
 titel <- "Percentages waargenomen oogkleur literatuuronderzoek en eigen onderzoek"
-onderschrift <- "P-waarde van p=1,837e-13 (met een α van 0.05)"
+onderschrift <- "P-waarde van p=1,837e-13 (met een alfa van 0.05)"
 
 kable(kruistabel, caption = titel)
 ```
 De percentages uit het literatuuronderzoek geven de prevalentie van de 3 oogkleuren (blauw (waar ook grijs onder is geschaard), bruin (waar ook hazel onder is geschaard) en groen) aan in Nederland. De kleur blauw (60.9%) was de meest voorkomende oogkleur volgens de literatuur dan het eigen onderzoek suggereert. Bruin is in heel Nederland minder prevalant dan bij het eigen onderzoek en bij de kleur groen is dit andersom. 
 
-De `chi-squar` p-waarde tussen de percentages uit het literatuuronderzoek en eigen onderzoek is 1.837e-13 (α = .05). Om antwoord te krijgen of de Hanze aanleg heeft voor een bepaalde oogkleur zijn ook de locaties vergeleken.
+De `chi-square` p-waarde tussen de percentages uit het literatuuronderzoek en eigen onderzoek is 1.837e-13 (alfa = .05). Om antwoord te krijgen of de Hanze aanleg heeft voor een bepaalde oogkleur zijn ook de locaties vergeleken.
 
 ## Verschil tussen locaties
 
@@ -483,7 +469,7 @@ ggplot(data = Zwolle_gender,
 ```
 
 Het verschil tussen verschillende locaties is geen significant verschil
-(p-waarde = 0.08554, α = 0,05). Het verschil tussen de bruine en blauwe
+(p-waarde = 0.08554, alfa = 0,05). Het verschil tussen de bruine en blauwe
 oogkleur in Groningen ziet er wel significant uit.
 
 ## Verschil tussen mannen en vrouwen
@@ -509,7 +495,7 @@ ggplot(data = male_female,
 ```
 
 Bij de kleuren bruin en hazel is er geen significant verschil tussen
-mannen en vrouwen(bij α = 0.05). Daarnaast zijn er geen andere grote
+mannen en vrouwen(bij alfa = 0.05). Daarnaast zijn er geen andere grote
 verschillen tussen sexe en de oogkleuren. Maar dit kan niet worden
 meegenomen voor dit onderzoek.
 
@@ -521,7 +507,7 @@ meegenomen voor dit onderzoek.
 Uit de resultaten is het volgende uit te concluderen:
 
 * Bij deelvraag 1: “Is er een aantoonbaar verschil in oogkleur tussen mannen en vrouwen?” kan H0: “Er is geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen” worden aangenomen en H1: “Er is een aantoonbaar verschil in oogkleur tussen mannen en vrouwen” worden verworpen.
-De p-waarde uit de `chi-square` test is p=0,08 en is boven de α van 0,05. De p-waarde uit deze chi square is hier niet significant. Er is dus geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen. 
+De p-waarde uit de `chi-square` test is p=0,08 en is boven de alfa van 0,05. De p-waarde uit deze chi square is hier niet significant. Er is dus geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen. 
 
 * Bij deelvraag 2: “Is er een aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is?” kan H0: “Er is geen aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is” worden aangenomen  en H1: “Er is een aantoonbaar verschil in oogkleur tussen de verschillende locaties waarop gemeten is” worden verworpen. Aan de p-waarde van 0,08 uit de `chi-square` test is zichtbaar dat er geen significant verschil is tussen de oogkleuren per locatie.
 
@@ -529,13 +515,13 @@ De p-waarde uit de `chi-square` test is p=0,08 en is boven de α van 0,05. De p-
 De p-waarde uit de `chi-square` test (p=1,837e-13) laat zien dat er een significant verschil zit tussen de data uit het literatuuronderzoek en eigen onderzoek. De gegevens komen dus niet overeen met de bekende literatuur voor populatie oogkleur bij Nederlanders. 
 
 * Bij deelvraag 4: “Is er een meetfout ontstaan door metingen met verschillende analisten?” kunnen H0: “Er is geen meetfout ontstaan door metingen met verschillende analisten” & H1: “Er is een meetfout ontstaan door metingen met verschillende analisten” deels worden aangenomen.
-De p-waarde van de Pearson’s `Chi-square` test is p=0,07672 (met α = 0,05) er is dus geen significant verschil tussen de analisten. Echter, er zijn nog meetfouten aanwezig die vermindert kunnen worden. 
+De p-waarde van de Pearson’s `Chi-square` test is p=0,07672 (met alfa = 0,05) er is dus geen significant verschil tussen de analisten. Echter, er zijn nog meetfouten aanwezig die vermindert kunnen worden. 
 
 **Discussie**
 
 Enkele aandachtspunten voor verdere discussie naar aanleiding van de conclusie zijn:
 
-* Bij het beantwoorden van deelvraag 1: “Is er een aantoonbaar verschil in oogkleur tussen mannen en vrouwen?” is uit het kruistabel een p-waarde van 0,57 uitgekomen. Deze waarde zit boven de α van 0,05 dus is er geen significant verschil in de oogkleuren tussen mannen en vrouwen. Echter, bij de kleur “bruin” lijkt er wel een verschil te zitten, maar dit verschil is niet significant genoeg. 
+* Bij het beantwoorden van deelvraag 1: “Is er een aantoonbaar verschil in oogkleur tussen mannen en vrouwen?” is uit het kruistabel een p-waarde van 0,57 uitgekomen. Deze waarde zit boven de alfa van 0,05 dus is er geen significant verschil in de oogkleuren tussen mannen en vrouwen. Echter, bij de kleur “bruin” lijkt er wel een verschil te zitten, maar dit verschil is niet significant genoeg. 
 
 * Bij het onderzoek op 3 verschillende locaties (met elk 40 deelnemers, gelijk verdeeld tussen mannen en vrouwen) was er een dominantie aanwezigheid van de oogkleur "blauw" op alle locaties, behalve in Zwolle. In Zwolle waren er relatief meer personen met een groene oogkleur en afwijkende hoeveelheden in bruine- en hazelkleurige ogen. Op de 2 andere locaties waren deze hoeveelheden bruin- en hazelkleurige ogen hoger. De p-waarde geeft echter aan dat er geen significant verschil is in oogkleuren tussen de locaties.
 
@@ -545,7 +531,7 @@ Enkele aandachtspunten voor verdere discussie naar aanleiding van de conclusie z
 
 * Het eigenonderzoek is voornamelijk uitgevoerd in het noorden (Hanzehogeschool Groningen & Groningen stad) en oosten (Zwolle) van Nederland. Uit onderzoek blijkt dat noorderlingen vaker blauwe ogen hebben dan de rest van het land, maar dit verschil werd niet weerspiegeld in het eigenonderzoek (52.1% blauw) in vergelijking met het literatuuronderzoek (60.9% blauw). Het eigenonderzoek dat voornamelijk in het noorden plaatsvond had opvallend genoeg een lager percentage blauwkleurige ogen dan het literatuuronderzoek (dat heel Nederland vertegenwoordigt). 
 
-* Bij deelvraag 4 was er geen significant verschil tussen de analisten, maar er lijkt toch een aanzienlijk verschil te zijn tussen analist 9308 en 8705 in de tabel met het aantal waarnemingen van oogkleuren. Een `chi-square` test tussen deze twee analisten toont een significant verschil aan (p = 0.03118, α = 0.05).
+* Bij deelvraag 4 was er geen significant verschil tussen de analisten, maar er lijkt toch een aanzienlijk verschil te zijn tussen analist 9308 en 8705 in de tabel met het aantal waarnemingen van oogkleuren. Een `chi-square` test tussen deze twee analisten toont een significant verschil aan (p = 0.03118, alfa = 0.05).
 
 # Online bijlagen
 
