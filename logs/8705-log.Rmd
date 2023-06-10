@@ -243,7 +243,7 @@ Er is een opgestapelde barplot gemaakt met alle oogkleuren per analist tegen het
 ```{r analist-distro-byeyecolor}
 ggplot(eye_df, aes(x = analist, fill = oogkleur)) + 
   geom_bar(width = .6) +
-  scale_fill_manual("Oogkleur", values = c("blue", "green", "brown", "#B85F2F")) + 
+  scale_fill_manual("Oogkleur", values = c("dodgerblue", "yellowgreen", "sienna", "#B85F2F")) + 
   ylab("Opnames") +
   xlab("Analist") +
   ggtitle("Aantal opgenomen oogkleuren per analist.")
@@ -281,14 +281,46 @@ Na overleg worden de volgende onderwerpen opgeschreven die nog over de data moet
 
     -   Hoeveel % kans op een tie
 
--   Wat waren de karateristics van de ...
-
-    -   Omstandigheden
-
-    -   Analisten
-
-    -   Subjects
-
--   Wat welke variabelen gecontroleerd hadden kunnen worden
-
 Deze onderwerpen vervangen de losse hypotheses van 1 juni in dit logboek.
+
+## 06-06-2023 11:00-12:20 & 14:00-16:20 - 458075(Willem Daniël Visser)
+
+Er is aan het wetenschappelijk artikel gewerkt. Zie "[github.com/cheyennebrouwer/eyeresearch/blob/science-paper-8075/publication/eyecolor.Rmd](https://github.com/cheyennebrouwer/eyeresearch/blob/science-paper-8075/publication/eyecolor.Rmd)".
+
+## 07-06-2023 8:30-10:00 & 10:30-12:20 - 458075(Willem Daniël Visser)
+
+Hetzelfde als gisteren.
+
+### 14:00-
+
+Beschrijv
+
+Na zelf nadenken zijn de volgende extra statistische toetsen/grafieken en tabellen die nog gemaakt moet worden:
+
+-   Tabel percentage kleur per analist
+
+-   Het percentage kans op een verschil van mening
+
+-   Het percentage kans op een tie
+
+-   Het percentage kans op een volledige overeenkomst
+
+-   Verschil sexe analist
+
+-   Percentage afwijking per gemiddelde per kleur per sexe analist
+
+-   
+
+```{r chi-square}
+
+eye_df_analist_eyecolor$groep <- ifelse(eye_df_analist_eyecolor$analist %in% list("9308", "2193"), "9308 & 2193", "5609 & 8705")
+
+chisq_eyecolor_analist_grp <- chisq.test(
+  eye_df_analist_eyecolor$groep,
+  eye_df_analist_eyecolor$oogkleur
+)
+
+knitr::kable(chisq_eyecolor_analist_grp$observed / 2, longtable = TRUE, caption = "De geobserveerde aantal oogkleuren links+rechts per analist groep.")
+
+chisq_eyecolor_analist_grp
+```
