@@ -61,7 +61,10 @@ Gedurende 1 uur zijn in Grongingen centrum 40 verschillende proefpersonen bevraa
 Gedurende 2 uur zijn in Zwolle centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
 
 ## 19-05-2023 10:00 - 12:00 - 415069 (Demi van 't Oever)
-Er is gezocht naar bruikbare data in de vorm van wetenschappelijk onderzoek voor het onderzoek met betrekking tot de prevalentie van oogkleuren bij Nederlandse burgers. 
+Er is gezocht naar bruikbare data en informatie in de vorm van wetenschappelijk onderzoek voor het onderzoek met betrekking tot de prevalentie van oogkleuren bij Nederlandse burgers. 
+
+## 22-05-2023 14:30 - 15:45 - 415069 (Demi van 't Oever)
+De uitleg van de lessen van deze dag zijn doorgenomen en aantekeningen gemaakt welk deel van de uitleg van toepassing is op ons eigen project.
 
 ## 24-05-2023 09:45 - 10:00 - ALL
 De deelvragen (1 t/m 4) zijn onderverdeeld tussen de studenten. Elke student heeft een eigen deelvraag toegewezen gekregen waar hij/zij verantwoordelijk voor is. 
@@ -79,20 +82,20 @@ Deelvraag 1: Is er een aantoonbaar verschil in oogkleur tussen mannen en vrouwen
 H0: Er is geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen.
 H1: Er is een aantoonbaar verschil in oogkleur tussen mannen en vrouwen.
 
-```{r inlees-document, include=FALSE}
+```{r inlees-document, include=TRUE}
 
 library(tidyverse)
 
-file <- "C:/Users/DemiS/OneDrive/Documents/School/De_wetenschappelijke_cyclus/Oogkleur_simpel.csv"
+file <- "~/School/De_wetenschappelijke_cyclus/eyeresearch/Oogkleur_simpel_definitief.csv"
 eye_colors <- read.table(file, sep=",",header=TRUE)
 
-eye_colors
+head(eye_colors)
 
 ```
 
 Om onze data bruikbaar te maken voor ons onderzoek, moet deze omgezet worden. Het is belangrijk om alle data zo te weergeven dat het is gesorteerd op analist en oogkant per identifier. Dit wordt tegelijkertijd gedaan met het bepalen van de defintiteve oogkleur die een proefpersoon krijgt op basis van de antwoorden van de verschillende analisten. Dat wordt met onderstaande code uitgevoerd:
 
-```{r aanpassen-tabel-oud, eval=FALSE}
+```{r aanpassen-tabel-oud, eval=FALSE, include=FALSE}
 
 ## simple approach when different colors were recorded
 # majority_simple <- function(x) {
@@ -146,12 +149,12 @@ eye_colors2 <- eye_colors %>%
                  names_to = c("eye", "analist"),
                  values_to = "color")
 
-print(eye_colors2, n = Inf)
+head(eye_colors2, n = Inf)
 
 
 ```
 
-In de tabel is de definitieve oogkleur te zien die een proefpersoon gekregen heeft, deze staan in de kolom 'results'. Voor het beantwoorden van deze deelvraag worden de oogkleuren en geslachten uit de bovenstaande tabel genomen. Vervolgens wordt per identifier 1x de kleur genomen en zo wordt geteld hoeveel oogkleuren er per geslacht geteld zijn.
+In de tabel is de definitieve oogkleur te zien die een proefpersoon gekregen heeft, deze staan in de kolom 'results'. Voor het beantwoorden van deze deelvraag worden de oogkleuren en geslachten uit de bovenstaande tabel genomen. Vervolgens wordt per identifier 1x de kleur genomen en zo wordt geteld hoeveel oogkleuren er per geslacht geteld zijn. Undef. staat voor oogkleuren die 'undefined' zijn. Bij deze identifiers is geen duidelijke meerderheid in de oogkleur gevonden en kan dus de werkelijke oogkleur niet bepaald worden.
 
 ```{r tabel, eval=TRUE}
 
@@ -191,7 +194,7 @@ Er is besproken wie welke taak gaat doen binnen het schrijven van het wetenschap
 ## 02-06-2023 09:00 - 11:30 - 415069 (Demi van 't Oever)
 Er is gewerkt aan het beantwoorden van deelvraag 1. Hierbij is vooral gekeken naar welke statistische test erbij past (Chi-square test) en hoe deze het beste uit te voeren is bij deze vraag. Uiteindelijk is gekozen dit te doen middels een CrossTable.
 
-```{r foute-test, eval=FALSE}
+```{r foute-test, include=FALSE}
 #chisq.test(male_female$geslacht, male_female$count, correct=FALSE)
 ```
 
@@ -223,5 +226,8 @@ Uit de crosstable is een p-waarde gekomen van 0.57. We hebben een α van 0.05 bi
 
 Conclusie:
 Bij een lage p-waarde, kan H0 verworpen worden. Onze p-waarde is echter niet laag en ligt boven de α van 0.05. Dit betekent dat H0 aangenomen kan worden: er is geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen.
+
+## 07-06-2023 09:40 - 09:45 - 415069 (Demi van 't Oever)
+De test die is gebruikt om de deelvraag te kunnen beantwoorden, is de Chi-squarte test. Deze test is niet gebruikt middels de chisq.test zelf, maar via een CrossTable. Voor deze CrossTable is gekozen omdat de data die gebruikt is voor de test netjes in de CrossTable staat, waardoor het overzichtelijker is. Daarnaast bleek de chisq.test zelf niet fijn in gebruik: het was lastig te zien of de juiste waarden op de juiste plek stonden. Door bij de CrossTable de Chi-square test aan te zetten, kan deze functie de test ook uitvoeren. Hiervoor is tevens het boek 'Discovering Statistics Using R' van Andy Field.
 
 
