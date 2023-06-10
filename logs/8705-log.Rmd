@@ -291,9 +291,7 @@ Er is aan het wetenschappelijk artikel gewerkt. Zie "[github.com/cheyennebrouwer
 
 Hetzelfde als gisteren.
 
-### 14:00-
-
-Beschrijv
+### 14:00-15:00
 
 Na zelf nadenken zijn de volgende extra statistische toetsen/grafieken en tabellen die nog gemaakt moet worden:
 
@@ -309,7 +307,7 @@ Na zelf nadenken zijn de volgende extra statistische toetsen/grafieken en tabell
 
 -   Percentage afwijking per gemiddelde per kleur per sexe analist
 
--   
+Chi-square gemaakt over twee groepen analisten, omdat de leden van de groepen op elkaar lijken in tellingen, maar de groepen onderling van elkaar afwijken.
 
 ```{r chi-square}
 
@@ -324,3 +322,37 @@ knitr::kable(chisq_eyecolor_analist_grp$observed / 2, longtable = TRUE, caption 
 
 chisq_eyecolor_analist_grp
 ```
+
+## 08-06-2023 13:00-14:00 - 458075 (Willem Daniël Visser)
+
+Gewerkt aan het resultaten kopje bij het wetenschappelijk-artiekel zie: <https://github.com/cheyennebrouwer/eyeresearch/blob/science-paper-8075/publication/eyecolor.Rmd>
+
+## 09-06-2023 12:40-15:00 - 458075 (Willem Daniël Visser)
+
+Feedback ontvangen van docent, wegens woorden te kort in wetenschappelijk-artiekel:
+
+-   Preciezere figuur beschrijvingen
+
+-   Een introductie van de resultaten met:
+
+    -   Samenvatting van wat er gaat komen
+
+    -   Reden waarom de resultaten zijn gekozen om te laten zien
+
+De feedback is groot en deels toegepast.
+
+### 15:00-15:25 - all
+
+Teams vergadering over de stand van zaken rondom het wetenschappelijk artiekel. Hierin is de feedback die de artikel schrijvers hebben ontvangen van de docent besproken:
+
+-   Feedback voor 458075, zie: vorig blokje in dit document
+
+-   Feedback voor xx2193, zie: op de github van dit project: /logs/Logboek_2193.Rmd
+
+Ook taken die nog gedaan moeten worden
+
+### 16:30-16:40 - 458075
+
+De feedback is verder toegepast.
+
+## 10-06-2023 - 11:15- - 458075 (Willem Daniël Visser)
