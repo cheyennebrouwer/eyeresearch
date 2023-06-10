@@ -5,3 +5,5 @@
 /*.Rcheck/
 .Rproj.user/
 .Renviron
+.log
+.tex
