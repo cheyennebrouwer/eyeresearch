@@ -149,7 +149,6 @@ Hier zijn 2 tabellen weergegeven met het totaal aantal metingen per oogkleur per
 ## Verschil met populatie Nederland
 
 ```{r laad-in-ookleur-data-literatuur-verg }
-library(readxl)
 Oogkleur_simpel <- read.table("../analyse/data/Oogkleur_simpel_definitief.csv", sep = "," , header = TRUE)
 ```
 
@@ -180,7 +179,8 @@ Oogkleur_simpel$Definitieve_oogkleur <- apply(Oogkleur_simpel[, grepl("^L_|^R_",
 #Plot een histogram om de waarnemingen van de oogkleuren te visualiseren 
 
 #Kolom wordt een factor
-Oogkleur_simpel$Definitieve_oogkleur <- as.factor(Oogkleur_simpel$Definitieve_oogkleur)
+Oogkleur_simpel[is.na(Oogkleur_simpel)] <- "Undif."
+
 
 # Maak een plotobject met de dataset
 plot_data <- ggplot(data = Oogkleur_simpel, aes(x = Definitieve_oogkleur, fill = Definitieve_oogkleur))
@@ -303,13 +303,6 @@ Hanze <- Hanze_amount %>%
   arrange(results, desc(count))
 ```
 
-```{r, get-hanze-gender-results }
-Hanze_gender <- Hanze_amount %>%
-  group_by(results, geslacht) %>%
-  dplyr::summarise(count = n(), .groups = "drop") %>%
-  arrange(results, geslacht, desc(count))
-```
-
 ```{r, get-centrum-groningen-results }
 Centrum_amount <- Total_amount[41:80, ] 
 
@@ -319,13 +312,6 @@ Centrum <- Centrum_amount %>%
   arrange(results, desc(count))
 ```
 
-```{r, get-centrum-groningen-gender-results }
-Centrum_gender <- Centrum_amount %>%
-  group_by(results, geslacht) %>%
-  dplyr::summarise(count = n(), .groups = "drop") %>%
-  arrange(results, geslacht, desc(count))
-```
-
 ```{r, get-zwolle-results }
 Zwolle_amount <- Total_amount[81:120, ] 
 
@@ -333,13 +319,6 @@ Zwolle <- Zwolle_amount %>%
   group_by(results) %>%
   dplyr::summarise(count = n()) %>%
   arrange(results, desc(count))
-```
-
-```{r, get-zwolle-gender-results }
-Zwolle_gender <- Zwolle_amount %>%
-  group_by(results, geslacht) %>%
-  dplyr::summarise(count = n(), .groups = "drop") %>%
-  arrange(results, geslacht, desc(count))
 ```
 
 ```{r, hanze-pie-chart, fig.dim=c(8.5,4), fig.cap='Drie taartplots met de drie meet- locaties en aantal gemeten oogkleuren.'}
@@ -388,44 +367,6 @@ ggarrange(
 Qua locaties heeft de hanze 5-10% meer mensen met blauwe ogen dan de andere locaties, dit vergeleken met een afwijking van 9,3% van de literatuur tegenover alle blauw opnames en een gemiddelde afwijking van 24% tussen alle waardes, kunnen deze waarnemingen toeval zijn. In Zwolle zijn veel meer groene oogkleuren gevonden dan op de Hanze in Groningen.
 
 Tenslotte zijn in Groningen naast blauw ook de meeste hazel kleurige ogen gevonden. Viermaal zoveel dan in Zwolle.
-
-```{r, hanze-gender-pie-chart, fig.cap='Drie barplots met de drie meet- locaties en aantal gemeten oogkleuren. Verdeeld onder sexe.' }
-ggarrange(
-ggplot(data = Hanze_gender,
-       mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  ggtitle("Hanze hogeschool") +
-  geom_text(aes(label=count), position=position_dodge(width=0.9), vjust=-0.25, color = "black") +
-  theme_minimal() +
-  rremove("xlab") +
-  ylab("Aantallen per oogkleur")
-,
-ggplot(data = Centrum_gender,
-       mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  ggtitle("Groningen centrum") +
-  geom_text(aes(label=count), position=position_dodge(width=0.9), vjust=-0.25, color = "black") +
-  theme_minimal() +
-  rremove("ylab") +
-  rremove("xlab")
-,
-ggplot(data = Zwolle_gender,
-       mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  ggtitle("Zwolle centrum") +
-  geom_text(aes(label=count), position=position_dodge(width=0.9), vjust=-0.25, color = "black") +
-  theme_minimal() +
-  rremove("ylab") +
-  rremove("xlab"),
-
-  common.legend = TRUE,
-  label.x = 1,
-  ncol = 3,
-  nrow = 1
-)
-```
-
-Het verschil tussen verschillende locaties is geen significant verschil (p-waarde = 0.08554, alfa = 0,05). Het verschil tussen de bruine en blauwe oogkleur in Groningen ziet er wel significant uit.
 
 ## Verschil tussen mannen en vrouwen
 
@@ -517,12 +458,6 @@ Enkele aandachtspunten voor verdere discussie naar aanleiding van de conclusie z
 
 -   <https://github.com/cheyennebrouwer/eyeresearch/tree/main/logs>
 
-## Wordcount
-
-#Voeg aan het eind een woord-telling in:
-
-\#`{r wordcount, message=False} #wordcountaddin:::text_stats() #`
-
 ## Notitie software
 
 ### Google Docs {#g-docs}
@@ -612,3 +547,7 @@ Referentie: <https://posit.co/products/open-source/rstudio/>
 # Referenties
 
 Een lijst van referenties wordt hier automagisch toegevoegd.
+
+```{r wordcount, message=FALSE}
+wordcountaddin::text_stats()
+```
