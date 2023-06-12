@@ -4,6 +4,9 @@ title: Oogkleurprevalentie onder studenten van de Hanzehogeschool Groningen; Een
 author: "|  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever $^1$,
   Kasthury Inparajah$^1$\n| $^1$Hanzehogeschool Groningen\n"
 lang: nl
+
+bibliography: scientific_paper.bib
+
 output:
   bookdown::pdf_document2:
     keep_tex: false    # set this to true if you want to investigate the generated tex
@@ -56,7 +59,7 @@ Het doel van dit onderzoek is om de prevalentie van oogkleuren op de Hanzehogesc
 
 Voor dit onderzoek zijn de data uit het onderzoek geanalyseerd met behulp van de statische methode `chi-square` test. Als eerste is er gekeken of er een aantoonbaar verschil zat in de oogkleur tussen mannen en vrouwen door middel van een statistische test (`chi-square` test) uit te voeren. Daarna is er met behulp van de dezelfde `chi-square` test gekeken of de oogkleuren per locatie van elkaar verschillen. Vervolgens is de data uit het eigen onderzoek vergeleken met data uit een ander literatuuronderzoek en ten slotte is er gekeken of er een meetfout door de analisten is gemaakt.
 
-Op basis van eerdere (literatuur)onderzoeken (ref) wordt er verwacht dat de oogkleur "blauw" de meest voorkomende oogkleur zal zijn op de Hanzehogeschool te Groningen. Bovendien wordt vermoed dat er aantoonbare verschillen zijn in oogkleur tussen mannen en vrouwen, evenals variaties in oogkleurprevalentie op verschillende locaties. Er wordt niet verwacht dat er significante verschillen zullen zijn tussen het eigen onderzoek en een ander literatuuronderzoek, noch tussen de analisten onderling met betrekking tot meetfouten van de oogkleuren.
+Op basis van eerdere (literatuur)onderzoeken [@Katsara2019] wordt er verwacht dat de oogkleur "blauw" de meest voorkomende oogkleur zal zijn op de Hanzehogeschool te Groningen. Bovendien wordt vermoed dat er aantoonbare verschillen zijn in oogkleur tussen mannen en vrouwen, evenals variaties in oogkleurprevalentie op verschillende locaties. Er wordt niet verwacht dat er significante verschillen zullen zijn tussen het eigen onderzoek en een ander literatuuronderzoek, noch tussen de analisten onderling met betrekking tot meetfouten van de oogkleuren.
 
 # Materialen en Methoden
 
@@ -201,7 +204,7 @@ print(plot_data)
 
 Hier is te zien hoe blauw(52,5 %) een meerder deel van de metingen uitmaakt, gevolgd door bruin(34,16667 %) en groen(8,333333 %). Zonder de NA-waarden meegerekend komt dit neer op de verhoudingen blauw, bruin, groen (55,26%, 35,96% en 8,77%).
 
-In het kruistabel tabel [\@ref(tab:Kruistabel)] staat data uit een ander literatuuronderzoek dat is uitgevoerd om informatie over de verdeling van de oog- en haarkleur te verzamelen over populaties en deze data als een blue print te gebruiken om de nauwkeurigheid van voorspellingen op basis van DNA te verbeteren. [@Katsara2019tc] Dit onderzoek heeft meerdere datasets (haarkleur en oogkleur per land), waaruit 3 percentages zijn gehaald voor vergelijking met dit onderzoek.
+In het kruistabel tabel [\@ref(tab:Kruistabel)] staat data uit een ander literatuuronderzoek dat is uitgevoerd om informatie over de verdeling van de oog- en haarkleur te verzamelen over populaties en deze data als een blue print te gebruiken om de nauwkeurigheid van voorspellingen op basis van DNA te verbeteren. [@Katsara2019] Dit onderzoek heeft meerdere datasets (haarkleur en oogkleur per land), waaruit 3 percentages zijn gehaald voor vergelijking met dit onderzoek.
 
 ***Omdat de data uit het literatuuronderzoek in percentages zijn, zijn ook de percentages van de waarnemingen van de oogkleur uit het eigen onderzoek berekend om daarmee data met elkaar te vergeleken.***
 
@@ -544,8 +547,6 @@ Referentie: <https://posit.co/products/open-source/rstudio/>
 
 # Referenties
 
-Een lijst van referenties wordt hier automagisch toegevoegd.
-
-```{r wordcount, message=FALSE}
+```{r wordcount, message=FALSE, results='hide'}
 wordcountaddin::text_stats()
 ```
