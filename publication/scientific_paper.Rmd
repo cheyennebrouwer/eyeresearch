@@ -5,12 +5,12 @@ author: "|  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever
   Kasthury Inparajah$^1$\n| $^1$Hanzehogeschool Groningen\n"
 lang: nl
 output:
-  bookdown::pdf_document2: default
-  keep_tex: false    # set this to true if you want to investigate the generated tex
-  toc: false         # table of contents
-  fig_caption: true  # includes figure captions with numbering in output
-  includes:  
-      in_header: include_tex_header.tex #will include rules for linespacing and figure floating
+  bookdown::pdf_document2:
+    keep_tex: false    # set this to true if you want to investigate the generated tex
+    toc: false         # table of contents
+    fig_caption: true  # includes figure captions with numbering in output
+    includes:  
+        in_header: include_tex_header.tex #will include rules for linespacing and figure floating
         
 abstract: "Dit onderzoek onderzoekt de prevalentie van oogkleuren onder studenten
   van de Hanzehogeschool Groningen en vergelijkt deze met andere locaties in Nederland.
