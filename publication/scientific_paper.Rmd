@@ -5,7 +5,6 @@ author: "|  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever
   Kasthury Inparajah$^1$\n| $^1$Hanzehogeschool Groningen\n"
 lang: nl
 output:
-  pdf_document: default
   bookdown::pdf_document2: default
 abstract: "Dit onderzoek onderzoekt de prevalentie van oogkleuren onder studenten
   van de Hanzehogeschool Groningen en vergelijkt deze met andere locaties in Nederland.
