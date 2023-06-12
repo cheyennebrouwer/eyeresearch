@@ -48,13 +48,13 @@ Op basis van eerdere (literatuur)onderzoeken [@Katsara2019] wordt verwacht dat "
 
 # Materialen en Methoden
 
-In de repository op Github <https://github.com/cheyennebrouwer/eyeresearch> staat het protocol voor het verzamelen van de oogdata. De analisten hebben verschillende notitiesoftware gebruikt voor data notitie: Google Docs[\@ref(g-docs)] door analist 8075, Apple Notities[\@ref(a-notes)] door analist 5609, Keep My Notes[\@ref(keep-my-notes)] door analist 9308 en [meer]. Hierin hebben de analisten op 2 dagen de metingen genoteerd. Op de dag van de metingen zijn de analisten groepjes proefpersonen (2-7) gaan vragen of deze wilden deelnemen aan het onderzoek. Bij instemming is er gevraagd naar geslacht, leeftijd en is per proefpersoon de oogkleur bepaald aan de hand van een referentieformulier, welke ook terug te vinden is in de repository.
+In de repository op Github <https://github.com/cheyennebrouwer/eyeresearch> staat het protocol voor het verzamelen van de oogdata. De analisten hebben verschillende notitiesoftware[\@ref(sec-notitie-software)] gebruikt voor data notitie: Google Docs door analist 8075, Apple Notities door analist 5609, Keep My Notes door analist 9308. Hierin hebben de analisten op 2 dagen de metingen genoteerd. Op de dag van de metingen zijn de analisten groepjes proefpersonen (2-7) gaan vragen of deze wilden deelnemen aan het onderzoek. Bij instemming is er gevraagd naar geslacht, leeftijd en is per proefpersoon de oogkleur bepaald aan de hand van een referentieformulier, welke ook terug te vinden is in de repository.
 
 De analisten hebben soms twee kleuren ingevuld of een kleurenkenmerk, zoals: "donker" of "licht". Op dag 1 is er gemeten op de studentencampus, de Hanzehogeschool Groningen locatie Zernikeplein 11 (Van Doorenveste, Groningen 1). Op dezelfde dag is er ook gemeten in het centrum van Groningen (Groningen 2). Op dag 2 is vervolgens gemeten in het centrum van Zwolle (Zwolle). Op alle drie locaties was het zonnig weer op het moment van metingen. Ook was het onder schooltijd voor de meeste MBO- en HBO-studenten. Op locatie Groningen 1 was de lichtconditie niet constant, met variërende daglichtreflectie, lichttemperaturen en lichtamplitude. Er waren echter geen lichtcondities die de oogkleur bepaling onmogelijk of erg moeilijk maakten, aldus de analisten. Op de locaties Groningen 2 en Zwolle is niet rechtstreeks richting de zon gekeken bij het bepalen van de oogkleur. Wel is er zowel in zon als schaduw gemeten.
 
-Toen de metingen klaar waren werden alle metingen verzameld door één van de analisten en verwerkt, zodat de dubbel genoteerde kleuren kon worden samengevoegd tot enkele kleuren. De verwerkte data is in tidy vorm gezet met de functie `pivot_longer()`\` uit de tidyr package[\@ref(tidyr)] in de programmeertaal R[\@ref(r-lang)]. Het resultaat is opgeslagen in een nieuw bestand en zijn analyses op uitgevoerd.
+Toen de metingen klaar waren werden alle metingen verzameld door één van de analisten en verwerkt, zodat de dubbel genoteerde kleuren kon worden samengevoegd tot enkele kleuren. De verwerkte data is in tidy vorm gezet met de functie `pivot_longer()`\` uit de tidyr package in de programmeertaal R[\@ref(r-lang)]. Het resultaat is opgeslagen in een nieuw bestand en zijn analyses op uitgevoerd.
 
-De analyses zijn gedaan in RStudio[\@ref(r-studio)] en de programmeertaal R, met de libraries: plyr[\@ref(plyr)], dyplyr[\@ref(dplyr)], ggplot2[\@ref(ggplot2)], ggpubr[\@ref(ggpubr)] van de tidyverse collectie, knitr[\@ref(knitr)], gmodels[\@ref(gmodels)] en readxl[\@ref(readxl)]. De data is ingeladen met behulp van `read.table` uit `readxl`. Met `plyr` en `dyplyr` is dataverwerking gedaan, zodat analyses konden worden uitgevoerd op gefilterde delen van de data. Met `ggplot` zijn vervolgens grafieken gemaakt en deze zijn met `ggpubr` naast elkaar gezet. Voor de analyse van de meetfout tussen de analisten is de functie `chisq.test` van R gebruikt, voor een two-way chi-square test, waarbij de factoren analist en oogkleur zijn gebruikt en waarbij alle gemeten personen met één of meer lege velden zijn verwijderd. Voor de analyse van de verschillen tussen de drie meetlocaties en verschillen tussen geslacht is de data eerst gecategoriseerd als "undefined" wanneer er geen consensus was onder de analisten, om aan te geven dat er geen definitieve oogkleur kon worden bepaald. Vervolgens is de `CrossTable`-functie uit de library `gmodels` voor de chi-square-test en andere statistische waarden gebruikt. Hierbij is de locatie opgedeeld in groepen op basis van identifier en vergeleken met de oogkleur, hetzelfde is gedaan voor het geslacht in relatie tot de oogkleur. Voor de analyse van de vergelijking van de percentages van de gemeten oogkleuren zijn deze uitgerekend en vergeleken met die van de literatuur. Om de verschillen tussen twee metingen in tabellen en grafieken weer te geven, is de laagste meting gedeeld door de hoogste meting en maal 100.
+De analyses zijn gedaan in RStudio[\@ref(sec-software-tools)] en de programmeertaal R, met de libraries[\@ref(sec-r-libs)]: plyr, dyplyr, ggplot2, ggpubr van de tidyverse collectie, knitr, gmodels en readxl. De data is ingeladen met behulp van `read.table` uit `readxl`. Met `plyr` en `dyplyr` is dataverwerking gedaan, zodat analyses konden worden uitgevoerd op gefilterde delen van de data. Met `ggplot` zijn vervolgens grafieken gemaakt en deze zijn met `ggpubr` naast elkaar gezet. Voor de analyse van de meetfout tussen de analisten is de functie `chisq.test` van R gebruikt, voor een two-way chi-square test, waarbij de factoren analist en oogkleur zijn gebruikt en waarbij alle gemeten personen met één of meer lege velden zijn verwijderd. Voor de analyse van de verschillen tussen de drie meetlocaties en verschillen tussen geslacht is de data eerst gecategoriseerd als "undefined" wanneer er geen consensus was onder de analisten, om aan te geven dat er geen definitieve oogkleur kon worden bepaald. Vervolgens is de `CrossTable`-functie uit de library `gmodels` voor de chi-square-test en andere statistische waarden gebruikt. Hierbij is de locatie opgedeeld in groepen op basis van identifier en vergeleken met de oogkleur, hetzelfde is gedaan voor het geslacht in relatie tot de oogkleur. Voor de analyse van de vergelijking van de percentages van de gemeten oogkleuren zijn deze uitgerekend en vergeleken met die van de literatuur. Om de verschillen tussen twee metingen in tabellen en grafieken weer te geven, is de laagste meting gedeeld door de hoogste meting en maal 100.
 
 # Resultaten
 
@@ -315,7 +315,7 @@ Bij de oogkleuren bruin en hazel is er geen significant verschil tussen mannen e
 
 # Discussie en Conclusies
 
-**Discussie** 
+**Discussie**
 
 Om onze onderzoeksvraag te kunnen beantwoorden zijn enkele deelvragen opgesteld. De eerste deelvraag betreft het verschil in oogkleur tussen mannen en vrouwen. Hierbij is geen significant verschil gevonden (p-waarde chi-square test = 0,57). Dit resultaat komt overeen met de verwachting, aangezien oogkleur genetisch bepaald wordt en gekoppeld is aan het X- of Y-chromosoom.
 
@@ -332,6 +332,8 @@ Aan het eind van het onderzoek is het protocol en de steekproefgrootte nogmaals 
 Er is geen significant verschil gevonden in prevalentie van oogkleur tussen geslachten en de onderzochte locaties. Ook tussen alle 4 de analisten bleek geen significant verschil aantoonbaar te zijn. Tussen de analisten 9308 en 8705 bleek wel een significant verschil aanwezig te zijn, hier is dus een meetfout ontstaan. De gegevens die uit dit onderzoek gekomen zijn, zijn vergeleken met al bekende gegevens over de prevalentie van oogkleur in Nederland. Ook hier is geen significant verschil gevonden.
 
 # Online bijlagen
+
+## Github bijlagen
 
 **README**
 
@@ -362,28 +364,27 @@ Er is geen significant verschil gevonden in prevalentie van oogkleur tussen gesl
 **Literatuuronderzoek**
 
 -   <https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/True_colors_A_literature_review_on_the_spatial_dis.pdf>
--   [https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/Ecology and Evolution - 2021 - Valenta - In the eye of the beholder Is color classification consistent among human.pdf](https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/Ecology and Evolution - 2021 - Valenta - In the eye of the beholder Is color classification consistent among human.pdf)
+-   [https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/Ecology and Evolution - 2021 - Valenta - In the eye of the beholder Is color classification consistent among human.pdf](https://github.com/cheyennebrouwer/eyeresearch/blob/main/analyse/Ecology%20and%20Evolution%20-%202021%20-%20Valenta%20-%20In%20the%20eye%20of%20the%20beholder%20Is%20color%20classification%20consistent%20among%20human.pdf)
 
 **Logboeken**
 
 -   <https://github.com/cheyennebrouwer/eyeresearch/tree/main/logs>
 
+## Notitie software {#sec-notitie-software}
 
-## Notitie software
-
-### Google Docs {#g-docs}
+**Google Docs**
 
 Gebruikte versie: 1.23.162.05.90
 
 Referentie: <https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.sheets&pli=1>
 
-### Apple notities {#a-notes}
+**Apple notities**
 
 Gebruikte versie: geen data
 
 Referentie: <https://apps.apple.com/us/app/notes/id1110145109>
 
-### Keep My Notes {#keep-my-notes}
+**Keep My Notes**
 
 Gebruikte versie: 1.80.180
 
@@ -395,59 +396,59 @@ Gebruikte versie: 4.3.0
 
 Referentie: <https://www.r-project.org/>
 
-## R libraries
+## R libraries {#sec-r-libs}
 
-### plyr {#plyr}
+**plyr**
 
 Gebruikte versie: 1.8.8
 
 Referentie: <https://www.rdocumentation.org/packages/plyr/versions/1.8.8>
 
-### dplyr {#dplyr}
+**dplyr**
 
 Gebruikte versie: 1.1.2
 
 Referentie: <https://www.rdocumentation.org/packages/dplyr/versions/1.0.10>
 
-### **ggplot2** {#ggplot2}
+**ggplot2**
 
 Gebruikte versie: 3.4.2
 
 Referentie: <https://www.rdocumentation.org/packages/ggplot2/versions/3.4.2>
 
-### **knitr** {#knitr}
+**knitr**
 
 Gebruikte versie: 1.43
 
 Referentie: <https://www.rdocumentation.org/packages/knitr/versions/1.43>
 
-### tidyr {#tidyr}
+**tidyr**
 
 Gebruikte versie: 1.3.0
 
 Referentie: <https://cran.r-project.org/web/packages/tidyr/index.html>
 
-### ggpubr {#ggpubr}
+**ggpubr**
 
 Gebruikte versie: 0.6.0
 
 Referentie: <https://cran.r-project.org/web/packages/ggpubr/index.html>
 
-### gmodels {#gmodels}
+**gmodels**
 
 Gebruikte versie: 2.18.1.1
 
 Referentie: <https://www.rdocumentation.org/packages/gmodels/versions/2.18.1.1>
 
-### readxl {#readxl}
+**readxl**
 
 Gebruikte versie: 1.4.2
 
 Referentie: <https://www.rdocumentation.org/packages/readxl/versions/1.4.2>
 
-## Software Tools
+## Software Tools {#sec-software-tools}
 
-### R-studio
+**R-studio**
 
 Gebruikte versie: 2023.03.0 (Windows en MacOS versies)
 
@@ -456,4 +457,3 @@ Gebruiksreden: Het ontwikkelen van R code voor de analyse van de data.
 Referentie: <https://posit.co/products/open-source/rstudio/>
 
 # Referenties
-
