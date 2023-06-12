@@ -1,7 +1,76 @@
 ---
 autur: Willem Daniël Visser
+date: "5-6-2023"
 bibliography: "8705-log.bib"
 ---
+
+# Inleiding
+
+Het onderzoek vond plaats in de maanden mei en juni van het jaar 2023, aan de Hanzehogeschool te Groningen. Er is ook gemeten in Groningen centrum en Zwolle centrum.
+
+# Introductie
+
+## Doel
+
+Het doel van het onderzoek is bekijken of er bij studenten van de Hanzehogeschool Groningen aanleg is voor een bepaalde oogkleur. Daarnaast is er op 2 andere locaties gemeten om verschillen te kunnen onderzoeken in oogkleur en zo te bepalen of er aanleg is voor een bepaalde oogkleur bij studenten van de hogeschool.
+
+## Data collectie
+
+De data is verzameld op 3 verschillende locaties, waarbij op elke locatie 40 verschillende proefpersonen zijn bevraagd. De locaties zijn respectievelijk Hanzehogeschool (Van DoorenVeste), Groningen centrum en Zwolle centrum. De proefpersonen zijn in daglicht bevraagd en indien de locatie binnen was bij voorkeur bij goed licht (bij een raam of bij goede TL verlichting). Hier is de oogkleur van de proefpersonen bekeken.
+
+Op de Hanzehogeschool Groningen is de informatie binnen verzameld. In Groningen centrum en Zwolle centrum buiten.
+
+## Theorie
+
+### Oorzaak
+
+De oogkleur wordt bepaald door de hoeveelheid en kwaliteit van het pigment melanine in de iris. Melanine wordt geproduceerd door cellen genaamd melanocyten (pigmentcellen). Melanocyten bevinden zich in verschillende delen van het lichaam zoals de huid, het haar en dus ook de ogen. in het oog zitten melanocyten in het bindweefsel. Dit bindweefsel wordt stroma genoemd. De hoeveelheid melanocyten is ongeacht de oogkleur gelijk bij iedereen. Er is dus geen verband tussen de hoeveelheid melanocyten en de oogkleur, maar wel tussen de hoeveelheid en kwaliteit van melanine in de iris. Dit zorgt voor de vele variaties in oogkleuren.
+
+### Verschillen in oogkleur
+
+Mensen met een bruine iris hebben over het algemeen meer melanine in hun ogen t.o.v. mensen met een blauwe/groene iris. Dit komt doordat mensen met een bruine iris in de voorste laag en het stroma van de iris meer melanocyten en melanosomen hebben dan mensen met een blauwe/groene iris. Melanosomen zijn celorganellen die zich in de melanocyten bevinden. Hierin wordt het pigment opgeslagen. Zowel melanocyten als melanosomen zijn verantwoordelijk voor de productie van melanine. Wanneer licht door een grote hoeveelheid melanine gaat, wordt het meeste zichtbare licht geabsorbeerd en een klein deel teruggekaatst, dit zorgt voor de bruine kleur van de iris. Bij weinig aanwezigheid van melanine is de oogkleur lichter, zoals blauw of groen. Als er te weinig melanine is om een sterke kleur blauw te produceren worden de kleuren van bloedvaten (rood) en de kleine hoeveelheid blauwe pigment weerkaatst wat voor een violet kleur zorgt. Er zijn ook gevallen waarbij er helemaal geen melanine aanwezig is, dit wordt ook wel albinisme genoemd. Bij gebrek aan melanine ontstaan er rode ogen. Een rode iris is zoals eerder uitgelegd een weerkaatsing van de bloedvaten in het oog.
+
+### Expressie en dominantie
+
+Ogen zijn er in verschillende soorten blauw, bruin en groen. Het allel dat verantwoordelijk is voor de kleur bruin is dominant over het allel voor blauw en het allel voor groen. Hierbij is het allel voor groen weer dominant over blauw. Een verminderde expressie kan voor een onvolledige dominantie zorgen. Dit veroorzaakt de vele verschillende kleuren van de iris zoals hazelnoot en lichtere tinten bruin.
+
+### Heterochromie
+
+Het kan ook voorkomen dat de iris zelf uit verschillende kleuren bestaat. Dit wordt heterochromie genoemd. Deze aandoening wordt geërfd of veroorzaakt door somatische mutaties in de cellen (bij somatische mutaties vinden er mutaties plaats in cellen die niet betrokken zijn bij geslachtscellen). Het is ook mogelijk dat de aandoening wordt veroorzaakt door (gedeeltelijke) inactivatie van bepaalde genen in de cellen. Hierdoor wordt er op sommige plaatsen in het iris minder pigment geproduceerd dan op andere plaatsen en ontstaat er een iris met meer dan 1 kleur.
+
+# Experimentele verzetting
+
+Er is van 3x 40 proefpersonen de oogkleur, het geslacht en de leeftijd verzameld. De oogkleur is van zowel het linker- als rechteroog genoteerd en verwerkt in een spreadsheet. Deze spreadsheet is omgezet in een .csv bestand zodat deze ingelezen kan worden in R markdown.
+
+# Logboek
+
+## 09-05-2023 nd-nd - 458075(Willem Daniël Visser)
+
+Een refferentie afbeelding is gemaakt als refferentie voor de metingen. Er is een afbeelding opgezocht met foto's van mensen hun ogen in vele verschillende kleuren. Deze afbeelding (zie github) is bewerkt door het toevoegen van 2 strepen bruin, 2 blauw en 1 groen. Dit voor snelle herkenning van kleur categorie zodra de oogkleur van de subject overeenstemd met de foto op de afbeelding. Voor meer informatie zie het protocol.
+
+## 11-05-2023 09:00 - 10:00 - ALL
+
+Gedurende 1 uur zijn op de Hanzehogeschool Groningen (Van DoorenVeste) 40 verschillende studenten bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 11-05-2023 10:45 - 12:00 - ALL
+
+Gedurende 1 uur zijn in Grongingen centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 15-05-2023 13:30 - 15:30 - ALL
+
+Gedurende 2 uur zijn in Zwolle centrum 40 verschillende proefpersonen bevraagd naar leeftijd en geslacht. Daarna is door 4 verschillende analisten van al deze proefpersonen zowel de rechter- als linkeroogkleur genoteerd bij de identifier van de proefpersoon. Hierbij is gezocht naar proefpersonen die een verwachtte leeftijd hadden van 16 - 30 jaar (studentenleeftijd) en is gezorgd voor een goede verdeling tussen mannen en vrouwen.
+
+## 16-05-2023 nd-nd - 458075(Willem Daniël Visser)
+
+De refferentie afbeelding is op github gezet.(Zie commit: 4f00cc1f618da9ca344627c1cf6c2b473f0ad09e)
+
+## 22-05-2023 nd-nd - 458075(Willem Daniël Visser)
+
+De bestandenstructuur is aangepast en de .gitignore is daarbij toegevoegd. (Zie commits: a5b1e3c96ee792df2c83e87ec83e5160e62333fc, 764e3a8c90602eb1a52046c9a0816540263592b0)
+
+## 30-05-2023 nd-nd - 458075(Willem Daniël Visser)
+
+Aan het .gitignore bestand is de map ruwe_data/ toegevoegd, zo kunnen analisten wel de data lokaal houden, maar hoeft het niet op github gepubliceerd te worden. (Zie commit: 1081ca6a847ec6254a45887f2d74d8b2e2fde975)
 
 ## 30-05-2023 10:30 - 11:50 - 458075(Willem Daniël Visser)
 
@@ -16,7 +85,7 @@ library(knitr)
 
 ```{r load-oogkleur-data}
 
-file_path = "../ruwe_data/Oogkleur_simpel2.csv"
+file_path = "../analyse/data/Oogkleur_simpel2.csv"
 eye_df <- read.table(
   file = file_path,
   header = T,
@@ -174,7 +243,7 @@ Er is een opgestapelde barplot gemaakt met alle oogkleuren per analist tegen het
 ```{r analist-distro-byeyecolor}
 ggplot(eye_df, aes(x = analist, fill = oogkleur)) + 
   geom_bar(width = .6) +
-  scale_fill_manual("Oogkleur", values = c("blue", "green", "brown", "#B85F2F")) + 
+  scale_fill_manual("Oogkleur", values = c("dodgerblue", "yellowgreen", "sienna", "#B85F2F")) + 
   ylab("Opnames") +
   xlab("Analist") +
   ggtitle("Aantal opgenomen oogkleuren per analist.")
@@ -212,14 +281,122 @@ Na overleg worden de volgende onderwerpen opgeschreven die nog over de data moet
 
     -   Hoeveel % kans op een tie
 
--   Wat waren de karateristics van de ...
-
-    -   Omstandigheden
-
-    -   Analisten
-
-    -   Subjects
-
--   Wat welke variabelen gecontroleerd hadden kunnen worden
-
 Deze onderwerpen vervangen de losse hypotheses van 1 juni in dit logboek.
+
+## 06-06-2023 11:00-12:20 & 14:00-16:20 - 458075(Willem Daniël Visser)
+
+Er is aan het wetenschappelijk artikel gewerkt. Zie "[github.com/cheyennebrouwer/eyeresearch/blob/science-paper-8075/publication/eyecolor.Rmd](https://github.com/cheyennebrouwer/eyeresearch/blob/science-paper-8075/publication/eyecolor.Rmd)".
+
+## 07-06-2023 8:30-10:00 & 10:30-12:20 - 458075(Willem Daniël Visser)
+
+Hetzelfde als gisteren.
+
+### 14:00-15:00
+
+Na zelf nadenken zijn de volgende extra statistische toetsen/grafieken en tabellen die nog gemaakt moet worden:
+
+-   Tabel percentage kleur per analist
+
+-   Het percentage kans op een verschil van mening
+
+-   Het percentage kans op een tie
+
+-   Het percentage kans op een volledige overeenkomst
+
+-   Verschil sexe analist
+
+-   Percentage afwijking per gemiddelde per kleur per sexe analist
+
+Chi-square gemaakt over twee groepen analisten, omdat de leden van de groepen op elkaar lijken in tellingen, maar de groepen onderling van elkaar afwijken.
+
+```{r chi-square}
+
+eye_df_analist_eyecolor$groep <- ifelse(eye_df_analist_eyecolor$analist %in% list("9308", "2193"), "9308 & 2193", "5609 & 8705")
+
+chisq_eyecolor_analist_grp <- chisq.test(
+  eye_df_analist_eyecolor$groep,
+  eye_df_analist_eyecolor$oogkleur
+)
+
+knitr::kable(chisq_eyecolor_analist_grp$observed / 2, longtable = TRUE, caption = "De geobserveerde aantal oogkleuren links+rechts per analist groep.")
+
+chisq_eyecolor_analist_grp
+```
+
+## 08-06-2023 13:00-14:00 - 458075 (Willem Daniël Visser)
+
+Gewerkt aan het resultaten kopje bij het wetenschappelijk-artiekel zie: <https://github.com/cheyennebrouwer/eyeresearch/blob/science-paper-8075/publication/eyecolor.Rmd>
+
+## 09-06-2023 12:40-15:00 - 458075 (Willem Daniël Visser)
+
+Feedback ontvangen van docent, wegens woorden te kort in wetenschappelijk-artiekel:
+
+-   Preciezere figuur beschrijvingen
+
+-   Een introductie van de resultaten met:
+
+    -   Samenvatting van wat er gaat komen
+
+    -   Reden waarom de resultaten zijn gekozen om te laten zien
+
+De feedback is groot en deels toegepast.
+
+### 15:00-15:25 - all
+
+Teams vergadering over de stand van zaken rondom het wetenschappelijk artiekel. Hierin is de feedback die de artikel schrijvers hebben ontvangen van de docent besproken:
+
+-   Feedback voor 458075, zie: vorig blokje in dit document
+
+-   Feedback voor xx2193, zie: op de github van dit project: /logs/Logboek_2193.Rmd
+
+Ook taken die nog gedaan moeten worden
+
+### 16:30-16:40 - 458075
+
+De feedback is verder toegepast.
+
+## 10-06-2023 - 11:15-nd. - 458075 (Willem Daniël Visser)
+
+Deze dag is aan het weteschappelijk artikel(science_paper.Rmd) gewerkt, de veranderingen kunnen worden bekeken op commit: `de40b75` in de main branch. In deze versie is het alfa probleem opgelost door de knitr optie "output"(zie bovenin het .Rmd document) volledig te verwijderen. Hierdoor is 1 van de resultaten dat de grafieken en tabellen niet meer automatisch worden genummerd. Ook is het wetenschappelijk artikel verplaatst naar de "publication" map in de git-repo.
+
+## 11-06-2023 - nd.-nd. - 458075 (Willem Daniël Visser) 
+
+Om de figuren compacter bij elkaar te zetten in het wetenschappelijk artikel(science_paper.Rmd) is met `ggarrange` van `ggpubr` gedaan. Daarnaast zijn de plots anders gestyled en zijn vollediger qua informatie overbrengst(legenda, titel, beschrijving, ect.). Ook is de knitr optie "output" weer aangepast terug naar "`bookdown::pdf_document2`" en alle alfa tekens zijn vervangen door het woord alfa. Zo zijn de problemen van gisteren opgelost en het bijkomend probleem dat er niet meer een pdf, maar een html-document voortkwam bij het knitten van het Rmd document. Tenslotte is er bij de "materialen en methoden" sectie van het artikel en bij het "Online bronnen" sectie referentie, versies en website links bijgezet. Zie commit: 076c637 in de main branch op Github voor meer veranderingen.
+
+## 12-06-2023 - ochtend - 458075 (Willem Daniël Visser)
+
+Deze dag is aan het wetenschappelijk artikel(science_paper.Rmd) gewerkt, de veranderingen kunnen onderandere worden bekeken op commit: `13e8fdb` in de main branch. In deze versie zijn de opties voor `bookdown::pdf_document2` uitgebreid naar:
+
+---
+  keep_tex: false    # set this to true if you want to investigate the generated tex
+  toc: false         # table of contents
+  fig_caption: true  # includes figure captions with numbering in output
+  includes:  
+      in_header: include_tex_header.tex #will include rules for linespacing and figure floating
+---
+
+Dit is metname geweest omdat de `include_tex_header.tex` gedrags code bevat die LaTex verteld dat figuren niet aan de bovenkant of onderkant van het document hoeven te vloaten. Daarnaast komt hiermee de figuur nummering terug.
+
+### Middag
+
+In de middag(zie commit `7edcb19`) is geprobeerd de plot voor de vergelijking met Nederland algemeen(zie log van 2193) meer gelijk te maken door de "NA" weergegeven in de plot te veranderen naar "Undif.". Dit is geprobeerd met `ifelse` en gelukt met de volgende code:
+
+```{r}
+Oogkleur_simpel[is.na(Oogkleur_simpel)] <- "Undif."
+```
+
+Daarnaast is de code voor locatie_gender gerelanteerde dingen wegehaalt. Het gaat hier om de code-chunks: 'get-hanze-gender-results', 'get-centrum-groningen-gender-results', 'get-zwolle-gender-results' en 'hanze-gender-pie-chart'.
+
+\--
+
+Later op de middag is alle code van de collega analisten met elk hun aanpassingen samen gevoegd tot een naderend laatste versie. Zie commit: `b502e44`.
+
+Toen zijn de figuur titels op orde gebracht(`dc7ece1`), waarna externe artikel referenties in scientific_paper.bib zijn gezet en in het wetenschappelijk artikel referenties naar zijn gemaakt bij de resultaten en discussie/conclusie voor referentie naar de data waarmee de data van dit onderzoek is vergeleken en naar bewijzen over waarom mensen niet zonder fouten een oogkleur kunnen bepalen(`3b22ef0`, `16ac170` en `4e2c42f`).
+
+### 20:40-21:10
+
+In de avond is het online bijlagen sectie univorm gemaakt. Met minder referenties uit de tekst naar dit stuk(`55476ff`). Toen is de .gitignore bestand geupdated zodat deze `.log` bestanden **overal** in de documenten structuur niet meeneemt bij de commit all of commit suggesties(`9d0c293`).
+
+### 21:15-21:20
+
+De sectie waar de auteurs in staan is betreft syntax verbeterd en zijn de docenten aan toegevoegd.
