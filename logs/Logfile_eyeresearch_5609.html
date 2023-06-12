@@ -412,6 +412,16 @@ ALL</a></li>
 11:20 - 12:00 - 415069 (Demi van ’t Oever)</a></li>
 <li><a href="#demi-van-t-oever-9" id="toc-demi-van-t-oever-9">07-06-2023
 09:40 - 09:45 - 415069 (Demi van ’t Oever)</a></li>
+<li><a href="#demi-van-t-oever-10" id="toc-demi-van-t-oever-10">08-06-2023 14:00 - 15:30 - 415069 (Demi van
+’t Oever)</a></li>
+<li><a href="#demi-van-t-oever-11" id="toc-demi-van-t-oever-11">09-06-2023 12:30 - 15:15 - 415069 (Demi van
+’t Oever)</a></li>
+<li><a href="#all-5" id="toc-all-5">09-06-2023 15:15 - 15:35 -
+ALL</a></li>
+<li><a href="#demi-van-t-oever-12" id="toc-demi-van-t-oever-12">10-06-2023 10:00 - 13:00 - 415069 (Demi van
+’t Oever)</a></li>
+<li><a href="#demi-van-t-oever-13" id="toc-demi-van-t-oever-13">12-06-2023 09:45 - 15:30 - 415069 (Demi van
+’t Oever)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -585,17 +595,6 @@ getallen visueel uit te kunnen beelden.</p>
 en vrouwen? H0: Er is geen aantoonbaar verschil in oogkleur tussen
 mannen en vrouwen. H1: Er is een aantoonbaar verschil in oogkleur tussen
 mannen en vrouwen.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.2     ✔ readr     2.1.4
-## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-## ✔ purrr     1.0.1     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 <pre class="r"><code>file &lt;- &quot;~/School/De_wetenschappelijke_cyclus/eyeresearch/Oogkleur_simpel_definitief.csv&quot;
 eye_colors &lt;- read.table(file, sep=&quot;,&quot;,header=TRUE)
 
@@ -782,9 +781,9 @@ dit te doen middels een CrossTable.</p>
     rowwise() %&gt;%
     mutate(results = majority2(c_across(4:11)))
 
-library(gmodels)</code></pre>
-<pre><code>## Warning: package &#39;gmodels&#39; was built under R version 4.4.0</code></pre>
-<pre class="r"><code>CrossTable(male_female2$geslacht, male_female2$results, chisq = TRUE, expected = TRUE, format = &quot;SPSS&quot;)</code></pre>
+library(gmodels)
+
+CrossTable(male_female2$geslacht, male_female2$results, chisq = TRUE, expected = TRUE, format = &quot;SPSS&quot;)</code></pre>
 <pre><code>## Warning in chisq.test(t, correct = FALSE, ...): Chi-squared approximation may
 ## be incorrect</code></pre>
 <pre><code>## 
@@ -881,6 +880,40 @@ gebruik: het was lastig te zien of de juiste waarden op de juiste plek
 stonden. Door bij de CrossTable de Chi-square test aan te zetten, kan
 deze functie de test ook uitvoeren. Hiervoor is tevens het boek
 ‘Discovering Statistics Using R’ van Andy Field.</p>
+</div>
+<div id="demi-van-t-oever-10" class="section level2">
+<h2>08-06-2023 14:00 - 15:30 - 415069 (Demi van ’t Oever)</h2>
+<p>Begin gemaakt aan de spelling- en grammaticacontrole van het bestand
+scientific_paper.Rmd. Tevens de studenten die bezig waren met resultaten
+beschrijven in de paper met hoe ze alles konden verwoorden.</p>
+</div>
+<div id="demi-van-t-oever-11" class="section level2">
+<h2>09-06-2023 12:30 - 15:15 - 415069 (Demi van ’t Oever)</h2>
+<p>Verder gegaan met spelling- en grammaticacontrole van het bestand
+scientific_paper.Rmd. Dit is gedaan met behulp van onder andere
+Microsoft Word en ChatGPT.</p>
+</div>
+<div id="all-5" class="section level2">
+<h2>09-06-2023 15:15 - 15:35 - ALL</h2>
+<p>Teamsmeating over de stand van zaken van de paper. We hebben
+besproken hoe ver iedereen is, wat er nog gedaan moet worden. Deze taken
+zijn verdeeld.</p>
+</div>
+<div id="demi-van-t-oever-12" class="section level2">
+<h2>10-06-2023 10:00 - 13:00 - 415069 (Demi van ’t Oever)</h2>
+<p>Problemen in het document oplossen, mogelijk maken van knitten met
+LaTEX naar pdf. Evenals een probleem met het alfa-teken opgelost. Daarna
+verder gegaan met de spelling- en grammaticacontrole.</p>
+</div>
+<div id="demi-van-t-oever-13" class="section level2">
+<h2>12-06-2023 09:45 - 15:30 - 415069 (Demi van ’t Oever)</h2>
+<p>Verder met de spelling- en grammaticacontrole van het bestand.
+Discussie en conclusie omgedraaid, deze stonden in de verkeerde
+volgorde. Hierdoor moesten zowel discussie als conclusie herschreven
+worden. Deze stukken heb ik herschreven en daarna opnieuw een spelling-
+en grammaticacontrole op uitgevoerd. Ondertussen meerdere besprekingen
+over wat er nog gedaan moet worden, nieuwe taakverdeling en stand van
+zaken bespreken.</p>
 </div>
 </div>
 
