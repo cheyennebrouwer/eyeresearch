@@ -14,6 +14,9 @@ Voor het onderzoek naar de aanleg voor oogkleur onder studenten van de Hanzehoge
 
 Uit het onderzoek is onder andere gebleken dat er verschillen zitten tussen de locaties. Dit is in een bar plot geplaatst, waaruit de resultaten afgelezen kunnen worden.
 
+![image](https://github.com/cheyennebrouwer/eyeresearch/assets/115778098/4b4e2c81-1532-439f-9e04-a6cd43f66779)
+
+
 ## Installatie
 Voor het uitvoeren van het project over oogkleur moeten meerdere onderdelen geïnstalleerd worden.
 
