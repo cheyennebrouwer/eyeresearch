@@ -142,7 +142,6 @@ eye_colors2 <- eye_colors %>%
     mutate(results = majority2(c_across(4:11))) %>%
     pivot_longer(cols = contains("_"),
                names_pattern = "(L|R)_OK(.+)",
-#               names_sep = "_",
                names_to = c("Eye", "Laborant"),
                values_to = "color")
 
@@ -176,7 +175,7 @@ Total_amount
 
 Voor de data van de Hanze Hogeschool Groningen zijn de eerste 40 datapunten nodig. In de onderstaande code worden de eerste 40 data punten van het bestand gepakt, om vervolgens als resultaat de oogkleuren op de Hanze Hogeschool Groningen met de bijbehorende aantallen te krijgen.
 Uit de resultaten komen 40 getelde oogkleuren, wat ook het correcte aantal is. Er is 1 identifier met een oogkleur die gecategoriseerd is als undefined.
-```{r, get-hanze-results}
+```{r, get-hanze-results, eval=FALSE}
 Hanze_amount <- Total_amount[1:40, ] 
 
 Hanze <- Hanze_amount %>%
@@ -197,7 +196,7 @@ Hanze_gender
 
 Voor de data van het centrum van Groningen zijn datapunten 41 tot en met 80 nodig. In de onderstaande code worden de datapunten van 41 tot en met 80 van het bestand gepakt, om vervolgens als resultaat de oogkleuren in het centrum van Groningen met de bijbehorende aantallen te krijgen.
 Uit de resultaten komen 40 getelde oogkleuren, wat ook het correcte aantal is. Er zijn 2 identifiers met een oogkleur die gecategoriseerd is als undefined.
-```{r, get-centrum-groningen-results}
+```{r, get-centrum-groningen-results, eval=FALSE}
 Centrum_amount <- Total_amount[41:80, ] 
 
 Centrum <- Centrum_amount %>%
@@ -219,7 +218,7 @@ Centrum_gender
 
 Voor de data van het centrum van Zwolle zijn datapunten 81 tot en met 120 nodig. In de onderstaande code worden de datapunten van 81 tot en met 120 van het bestand gepakt, om vervolgens als resultaat de oogkleuren in het centrum van Zwolle met de bijbehorende aantallen te krijgen.
 Uit de resultaten komen 40 getelde oogkleuren, wat ook het correcte aantal is. Er zijn 5 identifiers met een oogkleur die gecategoriseerd is als undefined.
-```{r, get-zwolle-results}
+```{r, get-zwolle-results, eval=FALSE}
 Zwolle_amount <- Total_amount[81:120, ] 
 
 Zwolle <- Zwolle_amount %>%
@@ -241,7 +240,7 @@ Zwolle_gender
 ### 02-06-2023 399308(Cheyenne) 9:00 - 11:30
 Er is per locatie een bijpassende pie chart gemaakt, waarin de verdeling van de oogkleuren per locatie weergegeven wordt.
 
-```{r, hanze-pie-chart}
+```{r, hanze-pie-chart, eval=FALSE}
 ggplot(data = Hanze, 
        aes(x = "", y = count, fill = results)) +
   geom_col(color = "black") +
@@ -264,7 +263,7 @@ ggplot(data = Hanze_gender,
 ```
 
 
-```{r, centrum-groningen-pie-chart}
+```{r, centrum-groningen-pie-chart, eval=FALSE}
 ggplot(data = Centrum, 
        aes(x = "", y = count, fill = results)) +
   geom_col(color = "black") +
@@ -286,7 +285,7 @@ ggplot(data = Centrum_gender,
 
 ```
 
-```{r, zwolle-pie-chart}
+```{r, zwolle-pie-chart, eval=FALSE}
 ggplot(data = Zwolle, 
        aes(x = "", y = count, fill = results)) +
   geom_col(color = "black") +
@@ -332,19 +331,41 @@ In de data is zichtbaar dat er 3 locaties zijn met 40 proefpersonen per locatie.
 Conclusie:
 De gemeten locaties hebben geen significante invloed op de waargenomen oogkleuren.
 
+### 11-06 14:00 - 15:30
+
+Eerste versie van abstract is geschreven voor het wetenschappelijk artikel. 
+
+"Dit onderzoek onderzoekt de prevalentie van oogkleuren onder studenten
+  van de Hanzehogeschool Groningen en vergelijkt deze met andere locaties in Nederland.
+  Het onderzoek heeft tot doel na te gaan of er een dominante oogkleur is op de Hanzehogeschool
+  Groningen en de verschillen in oogkleurprevalentie tussen de drie locaties te onderzoeken.
+  De gegevens werden verzameld door de ogen van 120 personen op drie verschillende
+  locaties te meten met behulp van een referentiekaart. Bij de metingen werd rekening
+  gehouden met factoren als blootstelling aan zonlicht en het dragen van gekleurde
+  contactlenzen. De statistische methode die werd gebruikt voor gegevensanalyse was
+  de chi-kwadraattoets. De resultaten gaven aan of er significante verschillen in
+  oogkleur waren tussen geslachten en tussen de verschillende locaties. Daarnaast
+  zijn de gegevens uit dit onderzoek vergeleken met gegevens uit een literatuuronderzoek
+  en zijn mogelijke meetfouten door de analisten geëvalueerd. Op basis van eerder
+  onderzoek was de verwachting dat blauw de meest voorkomende oogkleur zou zijn op
+  de Hanzehogeschool Groningen. De bevindingen van dit onderzoek geven inzicht in
+  de prevalentie van oogkleuren op de Hanzehogeschool Groningen en dragen bij aan
+  het begrip van genetische variaties in oogkleur binnen populaties."
 
 
 
+### 12-06 8:30 - 15:00
 
+Nieuw figuur is aangemaakt voor in het wetenschappelijke artikel. In dit figuur zijn alle drie locaties naast elkaar geplaats in 3 bar plots. Hierin zijn de verschillen per oogkleur per locatie duidelijk af te lezen. Apart is er nog toegevoegd dat elke bar de juiste kleur heeft, die hoort bij de oogkleur. 
 
+```{r, locations-bar-plot, fig.dim=c(8.5,4), fig.cap='Drie barplots met de drie meetlocaties en aantal gemeten oogkleuren.'}
+ggplot(data = eye_colors_location, aes(x = results, fill = results)) +
+  geom_bar() +
+  labs(x = "Eye Color", y = "Count", title = "Oogkleurverdeling") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_fill_manual(values = c("Undef." = "gray", "blauw" = "blue", "bruin" = "brown", "groen" = "green", "hazel" = "orange")) +
+  facet_wrap(~ location, nrow = 1)
 
-
-
-
-
-
-
-
-
-
+```
 
