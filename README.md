@@ -3,8 +3,8 @@
 ## Koptekst
 
 Auteurs: Demi van 't Oever, Cheyenne Brouwer, Kasthury Inparajah, Willem-Daniël Visser    
-Versie: 1.0   
-Datum: 22-05-2023
+Versie: 2.0   
+Datum: 12-06-2023
 
 ## Beschrijving:
 De oogkleur wordt bepaald door de hoeveelheid en kwaliteit van het pigment melanine in de iris. Melanine wordt geproduceerd door cellen genaamd melanocyten (pigmentcellen). Melanocyten bevinden zich in verschillende delen van het lichaam zoals de huid, het haar en dus ook de ogen. in het oog zitten melanocyten in het bindweefsel. Dit bindweefsel wordt stroma genoemd. De hoeveelheid melanocyten is ongeacht de oogkleur gelijk bij iedereen. 
@@ -19,9 +19,17 @@ R & Rstudio
 Voor Mac en Windows, gebruik deze link om R en Rstudio te downloaden [R & Rstudio](https://posit.co/download/rstudio-desktop/)
 
 Tidyverse   
-Er wordt in het bestand gebruik gemaakt van tidyverse. Om het complete tidyverse te installeren, open de terminal in Rstudio en typ "install.packages("tidyverse")".
+Er wordt in het bestand gebruik gemaakt van tidyverse. Om het complete tidyverse te installeren, open de terminal in Rstudio en typ "install.packages("tidyverse")". In het bestand wordt er specifiek gebruik gemaakt van ggplot2, plyr en dplyr.
 
 Om een webpagina te maken om de content te laten zien, druk op de knit knop die boven aan Rstudio geplaatst is.
+
+Knitr
+Het ontwerp van knitr staat alle invoertalen toe (bijv. R, Python en shellscripts) en alle uitvoertalen (bijv. LaTeX, HTML, Markdown, AsciiDoc en reStructuredText).
+Om knitr te downloaden, ga naar de console en type: install.packages('knitr', dependencies = TRUE).
+
+Gmodels
+Gmodels wordt gebruikt voor het maken van de chi-square test.
+Om gmodels te downloaden, ga naar de console en type: install.packages("gmodels").
 
 ## Data aanvraag
 Om gebruik te kunnen maken van onze data, kan er een aanvraag gedaan worden naar 1 van de onderstaande e-mailadressen. Voor de aanvraag moet de naam van de aanvrager en de reden van aanvraag mee gestuurd worden. 
