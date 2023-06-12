@@ -355,4 +355,48 @@ Ook taken die nog gedaan moeten worden
 
 De feedback is verder toegepast.
 
-## 10-06-2023 - 11:15- - 458075 (Willem Daniël Visser)
+## 10-06-2023 - 11:15-nd. - 458075 (Willem Daniël Visser)
+
+Deze dag is aan het weteschappelijk artikel(science_paper.Rmd) gewerkt, de veranderingen kunnen worden bekeken op commit: `de40b75` in de main branch. In deze versie is het alfa probleem opgelost door de knitr optie "output"(zie bovenin het .Rmd document) volledig te verwijderen. Hierdoor is 1 van de resultaten dat de grafieken en tabellen niet meer automatisch worden genummerd. Ook is het wetenschappelijk artikel verplaatst naar de "publication" map in de git-repo.
+
+## 11-06-2023 - nd.-nd. - 458075 (Willem Daniël Visser) 
+
+Om de figuren compacter bij elkaar te zetten in het wetenschappelijk artikel(science_paper.Rmd) is met `ggarrange` van `ggpubr` gedaan. Daarnaast zijn de plots anders gestyled en zijn vollediger qua informatie overbrengst(legenda, titel, beschrijving, ect.). Ook is de knitr optie "output" weer aangepast terug naar "`bookdown::pdf_document2`" en alle alfa tekens zijn vervangen door het woord alfa. Zo zijn de problemen van gisteren opgelost en het bijkomend probleem dat er niet meer een pdf, maar een html-document voortkwam bij het knitten van het Rmd document. Tenslotte is er bij de "materialen en methoden" sectie van het artikel en bij het "Online bronnen" sectie referentie, versies en website links bijgezet. Zie commit: 076c637 in de main branch op Github voor meer veranderingen.
+
+## 12-06-2023 - ochtend - 458075 (Willem Daniël Visser)
+
+Deze dag is aan het wetenschappelijk artikel(science_paper.Rmd) gewerkt, de veranderingen kunnen onderandere worden bekeken op commit: `13e8fdb` in de main branch. In deze versie zijn de opties voor `bookdown::pdf_document2` uitgebreid naar:
+
+---
+  keep_tex: false    # set this to true if you want to investigate the generated tex
+  toc: false         # table of contents
+  fig_caption: true  # includes figure captions with numbering in output
+  includes:  
+      in_header: include_tex_header.tex #will include rules for linespacing and figure floating
+---
+
+Dit is metname geweest omdat de `include_tex_header.tex` gedrags code bevat die LaTex verteld dat figuren niet aan de bovenkant of onderkant van het document hoeven te vloaten. Daarnaast komt hiermee de figuur nummering terug.
+
+### Middag
+
+In de middag(zie commit `7edcb19`) is geprobeerd de plot voor de vergelijking met Nederland algemeen(zie log van 2193) meer gelijk te maken door de "NA" weergegeven in de plot te veranderen naar "Undif.". Dit is geprobeerd met `ifelse` en gelukt met de volgende code:
+
+```{r}
+Oogkleur_simpel[is.na(Oogkleur_simpel)] <- "Undif."
+```
+
+Daarnaast is de code voor locatie_gender gerelanteerde dingen wegehaalt. Het gaat hier om de code-chunks: 'get-hanze-gender-results', 'get-centrum-groningen-gender-results', 'get-zwolle-gender-results' en 'hanze-gender-pie-chart'.
+
+\--
+
+Later op de middag is alle code van de collega analisten met elk hun aanpassingen samen gevoegd tot een naderend laatste versie. Zie commit: `b502e44`.
+
+Toen zijn de figuur titels op orde gebracht(`dc7ece1`), waarna externe artikel referenties in scientific_paper.bib zijn gezet en in het wetenschappelijk artikel referenties naar zijn gemaakt bij de resultaten en discussie/conclusie voor referentie naar de data waarmee de data van dit onderzoek is vergeleken en naar bewijzen over waarom mensen niet zonder fouten een oogkleur kunnen bepalen(`3b22ef0`, `16ac170` en `4e2c42f`).
+
+### 20:40-21:10
+
+In de avond is het online bijlagen sectie univorm gemaakt. Met minder referenties uit de tekst naar dit stuk(`55476ff`). Toen is de .gitignore bestand geupdated zodat deze `.log` bestanden **overal** in de documenten structuur niet meeneemt bij de commit all of commit suggesties(`9d0c293`).
+
+### 21:15-21:20
+
+De sectie waar de auteurs in staan is betreft syntax verbeterd en zijn de docenten aan toegevoegd.
