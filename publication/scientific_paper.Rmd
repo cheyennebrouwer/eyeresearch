@@ -156,8 +156,10 @@ Oogkleur_simpel$Definitieve_oogkleur <- apply(Oogkleur_simpel[, grepl("^L_|^R_",
 })
 ```
 
-```{r plot-data-literatuur-verg, fig.cap='Barplot van totaal geobserveerde (frequentie) aantal per oogkleur over alle meerderheid gekozen oogkleuren.', fig.dim=c(8,4) }
+```{r Histogram-plotten-data-eigen-onderzoek-met-aantallen}
+
 #Plot een histogram om de waarnemingen van de oogkleuren te visualiseren 
+library(ggplot2)
 
 #Kolom wordt een factor
 Oogkleur_simpel$Definitieve_oogkleur <- as.factor(Oogkleur_simpel$Definitieve_oogkleur)
@@ -166,10 +168,10 @@ Oogkleur_simpel$Definitieve_oogkleur <- as.factor(Oogkleur_simpel$Definitieve_oo
 plot_data <- ggplot(data = Oogkleur_simpel, aes(x = Definitieve_oogkleur, fill = Definitieve_oogkleur))
 
 # Histogram met gekleurde balken toevoegen
-plot_data <- plot_data + geom_bar()
+plot_data <- plot_data + geom_bar(stat = "count")
 
-# Kleuren met scale_fill_manual aanpassen
-plot_data <- plot_data + scale_fill_manual(values = c("blauw" = "dodgerblue", "bruin" = "sienna", "groen" = "yellowgreen"), name="Definitieve\noogkleur")
+# Kleuren met scale_fill_manual aanpassen en aantallen aan staafdiagram toevoegen
+plot_data <- plot_data + scale_fill_manual(values = c("blauw" = "dodgerblue", "bruin" = "sienna", "groen" = "yellowgreen")) + geom_text(stat = "count", aes(label = after_stat(count)), vjust = -0.5)
 
 # Titel en label toevoegen
 plot_data <- plot_data +
@@ -178,6 +180,7 @@ plot_data <- plot_data +
 # Weergeef histogram
 print(plot_data)
 ```
+
 
 Hier is te zien hoe blauw (52,5 %) het grootste deel van de metingen uitmaakt, gevolgd door bruinv(34,16667 %) en groen (8,333333 %). Zonder de “undefined” waarden meegerekend komt dit neer op de verhoudingen blauw, bruin, groen van respectievelijk 55,26%, 35,96% en 8,77%.
 
@@ -232,7 +235,7 @@ De `chi-square` p-waarde tussen de percentages uit het literatuuronderzoek en he
 ## Verschil tussen locaties
 
 ```{r, original-file-to-final-version }
-file <- "/Users/cheyennebrouwer/Library/CloudStorage/OneDrive-HanzehogeschoolGroningen/Oogkleur_simpel_definitief.csv"
+file <-"../analyse/data/Oogkleur_simpel_definitief.csv"
 
 eye_colors <- read.table(file, sep= ",", header=T)
 
@@ -267,6 +270,12 @@ eye_colors_location <- eye_colors2 %>%
     row_number() <= 960 ~ "Zwolle centrum",
     TRUE ~ NA_character_
   ))
+```
+
+```{r, shorten-to-1-identifier}
+Total_amount <- eye_colors_location %>%
+  group_by(Identifier) %>%
+  slice(1)
 ```
 
 ```{r, locations-bar-plot, fig.dim=c(8.5,4), fig.cap='Drie barplots met de drie meetlocaties en het aantal gemeten oogkleuren.'}
