@@ -1,4 +1,4 @@
-s---
+---
 title: "Logfile oogkleur onderzoek"
 author: "Kasthury Inparajah"
 output:
@@ -482,11 +482,17 @@ Ook is er ondertussen overlegd met het groepje hoe het ervoor staat tot nu toe.
 ## 09-06-2023  18:30 - 19:30 - 2193 (Kasthury Inparajah)
 De definitieve conclusie en discussie zijn geschreven, ook is zijn de benodigde libraries toegevoegd in de chunk. 
 
-## 09-06-2023 20:30 - 10-06-2023 02:30 2193 (Kasthury Inparajah)
+## 09-06-2023 20:30 - 10-06-2023 02:30 - 2193 (Kasthury Inparajah)
 De methoden en resultaten zijn nagekeken en indien nodig aangevuld. Intro is geschreven. Alles is netjes in 1 document (Scientific_paper.Rmd) gezet.
 
+## 10-06-2023 19:00 - 23:00 - 2193 (Kasthury Inparajah)
+Er is gekeken waarom erbij de header een foutmelding komt en dit is opgelost. Ook is er gekeken om de wordcount functie werkend te krijgen omdat dit niet werkte. de benodigde packages niet waren geïnstalleerd. 
+
+## 11-06-2023 15:00 - 16:30 - 2193 (Kasthury Inparajah)
+De benodigde packages zijn geïnstalleerd. De wordcount geeft een klok icoontje als er geprobeerd wordt om het te laten runnen. 
+
 ## 12-06-2023 9:05 - 10:00 - 2193 (Kasthury Inparajah)
-Aantallen boven in de staafdiagram gezet. 
+Aantallen boven in de staafdiagram gezet. Er kwam een foutmelding in, lomdat 2 chunks dezelfde naam hadden. Dit probleem is opgelost. 
 ```{r Histogram-plotten-data-eigen-onderzoek-met-aantallen}
 
 #Plot een histogram om de waarnemingen van de oogkleuren te visualiseren 
@@ -511,3 +517,7 @@ plot_data <- plot_data +
 # Weergeef histogram
 print(plot_data)
 ```
+
+## 12-06-2023 10:00 - 15:00 2193 (Kasthury Inparajah)
+Er is overlegd met het groepje en er is gewerkt om de code die voor de word count zorgt werkend te krijgen. Dit is gelukt. Ook is de code om de staafdiagram te weergeven aangepast en in het wetenschappelijk artikel gezet. Ook verkeerde paden naar bestanden zijn aangepast. Er is ook op verzoek van de docent gezocht naar wetenschappelijke artikelen over het waarnemen van oogkleuren. Dit is het bestand dat door student 2193 is gevonden: https://journals.sagepub.com/doi/pdf/10.1068/p5356. 
+
