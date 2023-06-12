@@ -118,16 +118,16 @@ eye_df_analist_eyecolor <- eye_df_analist_eyecolor %>%
 
 ## Verschil tussen analisten
 
-```{r analist-oogkleur-chi-square, fig.cap='Het geobserveerde aantal oogkleuren per analist. Linker en rechter oogkleuren zijn gecombineerd voor overzicht. De analisten zijn tegen elkaar gezet om de aantallen te vergelijken.', }
+```{r analist-oogkleur-chi-square }
  
 eye_df_analist_eyecolor_chisq <- chisq.test(
   eye_df_analist_eyecolor$analist, 
   eye_df_analist_eyecolor$oogkleur
 )
-knitr::kable(eye_df_analist_eyecolor_chisq$observed, longtable = TRUE, caption = "De geobserveerde aantal oogkleuren links+rechts per analist.")
+knitr::kable(eye_df_analist_eyecolor_chisq$observed, longtable = TRUE, caption = "Het geobserveerde aantal oogkleuren per analist. Linker en rechter oogkleuren zijn gecombineerd voor overzicht. De analisten zijn tegen elkaar gezet om de aantallen te vergelijken.")
 ```
 
-```{r eye-color-analist-group, fig.cap='Het geobserveerde aantal oogkleuren per group analisten. Linker en rechter oogkleuren zijn gecombineerd voor overzicht. Analisten 9308 met 2193 zijn een groep zo ook 5609 met 8705. De twee groepen zijn tegen elkaar gezet wegens de zichtbare overeenkomst tussen de leden van de groep en verschil tussen de twee groepen.', warning=FALSE}
+```{r eye-color-analist-group, warning=FALSE}
 eye_tbl_analist_eyecolor <- table(eye_df_analist_eyecolor)
 eye_tbl_analist_eyecolor <- as.data.frame.matrix(eye_tbl_analist_eyecolor)
 # Create a grouping variable based on analisten
@@ -141,7 +141,7 @@ grouped_data <- aggregate(
 )
 colnames(grouped_data) <- c("groep", "blauw", "groen", "bruin", "hazel", "groep")
 
-knitr::kable(grouped_data[, -6], longtable = TRUE, caption = "De geobserveerde aantal oogkleuren links+rechts per analist groep.")
+knitr::kable(grouped_data[, -6], longtable = TRUE, caption = "Het geobserveerde aantal oogkleuren per group analisten. Linker en rechter oogkleuren zijn gecombineerd voor overzicht. Analisten 9308 met 2193 zijn een groep zo ook 5609 met 8705. De twee groepen zijn tegen elkaar gezet wegens de zichtbare overeenkomst tussen de leden van de groep en verschil tussen de twee groepen.")
 ```
 
 Hier zijn 2 tabellen weergegeven met het totaal aantal metingen per oogkleur per analist. Hieruit blijkt er geen significant verschil te zijn tussen alle de analisten samen(p-waarde = 0,07672, alfa = ,05). Tussen de analisten 9308 en 8705 was wel een significant verschil (p-waarde = 0,03118, alfa = ,05). Dit zie je ook aan de flinke verschillen tussen de analisten bij de oogkeuren hazel(\~33,3% verschil) en groen(\~44,6%). Oogkleur groen had ook het grootste verschil tussen de laagste aantal metingen en hoogste metingen: 52,6% verschil. Groen was ook met 9 de oogkleur met de grootste deviatie. Daarnaast is te zien aan de tabel dat de twee analisten 5609 en 8705 en de twee analisten 9308 en 2193 beide groepen vormen, aangezien ze dicht bij elkaar liggen. Hierop is nog een `chi-square` test op los gelaten. Hier is de p-waarde 0,008905(alfa = ,05). Dus is er een redelijk flink significant verschil tussen de bovenste twee en onderste twee analisten. Uit dit alles blijkt er geen ernstige meetfout te zitten en kan er een vergelijking worden gedaan met de bestaande gegevens over heel Nederland om te kijken of er een systematische meetfout is of er een verschil zit tussen Nederland breed en de locaties die hier zijn onderzocht.
@@ -201,13 +201,11 @@ print(plot_data)
 
 Hier is te zien hoe blauw(52,5 %) een meerder deel van de metingen uitmaakt, gevolgd door bruin(34,16667 %) en groen(8,333333 %). Zonder de NA-waarden meegerekend komt dit neer op de verhoudingen blauw, bruin, groen (55,26%, 35,96% en 8,77%).
 
-In het kruistabel hieronder staat data uit een ander literatuuronderzoek dat is uitgevoerd om informatie over de verdeling van de oog- en haarkleur te verzamelen over populaties en deze data als een blue print te gebruiken om de nauwkeurigheid van voorspellingen op basis van DNA te verbeteren. [@Katsara2019tc] Dit onderzoek heeft meerdere datasets (haarkleur en oogkleur per land), waaruit 3 percentages zijn gehaald voor vergelijking met dit onderzoek.
+In het kruistabel tabel [\@ref(tab:Kruistabel)] staat data uit een ander literatuuronderzoek dat is uitgevoerd om informatie over de verdeling van de oog- en haarkleur te verzamelen over populaties en deze data als een blue print te gebruiken om de nauwkeurigheid van voorspellingen op basis van DNA te verbeteren. [@Katsara2019tc] Dit onderzoek heeft meerdere datasets (haarkleur en oogkleur per land), waaruit 3 percentages zijn gehaald voor vergelijking met dit onderzoek.
 
 ***Omdat de data uit het literatuuronderzoek in percentages zijn, zijn ook de percentages van de waarnemingen van de oogkleur uit het eigen onderzoek berekend om daarmee data met elkaar te vergeleken.***
 
 ```{r Kruistabel}
-
-library(knitr)
 
 # Vector maken voor data uit literatuuronderzoek
 oogkleur_literatuur <- c("Blauw", "Bruin", "Groen")
@@ -238,10 +236,10 @@ rownames(kruistabel) <- kruistabel$Onderzoek
 kruistabel$Onderzoek <- NULL
 
 # Weergeef kruistabel
-titel <- "Percentages waargenomen oogkleur literatuuronderzoek en eigen onderzoek"
+titel <- "Percentages waargenomen oogkleur literatuuronderzoek en eigen onderzoek."
 onderschrift <- "P-waarde van p=1,837e-13 (met een alfa van 0.05)"
 
-kable(kruistabel, caption = titel)
+knitr::kable(kruistabel, caption = titel)
 ```
 
 De percentages uit het literatuuronderzoek geven de prevalentie van de 3 oogkleuren (blauw (waar ook grijs onder is geschaard), bruin (waar ook hazel onder is geschaard) en groen) aan in Nederland. De kleur blauw (60.9%) was de meest voorkomende oogkleur volgens de literatuur dan het eigen onderzoek suggereert. Bruin is in heel Nederland minder prevalant dan bij het eigen onderzoek en bij de kleur groen is dit andersom.
