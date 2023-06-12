@@ -20,7 +20,6 @@ library(plyr)
 library(knitr)
 library(ggplot2)
 library(gmodels) 
-library(ggpubr)
 ```
 
 # Introductie
@@ -233,7 +232,7 @@ De `chi-square` p-waarde tussen de percentages uit het literatuuronderzoek en he
 ## Verschil tussen locaties
 
 ```{r, original-file-to-final-version }
-file <- "../analyse/data/Oogkleur_simpel_definitief.csv"
+file <- "/Users/cheyennebrouwer/Library/CloudStorage/OneDrive-HanzehogeschoolGroningen/Oogkleur_simpel_definitief.csv"
 
 eye_colors <- read.table(file, sep= ",", header=T)
 
@@ -270,141 +269,15 @@ eye_colors_location <- eye_colors2 %>%
   ))
 ```
 
-```{r, shorten-to-1-identifier }
-Total_amount <- eye_colors_location %>%
-  group_by(Identifier) %>%
-  slice(1)
-```
-
-```{r, get-hanze-results }
-Hanze_amount <- Total_amount[1:40, ] 
-
-Hanze <- Hanze_amount %>%
-  group_by(results) %>%
-  dplyr::summarise(count = n()) %>%
-  arrange(results, desc(count))
-```
-
-```{r, get-hanze-gender-results }
-Hanze_gender <- Hanze_amount %>%
-  group_by(results, geslacht) %>%
-  dplyr::summarise(count = n(), .groups = "drop") %>%
-  arrange(results, geslacht, desc(count))
-```
-
-```{r, get-centrum-groningen-results }
-Centrum_amount <- Total_amount[41:80, ] 
-
-Centrum <- Centrum_amount %>%
-  group_by(results) %>%
-  dplyr::summarise(count = n()) %>%
-  arrange(results, desc(count))
-```
-
-```{r, get-centrum-groningen-gender-results }
-Centrum_gender <- Centrum_amount %>%
-  group_by(results, geslacht) %>%
-  dplyr::summarise(count = n(), .groups = "drop") %>%
-  arrange(results, geslacht, desc(count))
-```
-
-```{r, get-zwolle-results }
-Zwolle_amount <- Total_amount[81:120, ] 
-
-Zwolle <- Zwolle_amount %>%
-  group_by(results) %>%
-  dplyr::summarise(count = n()) %>%
-  arrange(results, desc(count))
-```
-
-```{r, get-zwolle-gender-results }
-Zwolle_gender <- Zwolle_amount %>%
-  group_by(results, geslacht) %>%
-  dplyr::summarise(count = n(), .groups = "drop") %>%
-  arrange(results, geslacht, desc(count))
-```
-
-```{r, hanze-pie-chart, fig.dim=c(8.5,4), fig.cap='Drie taartplots met de drie meet- locaties en aantal gemeten oogkleuren.'}
-ggarrange(
-  ggplot(data = Hanze, 
-       aes(x = "", y = count, fill = results)) +
-  geom_col(color = "black") +
-  coord_polar(theta = "y") +
-  geom_label(aes(label = count),
-             position = position_stack(vjust = 0.5),
-             show.legend = F) +
-  ggtitle("Hanze Hogeschool Groningen") +
+```{r, locations-bar-plot, fig.dim=c(8.5,4), fig.cap='Drie barplots met de drie meetlocaties en het aantal gemeten oogkleuren.'}
+ggplot(data = Total_amount, aes(x = results, fill = results)) +
+  geom_bar() +
+  labs(x = "Eye Color", y = "Count", title = "Oogkleurverdeling") +
   theme_minimal() +
-  rremove("ylab") +
-  ylab("")
-,
-  ggplot(data = Centrum, 
-       aes(x = "", y = count, fill = results)) +
-  geom_col(color = "black") +
-  coord_polar(theta = "y") +
-  geom_label(aes(label = count),
-             position = position_stack(vjust = 0.5),
-             show.legend = F) +
-  ggtitle("Centrum Groningen") +
-  theme_minimal() +
-  rremove("ylab") +
-  ylab("Aantallen per oogkleur")
-,
-  ggplot(data = Zwolle, 
-       aes(x = "", y = count, fill = results)) +
-  geom_col(color = "black") +
-  coord_polar(theta = "y") +
-  geom_label(aes(label = count),
-             position = position_stack(vjust = 0.5),
-             show.legend = F) +
-  ggtitle("Centrum Zwolle") +
-  theme_minimal() +
-  rremove("ylab") +
-  ylab("")
-,
-  ncol = 3,
-  common.legend = T
-)
-```
+  theme(legend.position = "none") +
+  scale_fill_manual(values = c("Undef." = "grey", "blauw" = "blue", "bruin" = "brown", "groen" = "green", "hazel" = "yellow")) +
+  facet_wrap(~ location, nrow = 1)
 
-Qua locaties heeft de Hanzehogeschool Groningen 5-10% meer mensen met blauwe ogen dan de andere locaties. Dit is in vergelijking met een afwijking van 9,3% van de literatuur ten opzichte van alle blauwe metingen en een gemiddelde afwijking van 24% tussen alle waardes. Het is mogelijk dat deze waarnemingen toeval zijn. In Zwolle zijn veel meer groene oogkleuren gevonden dan op de Hanzehogeschool Groningen.
-
-Tenslotte zijn in Groningen, naast blauwe ogen, ook de meeste hazelkleurige ogen gevonden, viermaal zoveel als in Zwolle.
-
-```{r, hanze-gender-pie-chart, fig.cap='Drie barplots met de drie meet- locaties en aantal gemeten oogkleuren. Verdeeld onder sexe.' }
-ggarrange(
-ggplot(data = Hanze_gender,
-       mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  ggtitle("Hanze hogeschool") +
-  geom_text(aes(label=count), position=position_dodge(width=0.9), vjust=-0.25, color = "black") +
-  theme_minimal() +
-  rremove("xlab") +
-  ylab("Aantallen per oogkleur")
-,
-ggplot(data = Centrum_gender,
-       mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  ggtitle("Groningen centrum") +
-  geom_text(aes(label=count), position=position_dodge(width=0.9), vjust=-0.25, color = "black") +
-  theme_minimal() +
-  rremove("ylab") +
-  rremove("xlab")
-,
-ggplot(data = Zwolle_gender,
-       mapping = aes(x=results, y=count, col = geslacht, fill = geslacht, group = geslacht)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  ggtitle("Zwolle centrum") +
-  geom_text(aes(label=count), position=position_dodge(width=0.9), vjust=-0.25, color = "black") +
-  theme_minimal() +
-  rremove("ylab") +
-  rremove("xlab"),
-
-  common.legend = TRUE,
-  label.x = 1,
-  ncol = 3,
-  nrow = 1
-)
 ```
 
 Het verschil tussen de verschillende locaties is geen significant verschil (p-waarde = 0.08554, alfa = 0,05). Het verschil tussen de bruine en blauwe oogkleur in Groningen is wel significant.
