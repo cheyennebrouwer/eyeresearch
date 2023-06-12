@@ -75,6 +75,14 @@ Werken aan de spreadsheet waar onze data in staat. Er is gekeken naar afwijkinge
 ## 01-06-2023 10:00 - 10:30 - 415069 (Demi van 't Oever)
 Gedurende een halfuur is student met studentnummer 415069 bezig geweest met het omzetten van het protocol naar een R Markdown bestand. Het protocol was gemaakt en opgeslagen als word document, maar is makkelijker te gebruiken als .Rmd file.
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(gmodels)
+
+```
+
+
 ## 01-06-2023 15:30 - 17:00 - 415069 (Demi van 't Oever)
 Er is gewerkt aan deelvraag 1. De code is geschreven om de oogkleuren per geslacht te tellen. Daarnaast is een barplot gemaakt om deze getallen visueel uit te kunnen beelden.
 
@@ -83,8 +91,6 @@ H0: Er is geen aantoonbaar verschil in oogkleur tussen mannen en vrouwen.
 H1: Er is een aantoonbaar verschil in oogkleur tussen mannen en vrouwen.
 
 ```{r inlees-document, include=TRUE}
-
-library(tidyverse)
 
 file <- "~/School/De_wetenschappelijke_cyclus/eyeresearch/Oogkleur_simpel_definitief.csv"
 eye_colors <- read.table(file, sep=",",header=TRUE)
@@ -229,5 +235,23 @@ Bij een lage p-waarde, kan H0 verworpen worden. Onze p-waarde is echter niet laa
 
 ## 07-06-2023 09:40 - 09:45 - 415069 (Demi van 't Oever)
 De test die is gebruikt om de deelvraag te kunnen beantwoorden, is de Chi-squarte test. Deze test is niet gebruikt middels de chisq.test zelf, maar via een CrossTable. Voor deze CrossTable is gekozen omdat de data die gebruikt is voor de test netjes in de CrossTable staat, waardoor het overzichtelijker is. Daarnaast bleek de chisq.test zelf niet fijn in gebruik: het was lastig te zien of de juiste waarden op de juiste plek stonden. Door bij de CrossTable de Chi-square test aan te zetten, kan deze functie de test ook uitvoeren. Hiervoor is tevens het boek 'Discovering Statistics Using R' van Andy Field.
+
+## 08-06-2023 14:00 - 15:30 - 415069 (Demi van 't Oever)
+Begin gemaakt aan de spelling- en grammaticacontrole van het bestand scientific_paper.Rmd. Tevens de studenten die bezig waren met resultaten beschrijven in de paper met hoe ze alles konden verwoorden. 
+
+## 09-06-2023 12:30 - 15:15 - 415069 (Demi van 't Oever)
+Verder gegaan met spelling- en grammaticacontrole van het bestand scientific_paper.Rmd. Dit is gedaan met behulp van onder andere Microsoft Word en ChatGPT.
+
+## 09-06-2023 15:15 - 15:35 - ALL
+Teamsmeating over de stand van zaken van de paper. We hebben besproken hoe ver iedereen is, wat er nog gedaan moet worden. Deze taken zijn verdeeld.
+
+## 10-06-2023 10:00 - 13:00 - 415069 (Demi van 't Oever)
+Problemen in het document oplossen, mogelijk maken van knitten met LaTEX naar pdf. Evenals een probleem met het alfa-teken opgelost. Daarna verder gegaan met de spelling- en grammaticacontrole. 
+
+## 12-06-2023 09:45 - 15:30 - 415069 (Demi van 't Oever)
+Verder met de spelling- en grammaticacontrole van het bestand. Discussie en conclusie omgedraaid, deze stonden in de verkeerde volgorde. Hierdoor moesten zowel discussie als conclusie herschreven worden. Deze stukken heb ik herschreven en daarna opnieuw een spelling- en grammaticacontrole op uitgevoerd. Ondertussen meerdere besprekingen over wat er nog gedaan moet worden, nieuwe taakverdeling en stand van zaken bespreken. 
+
+
+
 
 
