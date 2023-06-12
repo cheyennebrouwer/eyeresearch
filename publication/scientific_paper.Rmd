@@ -1,8 +1,10 @@
 ---
 title: Oogkleurprevalentie onder studenten van de Hanzehogeschool Groningen; Een verkennend
   onderzoek naar genetische variatie
-author: "|  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever $^1$,
-  Kasthury Inparajah$^1$\n| $^1$Hanzehogeschool Groningen\n"
+author: |
+  |  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever $^1$, Kasthury Inparajah$^1$, 
+  | Michiel Noback $^1$, Fenna Feenstra $^1$
+  | $^1$Hanzehogeschool Groningen
 lang: nl
 
 bibliography: scientific_paper.bib
