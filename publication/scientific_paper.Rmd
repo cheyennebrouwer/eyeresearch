@@ -6,6 +6,12 @@ author: "|  Willem-Daniël Visser $^1$, Cheyenne Brouwer $^1$, Demi van 't Oever
 lang: nl
 output:
   bookdown::pdf_document2: default
+  keep_tex: false    # set this to true if you want to investigate the generated tex
+  toc: false         # table of contents
+  fig_caption: true  # includes figure captions with numbering in output
+  includes:  
+      in_header: include_tex_header.tex #will include rules for linespacing and figure floating
+        
 abstract: "Dit onderzoek onderzoekt de prevalentie van oogkleuren onder studenten
   van de Hanzehogeschool Groningen en vergelijkt deze met andere locaties in Nederland.
   Het onderzoek heeft tot doel na te gaan of er een dominante oogkleur is op de Hanzehogeschool
@@ -112,7 +118,8 @@ eye_df_analist_eyecolor <- eye_df_analist_eyecolor %>%
 
 ## Verschil tussen analisten
 
-```{r analist-oogkleur-chi-square, fig.cap='Het geobserveerde aantal oogkleuren per analist. Linker en rechter oogkleuren zijn gecombineerd voor overzicht. De analisten zijn tegen elkaar gezet om de aantallen te vergelijken.' }
+```{r analist-oogkleur-chi-square, fig.cap='Het geobserveerde aantal oogkleuren per analist. Linker en rechter oogkleuren zijn gecombineerd voor overzicht. De analisten zijn tegen elkaar gezet om de aantallen te vergelijken.', }
+ 
 eye_df_analist_eyecolor_chisq <- chisq.test(
   eye_df_analist_eyecolor$analist, 
   eye_df_analist_eyecolor$oogkleur
