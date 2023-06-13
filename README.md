@@ -13,10 +13,6 @@ Er is dus geen verband tussen de hoeveelheid melanocyten en de oogkleur, maar we
 
 Voor het onderzoek naar de aanleg voor oogkleur onder studenten van de Hanzehogeschool Groningen, is er in een groep van 4 laboranten gekeken naar de oogkleuren van 40 verschillende proefpersonen. Deze gegevens worden vergeleken met de data van 2 andere locaties, Groningen centrum en Zwolle centrum, waar per locatie ook 40 proefpersonen van tussen de 14 en 30 jaar zijn ondervraagd.    
 
-Uit het onderzoek is onder andere gebleken dat er verschillen zitten tussen de locaties. Dit is in een bar plot geplaatst, waaruit de resultaten afgelezen kunnen worden.
-
-![image](https://github.com/cheyennebrouwer/eyeresearch/assets/115778098/4b4e2c81-1532-439f-9e04-a6cd43f66779)
-
 
 ## Installatie
 Voor het uitvoeren van het project over oogkleur moeten meerdere onderdelen geïnstalleerd worden.
